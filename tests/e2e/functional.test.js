@@ -48,14 +48,14 @@ test('dom play: reasons, action click, manual close, hire raises burn', async (t
 
   // Disabled rows explain themselves from the very first render.
   assert.equal(await browser.eval('document.querySelector(\'[data-action="CLOSE_CLIENT"]\')?.disabled'), true);
-  assert.match(await browser.eval('document.querySelector(\'[data-testid="row-CLOSE_CLIENT-reason"]\')?.textContent ?? ""'), /10/,
-    'disabled CLOSE_CLIENT reason must mention the traction cost');
+  assert.match(await browser.eval('document.querySelector(\'[data-testid="row-CLOSE_CLIENT-reason"]\')?.textContent ?? ""'), /producto|build/i,
+    'disabled CLOSE_CLIENT reason must point at the missing MVP first');
   assert.match(await browser.eval('document.querySelector(\'[data-testid="pitch-reason"]\')?.textContent ?? ""'), /mes/,
     'disabled PITCH reason must explain the gate');
 
   // An enabled action click changes a displayed stat.
   const descBefore = await browser.eval('document.querySelector(\'[data-testid="row-BUILD_PRODUCT"] .row-desc\').textContent');
-  assert.match(descBefore, /Tracción \d+–\d+ · Moral −8/, 'labor card must show a yield range, never a bare +8');
+  assert.match(descBefore, /Leads \+\d+–\d+ · Moral −8/, 'labor card must show a yield range, never a bare +8');
   assert.equal(await fieldText(browser, 'traction'), '0');
   await browser.click('[data-action="BUILD_PRODUCT"]');
   assert.ok(await browser.poll('document.querySelector(\'[data-testid="field-traction"] .field-value\').textContent !== "0"', { timeoutMs: 1500 }),

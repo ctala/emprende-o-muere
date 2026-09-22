@@ -23,7 +23,11 @@ function model(state, over = {}) {
     settlement: null,
     lastLearn: null,
     afford: (a) => a !== 'CLOSE_CLIENT',
-    reason: (a) => (a === 'CLOSE_CLIENT' ? `Requiere ${perks.closeCost} de tracción` : null),
+    reason: (a) => (a === 'CLOSE_CLIENT'
+      ? (state.mvpBuilds >= 2
+        ? `Requiere ${perks.closeCost} clientes interesados`
+        : `Primero construí el producto: ${2 - state.mvpBuilds} build más`)
+      : null),
     rowOrder: ['BUILD_PRODUCT', 'TALK_TO_CUSTOMERS', 'PUBLISH_CONTENT', 'REST', 'CLOSE_CLIENT', 'HIRE'],
     pitchMinMonth: 6,
     pitchCost: 80,
@@ -37,12 +41,12 @@ function model(state, over = {}) {
 test('labor rows show honest yield ranges, never a single fake number', () => {
   const healthy = model({ ...createGame(1), teamMorale: 80 });
   const build = healthy.rows.find((r) => r.id === 'BUILD_PRODUCT');
-  assert.equal(build.desc, 'Tracción 5–11 · Moral −8', 'tier alto: rango 8±3, no un +8 suelto');
-  assert.match(healthy.rows.find((r) => r.id === 'TALK_TO_CUSTOMERS').desc, /^Tracción 3–9/);
-  assert.match(healthy.rows.find((r) => r.id === 'PUBLISH_CONTENT').desc, /^Tracción 1–7/);
+  assert.equal(build.desc, 'Leads +5–11 · Moral −8', 'tier alto: rango 8±3, no un +8 suelto');
+  assert.match(healthy.rows.find((r) => r.id === 'TALK_TO_CUSTOMERS').desc, /^Leads \+3–9/);
+  assert.match(healthy.rows.find((r) => r.id === 'PUBLISH_CONTENT').desc, /^Leads \+1–7/);
 
   const mid = model({ ...createGame(1), teamMorale: 50 });
-  assert.equal(mid.rows.find((r) => r.id === 'BUILD_PRODUCT').desc, 'Tracción 2–5 · Moral −8 · moral baja',
+  assert.equal(mid.rows.find((r) => r.id === 'BUILD_PRODUCT').desc, 'Leads +2–5 · Moral −8 · moral baja',
     'tier medio: mitad truncada del rango, marcado');
 });
 
@@ -50,7 +54,9 @@ test('hire row sells the perk, not just the cost', () => {
   const m = model(createGame(1));
   const hire = m.rows.find((r) => r.id === 'HIRE');
   assert.match(hire.desc, /Burn sube a 17k\/mes/);
-  assert.match(hire.desc, /Firmar cliente: 10 → 6/, 'VENTAS perk must be visible on the card');
+  assert.match(hire.desc, /Cierra solo cada mes/, 'VENTAS engine must be sold on the card');
+  assert.match(hire.desc, /Firma: 10 → 6/, 'VENTAS close-cost perk must be visible');
+  assert.match(hire.desc, /\+6 leads\/mes/, 'VENTAS pipeline must be visible');
   const afterVentas = model({ ...createGame(1), team: Object.freeze(['VENTAS']) });
   assert.match(afterVentas.rows.find((r) => r.id === 'HIRE').desc, /Construir: 8 → 12/, 'CTO perk');
 });
@@ -59,7 +65,7 @@ test('every visible row answers "what do I get / what does it cost": honest desc
   const m12 = model({ ...createGame(1), traction: 12 }, { afford: () => true });
   const close = m12.rows.find((r) => r.id === 'CLOSE_CLIENT');
   assert.equal(close.disabled, false);
-  assert.match(close.desc, /Tracción −10/, 'cost shown');
+  assert.match(close.desc, /Leads −10/, 'cost shown');
   assert.match(m12.rows.find((r) => r.id === 'CLOSE_CLIENT').desc, /Factura \$30k/, 'deal derived from current traction');
   assert.match(m12.end.desc, /Caja −15k · moral −3 a −7/, 'end month names the real burn + decay band');
   const pitch = m12.pitch;
@@ -74,7 +80,7 @@ test('fresh state: hero matches floor(cash/burn), six rows, core-loop first', ()
   assert.equal(m.rows[0].id, 'BUILD_PRODUCT');
   assert.equal(m.rows[0].disabled, false);
   assert.equal(m.rows.find((r) => r.id === 'CLOSE_CLIENT').disabled, true);
-  assert.match(m.rows.find((r) => r.id === 'CLOSE_CLIENT').reason, /10/);
+  assert.match(m.rows.find((r) => r.id === 'CLOSE_CLIENT').reason, /producto|build/i, 'fresh state locks signing behind the MVP, and says so');
   assert.deepEqual(m.log, ['línea a', 'línea b', 'línea c', 'línea d'], 'short log is kept whole');
   const long = model(createGame(2), { log: Array.from({ length: 30 }, (_, i) => `l${i}`) });
   assert.equal(long.log.length, 20);
@@ -125,4 +131,83 @@ test('offer state: offer model with terms, dilution, counter gating', () => {
   assert.match(m.offer.dilution, /20/);
   assert.equal(m.offer.counterDisabled, true, 'counter must gate on energy');
   assert.match(m.offer.counterReason, /20/);
+});
+
+test('traction field speaks plain Spanish, not jargon', () => {
+  const m = model(createGame(2));
+  assert.equal(m.fields.find((f) => f.id === 'traction').label, 'Leads');
+});
+
+test('MVP lock reason comes through the ctx.reason path', () => {
+  const m = model(createGame(3), {
+    afford: () => false,
+    reason: () => 'Primero construí el producto: 2 build más',
+  });
+  const close = m.rows.find((r) => r.id === 'CLOSE_CLIENT');
+  assert.equal(close.disabled, true);
+  assert.match(close.reason, /producto/);
+});
+
+test('leads vs clients: distinct fields, distinct words', () => {
+  const withDeals = { ...createGame(4), traction: 25, invoices: Object.freeze([
+    Object.freeze({ amountK: 30, dueMonth: 6 }),
+    Object.freeze({ amountK: 50, dueMonth: 8 }),
+  ]) };
+  const m = model(withDeals);
+  const leads = m.fields.find((f) => f.id === 'traction');
+  const clients = m.fields.find((f) => f.id === 'clients');
+  assert.equal(leads.value, '25');
+  assert.equal(clients.value, '2');
+  assert.notEqual(leads.label, clients.label);
+  assert.doesNotMatch(leads.label, /\bClientes\b/);
+  assert.match(clients.label, /^Clientes/);
+});
+
+test('burn field shows its parts and they sum to the runway divisor', () => {
+  const team = { ...createGame(4), team: Object.freeze(['VENTAS', 'CTO']) };
+  const m = model(team, { burn: 21 });
+  const burn = m.fields.find((f) => f.id === 'burn');
+  assert.equal(burn.parts.reduce((a, p) => a + p.amountK, 0), 21, 'parts must sum to the runway burn');
+  assert.deepEqual(burn.parts.map((p) => p.label), ['operativa', 'Ventas', 'CTO']);
+});
+
+test('flow block: fresh run projects bankruptcy in month 10', () => {
+  const m = model(createGame(5));
+  assert.ok(m.flow);
+  assert.equal(m.flow.rows[0].month, 2);
+  assert.equal(m.flow.rows[0].inK, 0);
+  assert.equal(m.flow.rows[0].outK, 15);
+  assert.match(m.flow.bankrupt, /mes 10/);
+  assert.equal(m.flow.doomed, true);
+  assert.match(m.flow.gloss, /no toc/i);
+  assert.match(m.flow.gloss, /una vez/);
+});
+
+test('flow block: signed contracts land on their due month', () => {
+  const withDeal = { ...createGame(5), traction: 12, invoices: Object.freeze([Object.freeze({ amountK: 30, dueMonth: 5 })]) };
+  const m = model(withDeal);
+  const due = m.flow.rows.find((r) => r.month === 5);
+  assert.ok(due, 'due month inside window');
+  assert.ok(due.inK >= 30, `30k must arrive on month 5, saw ${due.inK}`);
+});
+
+test('hire card never advertises a pipeline the role does not have', () => {
+  const afterVentasCto = { ...createGame(1), team: Object.freeze(['VENTAS', 'CTO']) };
+  const m = model(afterVentasCto);
+  const hire = m.rows.find((r) => r.id === 'HIRE');
+  assert.match(hire.desc, /Facturas: 3m → 2m/, 'CFO card shows its real perk');
+  assert.doesNotMatch(hire.desc, /\+0/, 'no dead +0 segment');
+});
+
+test('CFO shifts projected collections one month earlier', () => {
+  const mk = (team) => ({ ...createGame(21), cashK: 2000, traction: 30, mvpBuilds: 2, team: Object.freeze(team) });
+  const base = model(mk(['VENTAS']), { burn: 17 }).flow;
+  const withCfo = model(mk(['VENTAS', 'CFO']), { burn: 25 }).flow;
+  const firstArrival = (f) => f.rows.find((r) => r.inK > 0).month;
+  assert.equal(firstArrival(withCfo), firstArrival(base) - 1);
+});
+
+test('game over hides the projection', () => {
+  const over = { ...createGame(1), gameOver: true, reason: 'bankrupt' };
+  assert.equal(model(over).flow, null);
 });

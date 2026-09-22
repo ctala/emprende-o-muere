@@ -9,6 +9,9 @@ import {
   ROLES,
   HIRE_ORDER,
   burnFor,
+  burnParts,
+  activeClients,
+  forecastOf,
   perksFor,
   moraleTier,
   FOCUS_PER_MONTH,
@@ -64,7 +67,11 @@ function hirePerkText(nextRole, team, v) {
     CPO: ['talkBase', now.talkBase, withRole.talkBase],
   }[nextRole];
   if (!diff || diff[1] === diff[2]) return '';
-  return renderLabel(`action.HIRE.perk.${nextRole}`, { from: diff[1], to: diff[2] });
+  return renderLabel(`action.HIRE.perk.${nextRole}`, {
+    from: diff[1],
+    to: diff[2],
+    pipeline: ROLES[nextRole].pipeline ?? 0,
+  });
 }
 
 const pct = (bps) => Math.trunc(bps / 100);
@@ -82,9 +89,18 @@ export function buildModel(state, ctx) {
   const team = state.team.map((r) => renderLabel(`role.${r}`)).join(', ');
   const fields = [];
   fields.push({ id: 'cash', label: renderLabel('hud.cash'), value: `$${state.cashK}k`, alarm: state.cashK <= burn });
-  fields.push({ id: 'burn', label: renderLabel('hud.burn'), value: `${burn}k/${renderLabel('hud.burn.period')}` });
+  const parts = burnParts(state);
+  fields.push({
+    id: 'burn', label: renderLabel('hud.burn'), value: `${burn}k/${renderLabel('hud.burn.period')}`,
+    parts: parts.map((p) => ({ label: p.role ? renderLabel(`role.${p.role}`) : renderLabel('hud.burn.base'), amountK: p.amountK })),
+  });
   fields.push({
     id: 'traction', label: renderLabel('hud.traction'), value: String(state.traction),
+    gloss: renderLabel('hud.traction.gloss'),
+  });
+  fields.push({
+    id: 'clients', label: renderLabel('hud.clients'), value: String(activeClients(state)),
+    gloss: renderLabel('hud.clients.gloss'),
   });
   const moraleBurned = moraleTier(state.teamMorale) === 0;
   fields.push({
@@ -154,6 +170,28 @@ export function buildModel(state, ctx) {
   });
 
   const pitchDisabled = !ctx.afford('PITCH');
+  const forecast = forecastOf(state);
+  const perksModel = ctx.perks ?? perksFor(state.team, ctx.v);
+  const lastDue = state.invoices.reduce((max, i) => Math.max(max, i.dueMonth), 0);
+  const expectedK = state.invoices.reduce((sum, i) => sum + i.amountK, 0);
+  const rateCashK = lastDue > 0 ? Math.round(expectedK / (lastDue - state.month + 1)) : 0;
+  const flowRows = forecast.months.slice(0, 6);
+  const flow = state.gameOver ? null : {
+    title: renderLabel('ui.flow.title'),
+    rate: [
+      renderLabel('ui.flow.rate.leads', { leads: perksModel.pipelinePerMonth }),
+      renderLabel('ui.flow.rate.cash', { cash: rateCashK }),
+    ],
+    rows: flowRows.map((m) => ({
+      month: m.month, inK: m.inK, outK: m.outK, cashK: m.cashK,
+    })),
+    truncated: forecast.months.length > flowRows.length && forecast.bankruptMonth === null,
+    bankrupt: forecast.bankruptMonth !== null
+      ? renderLabel('ui.flow.bankrupt', { month: forecast.bankruptMonth })
+      : renderLabel('ui.flow.survived'),
+    doomed: forecast.bankruptMonth !== null,
+    gloss: renderLabel('ui.flow.gloss'),
+  };
   const terminal = state.gameOver
     ? {
         stamp: renderLabel(`ui.stamp.${state.reason ?? 'survived'}`),
@@ -181,6 +219,7 @@ export function buildModel(state, ctx) {
     hero: { label: renderLabel('hud.runway'), value: `${runway}m`, gloss: renderLabel('hud.runway.gloss'), alarm },
     fields,
     rows,
+    flow,
     end: {
       label: renderLabel('action.END_MONTH'),
       desc: renderLabel('action.END_MONTH.desc', {
@@ -246,6 +285,12 @@ function renderField(f) {
     value.textContent = f.value;
     el.append(value);
   }
+  if (f.gloss) {
+    const gloss = document.createElement('span');
+    gloss.className = 'field-gloss';
+    gloss.textContent = f.gloss;
+    el.append(gloss);
+  }
   if (f.dots) {
     const dots = document.createElement('span');
     dots.className = 'dots';
@@ -255,6 +300,13 @@ function renderField(f) {
       dots.append(d);
     });
     el.append(dots);
+  }
+  if (f.parts) {
+    const parts = document.createElement('span');
+    parts.className = 'field-parts';
+    parts.dataset.testid = `field-${f.id}-parts`;
+    parts.textContent = f.parts.map((p) => `${p.label} ${p.amountK}k`).join(' · ');
+    el.append(parts);
   }
   if (f.bar) {
     const bar = document.createElement('span');
@@ -301,6 +353,51 @@ function fillRow(el, row, descExtra) {
   el.disabled = !!row.disabled;
 }
 
+/** Paint the pure-data cash-flow block. Idempotent: text compares guard DOM. */
+function paintFlow(flow) {
+  const section = document.querySelector('.flow');
+  if (!flow) {
+    section.hidden = true;
+    return;
+  }
+  section.hidden = false;
+  setText('flow-title', flow.title);
+  const rate = document.getElementById('flow-rate');
+  if (rate.textContent !== flow.rate.join(' · ')) rate.textContent = flow.rate.join(' · ');
+  const rowsEl = document.getElementById('flow-rows');
+  const sig = flow.rows.map((r) => `${r.month}|${r.inK}|${r.outK}|${r.cashK}`).join(';');
+  if (rowsEl.dataset.sig !== sig) {
+    rowsEl.dataset.sig = sig;
+    rowsEl.textContent = '';
+    for (const r of flow.rows) {
+      const line = document.createElement('div');
+      line.className = `flow-row${r.cashK < 0 ? ' alarm' : ''}`;
+      const m = document.createElement('span');
+      m.textContent = `m${r.month}`;
+      const inEl = document.createElement('span');
+      inEl.textContent = r.inK ? `+${r.inK}` : '0';
+      inEl.className = r.inK ? 'pos' : '';
+      const outEl = document.createElement('span');
+      outEl.textContent = `-${r.outK}`;
+      const cash = document.createElement('span');
+      cash.textContent = `${r.cashK}k`;
+      if (r.cashK < 0) cash.className = 'neg';
+      line.append(m, inEl, outEl, cash);
+      rowsEl.append(line);
+    }
+    if (flow.truncated) {
+      const dots = document.createElement('div');
+      dots.className = 'flow-trunc';
+      dots.textContent = '…';
+      rowsEl.append(dots);
+    }
+  }
+  const verdict = document.getElementById('flow-verdict');
+  if (verdict.textContent !== flow.bankrupt) verdict.textContent = flow.bankrupt;
+  verdict.classList.toggle('doomed', flow.doomed === true);
+  setText('flow-gloss', flow.gloss);
+}
+
 /** Paint the model into the fixed skeleton. Stable ids, no randomness. */
 export function renderView(model) {
   setText('month-label', model.month);
@@ -310,6 +407,7 @@ export function renderView(model) {
   setText('hero-value', model.hero.value);
   setText('hero-gloss', model.hero.gloss);
   document.getElementById('hero').classList.toggle('alarm', model.hero.alarm);
+  paintFlow(model.flow);
 
   const fields = document.getElementById('state-fields');
   fields.textContent = '';

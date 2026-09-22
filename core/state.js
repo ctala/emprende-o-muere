@@ -24,6 +24,7 @@ export function createGame(seed) {
     reason: null,
     focus: FOCUS_PER_MONTH,
     traction: 0,
+    mvpBuilds: 0,
     teamMorale: INITIAL_MORALE,
     vertical: ACTIVE_VERTICAL,
     cashK: vertical.startCashK,

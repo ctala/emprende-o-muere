@@ -1,6 +1,6 @@
 {
   "name": "emprende-o-muere",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "private": true,
   "description": "Turn-based roguelite about founding a startup in Latin America. Vanilla JS, no build step.",

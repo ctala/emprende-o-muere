@@ -18,6 +18,15 @@ and open http://localhost:8000. For deployment, any plain static hosting
 works (drop the folder anywhere). The game runs fully offline: no network
 requests, no analytics, no CDNs.
 
+## Two engines
+
+The founder presses buttons (build, talk, publish, rest, sign, hire, pitch);
+the team runs on its own every month: roles add interested customers
+automatically, and Ventas closes one deal per month without any click. Sign
+yourself when you have focus and the MVP is built (2 builds) — the team only
+signs one deal a month, founder signings stack on top. Publish content to
+feed the pipeline the team converts into invoices.
+
 ## Test
 
 Two layers, one command (requires Node 22+; the browser layer uses the
@@ -194,10 +203,39 @@ core and replay logs unchanged).
   intent held at 2/5 — the social barrier ("vergüenza de quebrar en el
   grupo") is a content/viral-design problem, NOT a shell problem, so it
   does not block this change and moves to the backlog. Remaining flagged
-  needs-human: body size vs panel taste (the ledger's 16px floor is an
-  accessibility line, not a preference), ledger texture "noise", and the
-  jargon stance (kept by design, glossed). All four go to the 5-human
-  WhatsApp-group pass before any external sharing.
+   needs-human: body size vs panel taste (the ledger's 16px floor is an
+   accessibility line, not a preference), ledger texture "noise", and the
+   jargon stance (kept by design, glossed). All four go to the 5-human
+   WhatsApp-group pass before any external sharing.
+- `open-source-release`: v0.1.0 published 2026-09-22 as
+  github.com/ctala/emprende-o-muere (public, MIT, tagged annotated release).
+  Version source is `package.json`; CHANGELOG.md is written before every tag.
+  What to test from a stranger's phone: open the game from any static host
+  (or the repo's Pages once set up), expect a readable one-column portrait
+  layout with no zooming, and run `npm run gate` — green means the page
+  boots, renders, and plays for real.
+- `two-engines-economy`: the team finally works. Buttons stay the founder's
+  hands; the team is a machine that runs every END_MONTH with zero extra PRNG
+  draws (bootstrap stays byte-identical): each role feeds the pipeline
+  (`pipeline` table field), and VENTAS auto-closes one deal a month with no
+  click or focus. Traction is now framed as "Clientes interesados" everywhere
+  (field name unchanged in core), and nobody can sell vaporware: the first
+  signing — founder's or the team's — needs an MVP (2 builds). Balance decided
+  by `node scripts/sweep.mjs` (6 policy families x 16 seeds, bands pinned as
+  tests): sales-first survives 16/16 ($481k mean) with the founder resting,
+  publisher-without-sales still dies (content feeds cash only through a
+  closer), bad-hire lesson preserved 0/16. The money that arrives is still
+  one-time invoices — recurring revenue stays roadmap.
+
+- `add-cashflow-forecast`: money legibility, zero balance change. Leads vs
+  Clientes finally named as the two different things the state always tracked;
+  burn decomposed into named parts (15 operativa · 2 Ventas · 4 CTO); the
+  "Flujo de caja" panel projects the founder-does-nothing future exactly —
+  possible because cash evolution is morale-independent, so forecastOf replays
+  the engine's cash line with zero PRNG draws and matches a real idle run
+  cash-for-cash (pinned by test). Each contract pays once: the "MRR" shown is
+  a run-rate, recurring revenue stays roadmap. Also fixed the CFO card
+  advertising "+0 leads/mes".
 
 ## Contributing
 
@@ -210,10 +248,3 @@ build step are load-bearing — keep them. Issues welcome.
 
 MIT — see [LICENSE](LICENSE). The vendored `ui-ux-pro-max` skill keeps its own
 MIT license and provenance in `.opencode/skills/ui-ux-pro-max/`.
-- `open-source-release`: v0.1.0 published 2026-09-22 as
-  github.com/ctala/emprende-o-muere (public, MIT, tagged annotated release).
-  Version source is `package.json`; CHANGELOG.md is written before every tag.
-  What to test from a stranger's phone: open the game from any static host
-  (or the repo's Pages once set up), expect a readable one-column portrait
-  layout with no zooming, and run `npm run gate` — green means the page
-  boots, renders, and plays for real.

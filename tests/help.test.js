@@ -7,7 +7,7 @@ import { getString, hasString, getHelpSections } from '../content/strings_es.js'
 
 const HUD_LABEL_KEYS = [
   'hud.focus', 'hud.traction', 'hud.morale', 'hud.cash',
-  'hud.runway', 'hud.team', 'hud.energy', 'hud.founder',
+  'hud.runway', 'hud.team', 'hud.energy', 'hud.founder', 'hud.clients',
 ];
 const ACTION_LABEL_KEYS = [
   'action.BUILD_PRODUCT', 'action.TALK_TO_CUSTOMERS', 'action.PUBLISH_CONTENT',
@@ -99,4 +99,14 @@ test('hint shows only with zero learnings and help unseen', () => {
   assert.equal(shouldShowHint([], true), false);
   assert.equal(shouldShowHint(['first_bankrupt'], false), false);
   assert.equal(shouldShowHint(['first_bankrupt'], true), false);
+});
+
+test('cash-flow panel keys resolve and name the projection honestly', () => {
+  const gloss = getString('ui.flow.gloss');
+  assert.match(gloss, /no toc/);
+  assert.match(gloss, /una vez/);
+  for (const key of ['ui.flow.title', 'ui.flow.in', 'ui.flow.out',
+    'ui.flow.rate.leads', 'ui.flow.rate.cash', 'ui.flow.bankrupt', 'ui.flow.survived']) {
+    assert.ok(hasString(key), key);
+  }
 });

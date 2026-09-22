@@ -17,6 +17,8 @@ import {
   HIRE_ORDER,
   burnFor,
   perksFor,
+  hasMvp,
+  MVP_REQUIRED_BUILDS,
   PITCH_ENERGY_COST,
   PITCH_ENERGY_GATE,
   PITCH_MIN_MONTH,
@@ -112,7 +114,7 @@ function afford(action) {
     return role !== null && state.cashK >= ROLES[role].signOnK;
   }
   if (action === 'CLOSE_CLIENT') {
-    return state.traction >= perksFor(state.team, V).closeCost;
+    return hasMvp(state) && state.traction >= perksFor(state.team, V).closeCost;
   }
   if (action === ACTION_PITCH) {
     return state.month >= PITCH_MIN_MONTH
@@ -135,6 +137,9 @@ function reason(action) {
     return null;
   }
   if (action === 'CLOSE_CLIENT') {
+    if (!hasMvp(state)) {
+      return renderLabel('reason.CLOSE_CLIENT_mvp', { missing: MVP_REQUIRED_BUILDS - state.mvpBuilds });
+    }
     return renderLabel('reason.CLOSE_CLIENT', { cost: perksFor(state.team, V).closeCost });
   }
   if (action === ACTION_PITCH) {
@@ -274,6 +279,9 @@ function wire() {
   setText('ui-subtitle', getString('ui.subtitle'));
   setText('library-btn', getString('ui.library.button'));
   setText('hint', getString('ui.help.hint'));
+  setText('flow-h-in', getString('ui.flow.in'));
+  setText('flow-h-out', getString('ui.flow.out'));
+  setText('flow-h-cash', getString('hud.cash'));
   setCloseLabels();
   setText('restart-btn', getString('ui.restart'));
 

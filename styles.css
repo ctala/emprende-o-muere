@@ -154,6 +154,27 @@ main {
 .row[disabled] .row-label { text-decoration: line-through; }
 
 .footer-rows { display: grid; gap: 8px; margin-top: 8px; }
+.flow { display: grid; gap: 6px; }
+.flow-title { font-size: 1rem; font-weight: bold; color: var(--ink-dim); }
+.flow-rate { font-family: var(--mono); font-size: 1rem; color: var(--ink-dim); display: flex; gap: 12px; flex-wrap: wrap; }
+.flow-head, .flow-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 1rem;
+}
+.flow-head { color: var(--ink-dim); border-bottom: 1px solid var(--paper-rule); }
+.flow-row span:last-child { min-width: 4.5ch; text-align: right; }
+.flow-row .neg { color: var(--red); }
+.flow-row.alarm { color: var(--red); }
+.flow-trunc { font-family: var(--mono); color: var(--ink-dim); }
+.flow-verdict { font-size: 1rem; font-weight: bold; }
+.flow-verdict.doomed { color: var(--red); }
+.flow-gloss { font-size: 1rem; color: var(--ink-dim); font-style: italic; }
+.field-gloss { font-size: 1rem; color: var(--ink-dim); }
+.field-parts { font-family: var(--mono); font-size: 1rem; color: var(--ink-dim); }
+
 @media (max-width: 699px) {
   .footer-rows {
     position: fixed;

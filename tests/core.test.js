@@ -25,7 +25,13 @@ import {
   burnFor,
   offerTier,
   moraleTier,
+  hasMvp,
+  MVP_REQUIRED_BUILDS,
+  forecastOf,
+  burnParts,
+  activeClients,
 } from '../core/game.js';
+import { sweep } from '../scripts/sweep.mjs';
 import { getString } from '../content/strings_es.js';
 import { rngNext } from '../core/rng.js';
 
@@ -135,7 +141,7 @@ test('unknown action type throws', () => {
 });
 
 test('input state is never mutated', () => {
-  const s0 = { ...createGame(4242), traction: 25 };
+  const s0 = { ...createGame(4242), traction: 25, mvpBuilds: 2 };
   const before = serialize(s0);
   applyAction(s0, act('BUILD_PRODUCT'));
   applyAction(s0, act('CLOSE_CLIENT'));
@@ -160,13 +166,14 @@ test('deepFreeze reaches nested objects', () => {
 test('each action costs one focus', () => {
   for (const type of ACTION_TYPES) {
     const traction = type === 'CLOSE_CLIENT' ? 25 : 0;
-    const { state } = applyAction({ ...createGame(99), traction }, act(type));
+    const mvpBuilds = type === 'CLOSE_CLIENT' ? 2 : 0;
+    const { state } = applyAction({ ...createGame(99), traction, mvpBuilds }, act(type));
     assert.equal(state.focus, FOCUS_PER_MONTH - 1, type);
   }
 });
 
 test('actions rejected when focus exhausted, state unchanged', () => {
-  let state = { ...createGame(99), traction: 25 };
+  let state = { ...createGame(99), traction: 25, mvpBuilds: 2 };
   ({ state } = applyAction(state, act('BUILD_PRODUCT')));
   ({ state } = applyAction(state, act('CLOSE_CLIENT')));
   assert.equal(state.focus, 0);
@@ -264,7 +271,7 @@ test('deal price scales with traction', () => {
 });
 
 test('CLOSE_CLIENT signs invoice due in delay months, no cash change, no draw', () => {
-  const s = { ...createGame(42), traction: 30 };
+  const s = { ...createGame(42), traction: 30, mvpBuilds: 2 };
   const { state, events } = applyAction(s, act('CLOSE_CLIENT'));
   assert.equal(state.traction, 30 - V.dealCostTraction);
   assert.equal(state.cashK, s.cashK);
@@ -278,20 +285,20 @@ test('CLOSE_CLIENT signs invoice due in delay months, no cash change, no draw', 
 });
 
 test('CLOSE_CLIENT rejected below traction cost, state unchanged', () => {
-  const s = { ...createGame(42), traction: 9 };
+  const s = { ...createGame(42), traction: 9, mvpBuilds: 2 };
   const before = serialize(s);
   assert.throws(() => applyAction(s, act('CLOSE_CLIENT')), /traction/i);
   assert.equal(before, serialize(s));
 });
 
 test('CLOSE_CLIENT price reads traction at signing time', () => {
-  const s = { ...createGame(42), traction: 37 };
+  const s = { ...createGame(42), traction: 37, mvpBuilds: 2 };
   const { state } = applyAction(s, act('CLOSE_CLIENT'));
   assert.equal(state.invoices[0].amountK, 50); // 20 + 10*3 (traction BEFORE cost deduction)
 });
 
 test('invoice pays exactly at due month', () => {
-  let s = { ...createGame(7), traction: 25 };
+  let s = { ...createGame(7), traction: 25, mvpBuilds: 2 };
   ({ state: s } = applyAction(s, act('CLOSE_CLIENT'))); // signed month 1, due month 4
   const dueMonth = s.invoices[0].dueMonth;
   assert.equal(dueMonth, 4);
@@ -346,7 +353,7 @@ test('idle plan goes bankrupt before month 10', () => {
 
 test('harvest plan survives 24 months with cash >= 0 on many seeds', () => {
   const harvest = (s) => {
-    if (s.traction >= V.dealCostTraction && (s.cashK < 80 || s.traction >= 35)) return 'CLOSE_CLIENT';
+    if (s.mvpBuilds >= 2 && s.traction >= V.dealCostTraction && (s.cashK < 80 || s.traction >= 35)) return 'CLOSE_CLIENT';
     if (s.teamMorale >= 40) return s.focus === FOCUS_PER_MONTH ? 'BUILD_PRODUCT' : 'REST';
     return 'REST';
   };
@@ -456,14 +463,14 @@ test('CTO build perk: 12+jitter with -6 morale', () => {
 });
 
 test('VENTAS signs at traction 6', () => {
-  const s = deepFreeze({ ...createGame(5), traction: 6, team: Object.freeze(['VENTAS']) });
+  const s = deepFreeze({ ...createGame(5), traction: 6, mvpBuilds: 2, team: Object.freeze(['VENTAS']) });
   const { state } = applyAction(s, act('CLOSE_CLIENT'));
   assert.equal(state.traction, 0);
   assert.equal(state.invoices.length, 1);
 });
 
 test('CFO shortens collection to delay 2', () => {
-  const s = deepFreeze({ ...createGame(5), traction: 30, team: Object.freeze(['CFO']) });
+  const s = deepFreeze({ ...createGame(5), traction: 30, mvpBuilds: 2, team: Object.freeze(['CFO']) });
   const { state } = applyAction(s, act('CLOSE_CLIENT'));
   assert.equal(state.invoices[0].dueMonth, 1 + 2);
 });
@@ -499,7 +506,7 @@ function playWithHire(seed, hireGate) {
     }
     const p = { closeCost: V.dealCostTraction }; // no-hire default; perks recomputed per state below
     const closeCost = state.team.includes('VENTAS') ? ROLES.VENTAS.closeCost : V.dealCostTraction;
-    const canClose = state.traction >= closeCost && (state.cashK < 80 || state.traction >= 35);
+    const canClose = state.mvpBuilds >= 2 && state.traction >= closeCost && (state.cashK < 80 || state.traction >= 35);
     let type;
     if (canClose) type = 'CLOSE_CLIENT';
     else if (state.teamMorale >= 40) type = state.focus === FOCUS_PER_MONTH ? 'BUILD_PRODUCT' : 'REST';
@@ -509,11 +516,13 @@ function playWithHire(seed, hireGate) {
   return state;
 }
 
-// Pinned trajectories from the sim sweep (retune => update deliberately):
-// harvest-nohire 8/8 survive; hiring VENTAS or CTO once 3 months of runway
-// exist survives 8/8 and ends richer; hiring CFO or CPO at bootstrap
-// bankrupts every seed — the bad-hire lesson (their perks need funded
-// velocity to pay off; that regime arrives with fundraising).
+// Pinned trajectories, re-pinned by `node scripts/sweep.mjs` (two-engines-
+// economy sweep, 16 seeds, 2026-09-22): harvest-nohire still survives but ends
+// lean; hiring VENTAS or CTO once 3 months of runway exist survives and ends
+// richer (their pipeline + auto-close compounds); hiring CFO or CPO at
+// bootstrap bankrupts every seed — the bad-hire lesson (their perks buy speed,
+// not pipeline; that regime arrives with fundraising). Retune => re-run the
+// sweep and update deliberately.
 test('balance: harvest-nohire unchanged (8/8 survive)', () => {
   for (const seed of [11, 22, 33, 44, 55, 66, 77, 88]) {
     const s = playWithHire(seed, null);
@@ -624,7 +633,7 @@ test('bootstrap actions never touch energy', () => {
     const { state } = applyAction(s, act(t));
     assert.equal(state.founderEnergy, 55, t);
   }
-  const close = deepFreeze({ ...s, traction: 30 });
+  const close = deepFreeze({ ...s, traction: 30, mvpBuilds: 2 });
   assert.equal(applyAction(close, act('CLOSE_CLIENT')).state.founderEnergy, 55);
   const hire = applyAction(deepFreeze({ ...s, cashK: 120 }), { type: ACTION_HIRE, role: 'VENTAS' });
   assert.equal(hire.state.founderEnergy, 55);
@@ -778,7 +787,7 @@ function playFundraising(seed, mode) {
     if (pitchOk && ((mode === 'asap' && state.founderEnergy >= 40) || (mode === 'fresh' && state.founderEnergy >= 85))) type = 'PITCH';
     if (!type) {
       if (mode === 'fresh' && state.founderEnergy < 100) type = 'REST';
-      else if (state.traction >= perksFor(state.team).closeCost) type = 'CLOSE_CLIENT';
+      else if (state.mvpBuilds >= 2 && state.traction >= perksFor(state.team).closeCost) type = 'CLOSE_CLIENT';
       else type = 'BUILD_PRODUCT';
     }
     try {
@@ -922,7 +931,7 @@ function playCounter(seed, counter) {
     if (pitchOk && state.founderEnergy >= 85) type = 'PITCH';
     if (!type) {
       if (state.founderEnergy < 100) type = 'REST';
-      else if (state.traction >= perksFor(state.team).closeCost) type = 'CLOSE_CLIENT';
+      else if (state.mvpBuilds >= 2 && state.traction >= perksFor(state.team).closeCost) type = 'CLOSE_CLIENT';
       else type = 'BUILD_PRODUCT';
     }
     try {
@@ -995,7 +1004,7 @@ test('settlement is deterministic across replays', () => {
 /** Harvest base policy used by all three exit strategies. */
 function exitHarvest(state) {
   const closeCost = state.team.includes('VENTAS') ? ROLES.VENTAS.closeCost : V.dealCostTraction;
-  if (state.traction >= closeCost && (state.cashK < 80 || state.traction >= 35)) return 'CLOSE_CLIENT';
+  if (state.mvpBuilds >= 2 && state.traction >= closeCost && (state.cashK < 80 || state.traction >= 35)) return 'CLOSE_CLIENT';
   if (state.teamMorale >= 40) return state.focus === FOCUS_PER_MONTH ? 'BUILD_PRODUCT' : 'REST';
   return 'REST';
 }
@@ -1078,4 +1087,241 @@ test('offer event names its pricing tier', () => {
   assert.equal(offerTier(59), 'drained');
   assert.equal(offerTier(60), 'fair');
   assert.equal(offerTier(85), 'hot');
+});
+
+// --- two-engines-economy: MVP gate, team pipeline, sales auto-close ----------
+
+test('MVP gate: fresh state blocks signing even with traction, no draw', () => {
+  const s = deepFreeze({ ...createGame(42), traction: 50 });
+  assert.equal(hasMvp(s), false);
+  const before = serialize(s);
+  assert.throws(() => applyAction(s, act('CLOSE_CLIENT')), /product|mvp/i);
+  assert.equal(before, serialize(s));
+});
+
+test('MVP gate: two builds unlock signing; burned-out builds still count', () => {
+  let s = deepFreeze({ ...createGame(42), traction: 40, teamMorale: 10 }); // tier 0: zero traction yield
+  ({ state: s } = applyAction(s, act('BUILD_PRODUCT')));
+  assert.equal(s.mvpBuilds, 1);
+  ({ state: s } = applyAction(s, act('BUILD_PRODUCT')));
+  assert.equal(s.mvpBuilds, MVP_REQUIRED_BUILDS);
+  assert.equal(hasMvp(s), true);
+  assert.equal(s.traction, 40, 'tier-0 build yields no traction but still ships product');
+  s = applyAction(s, endMonth()).state; // refill focus
+  const { state } = applyAction(s, act('CLOSE_CLIENT'));
+  assert.equal(state.invoices.length, 1);
+});
+
+test('pipeline: empty team draws nothing and emits nothing', () => {
+  const s = deepFreeze({ ...createGame(5), cashK: 500 });
+  const { state, events } = applyAction(s, endMonth());
+  assert.equal(state.traction, 0);
+  assert.equal(events.some((e) => e.key === EVENT_KEYS.PIPELINE_PRODUCED), false);
+});
+
+test('pipeline: team feeds the pipeline deterministically, zero draws', () => {
+  const team = Object.freeze(['VENTAS', 'CTO']);
+  const p = perksFor(team);
+  assert.equal(p.pipelinePerMonth, 8, 'VENTAS 6 + CTO 2');
+  const s = deepFreeze({ ...createGame(5), cashK: 500, team });
+  const { state, events } = applyAction(s, endMonth());
+  assert.equal(state.traction, 8);
+  // Exactly one rng transition (the decay draw) — same as a no-team month:
+  const noTeam = applyAction(deepFreeze({ ...createGame(5), cashK: 500 }), endMonth());
+  assert.equal(state.rngState, noTeam.state.rngState);
+  const prod = events.find((e) => e.key === EVENT_KEYS.PIPELINE_PRODUCED);
+  assert.equal(prod.params.tractionDelta, 8);
+});
+
+test('perks: funded roles carry no pipeline; autoClose is table-granted', () => {
+  assert.equal(perksFor(Object.freeze(['CFO', 'CPO'])).pipelinePerMonth, 0);
+  assert.equal(perksFor(Object.freeze(['CTO', 'CFO'])).autoClose, false);
+  assert.equal(perksFor(Object.freeze(['VENTAS'])).autoClose, true);
+});
+
+test('auto-close: Ventas closes while the founder does nothing', () => {
+  const team = Object.freeze(['VENTAS']);
+  const s = deepFreeze({ ...createGame(5), cashK: 500, traction: 20, mvpBuilds: 2, team });
+  const p = perksFor(team);
+  const { state, events } = applyAction(s, endMonth());
+  const postProduction = 20 + p.pipelinePerMonth;
+  assert.equal(state.traction, postProduction - p.closeCost);
+  assert.equal(state.invoices.length, 1);
+  assert.equal(state.invoices[0].amountK, dealPriceK(postProduction));
+  assert.equal(state.invoices[0].dueMonth, 2 + p.delayMonths, 'due next month + delay: never same month');
+  const auto = events.find((e) => e.key === EVENT_KEYS.CLIENT_CLOSED_BY_TEAM);
+  assert.ok(auto, 'auto-close event must fire');
+  assert.equal(auto.params.role, 'VENTAS');
+});
+
+test('auto-close: waits for MVP, and only one deal per month', () => {
+  const team = Object.freeze(['VENTAS']);
+  const noMvp = deepFreeze({ ...createGame(5), cashK: 500, traction: 40, mvpBuilds: 1, team });
+  const r1 = applyAction(noMvp, endMonth());
+  assert.equal(r1.state.invoices.length, 0);
+  assert.equal(r1.events.some((e) => e.key === EVENT_KEYS.CLIENT_CLOSED_BY_TEAM), false);
+  assert.equal(r1.state.traction, 40 + perksFor(team).pipelinePerMonth, 'production still lands');
+
+  const rich = deepFreeze({ ...createGame(5), cashK: 500, traction: 60, mvpBuilds: 2, team: Object.freeze(['VENTAS', 'CTO']) });
+  const r2 = applyAction(rich, endMonth());
+  assert.equal(r2.state.invoices.length, 1, 'max one auto-close per month');
+  assert.equal(r2.events.filter((e) => e.key === EVENT_KEYS.CLIENT_CLOSED_BY_TEAM).length, 1);
+});
+
+test('auto-close invoice cannot pay in the same transition', () => {
+  const team = Object.freeze(['VENTAS', 'CFO']);
+  const s = deepFreeze({ ...createGame(5), cashK: 500, month: 5, traction: 30, mvpBuilds: 2, team });
+  const p = perksFor(team);
+  const { state } = applyAction(s, endMonth());
+  assert.equal(state.invoices[0].dueMonth, 6 + p.delayMonths, 'delay >= 2 keeps same-month collection impossible');
+});
+
+test('no-team endMonth stays byte-identical to the pre-engines core', () => {
+  // Golden recorded against core at v0.1.0 (git HEAD~) with seed 20260918:
+  // no-team runs must not gain draws, events, or field drift from the engines.
+  const { state, events } = applyAction(createGame(20260918), endMonth());
+  assert.equal(state.rngState, 1851826731);
+  assert.equal(state.cashK, 105);
+  assert.deepEqual(events.map((e) => e.key), [
+    EVENT_KEYS.ACTION_TAKEN, EVENT_KEYS.SALARIES_PAID, EVENT_KEYS.MONTH_ADVANCED,
+  ]);
+  assert.equal(state.mvpBuilds, 0, 'no-team drift limited to the inert counter field');
+});
+
+test('engines replay byte-identically (production + auto-close are deterministic)', () => {
+  const run = () => {
+    let s = createGame(31337);
+    s = applyAction(s, act('BUILD_PRODUCT')).state;
+    s = applyAction(s, act('BUILD_PRODUCT')).state;
+    s = applyAction(s, endMonth()).state;
+    s = applyAction(s, { type: ACTION_HIRE, role: 'VENTAS' }).state;
+    for (let i = 0; i < 6 && !s.gameOver; i += 1) s = applyAction(s, endMonth()).state;
+    return serialize(s);
+  };
+  assert.equal(run(), run());
+});
+
+// --- sweep bands as executable acceptance (two-engines-economy D5) -----------
+
+test('balance sweep: engines help but do not solve; bad-hire and vaporware die', () => {
+  const out = sweep();
+  assert.ok(out['harvest-nohire'].survived >= 12, 'naive harvest must mostly bankrupt... or stay a lean survive');
+  assert.ok(out['harvest-nohire'].meanCashSurv < out['hire-smart'].meanCashSurv);
+  assert.equal(out['hire-smart'].survived, 16, 'smart hire + pitch must always survive');
+  assert.equal(out['bad-hire'].survived, 0, 'bad-hire lesson preserved');
+  assert.equal(out['sales-first'].survived, 16, 'team-only play must survive: the engines are the promise');
+  assert.ok(out['sales-first'].meanCashSurv > out['harvest-nohire'].meanCashSurv);
+  assert.equal(out['no-mvp-forever'].survived, 0, 'you cannot sell vaporware forever');
+});
+
+test('publisher without sales earns less than founder closing (content feeds the team, not cash)', () => {
+  assert.equal(sweep()['publisher-first'].survived < sweep()['sales-first'].survived, true);
+});
+
+// --- add-cashflow-forecast: pure cash projections -----------------------------
+
+function idleReplay(state) {
+  // real engine, END_MONTH only, until terminal; returns [{month, cash}]
+  const rows = [];
+  let s = state;
+  while (!s.gameOver) {
+    ({ state: s } = applyAction(s, endMonth()));
+    const last = rows.at(-1);
+    if (last && last.month === s.month) last.cashK = s.cashK;
+    else rows.push({ month: s.month, cashK: s.cashK });
+    if (s.month >= s.totalMonths && s.gameOver) break;
+  }
+  return rows;
+}
+
+test('forecast cash equals the real idle engine line, team state included', () => {
+  const states = [
+    deepFreeze({ ...createGame(77), cashK: 400, traction: 20, mvpBuilds: 2, team: Object.freeze(['VENTAS']) }),
+    deepFreeze({ ...createGame(77), cashK: 400, traction: 30, mvpBuilds: 2, team: Object.freeze(['VENTAS', 'CTO']),
+      invoices: Object.freeze([Object.freeze({ amountK: 40, dueMonth: 5 })]) }),
+    deepFreeze({ ...createGame(77), cashK: 400, traction: 30, mvpBuilds: 2, team: Object.freeze(['VENTAS', 'CFO']),
+      invoices: Object.freeze([Object.freeze({ amountK: 40, dueMonth: 5 })]) }),
+  ];
+  for (const st of states) {
+    const f = forecastOf(st);
+    const engine = idleReplay(deepFreeze({ ...st, teamMorale: 5 })); // low morale: no labor anyway; END_MONTH only
+    assert.equal(f.months.length, engine.length, `horizon differs`);
+    f.months.forEach((row, i) => {
+      assert.equal(row.month, engine[i].month);
+      assert.equal(row.cashK, engine[i].cashK, `month ${row.month}: ${row.cashK} != ${engine[i].cashK}`);
+    });
+  }
+});
+
+test('forecast marks projected bankruptcy and stops the horizon there', () => {
+  const f = forecastOf(createGame(5)); // fresh: 120k, burn 15, no team
+  assert.equal(f.bankruptMonth, 10);
+  assert.equal(f.months.at(-1).month, 10);
+  assert.equal(f.months.at(-1).inK, 0);
+  assert.equal(f.months.at(-1).outK, 15);
+  assert.equal(f.months.at(-1).cashK, -15);
+});
+
+test('forecast: team deals arrive on the due month, never on the signing month', () => {
+  const st = deepFreeze({ ...createGame(9), cashK: 2000, traction: 20, mvpBuilds: 2, team: Object.freeze(['VENTAS']) });
+  const f = forecastOf(st, 6);
+  const price = dealPriceK(20 + 6); // auto-close at post-production traction
+  const sign = f.months[0]; // month 2 auto-closes (20+6 >= 6)
+  assert.equal(sign.inK, 0, 'nothing arrives on the signing month');
+  const due = f.months.find((m) => m.month === 2 + V.delayMonths);
+  assert.ok(due.inK >= price, `due month must collect the team deal (${due.inK} < ${price})`);
+});
+
+test('forecast is pure: no state change, no draws, idempotent', () => {
+  const st = deepFreeze({ ...createGame(42), traction: 25, mvpBuilds: 2, team: Object.freeze(['VENTAS', 'CTO']) });
+  const before = serialize(st);
+  const a = forecastOf(st);
+  const b = forecastOf(st);
+  assert.equal(before, serialize(st));
+  assert.equal(serialize(a), serialize(b));
+});
+
+test('forecast horizon respects the run end and gameOver states', () => {
+  const late = deepFreeze({ ...createGame(3), month: 23, cashK: 400 });
+  assert.equal(forecastOf(late).months.at(-1).month, 24);
+  const over = deepFreeze({ ...createGame(3), gameOver: true, reason: 'bankrupt' });
+  assert.deepEqual(forecastOf(over).months, []);
+});
+
+test('burnParts decomposes the effective burn exactly', () => {
+  const empty = burnParts(createGame(2));
+  assert.equal(empty.length, 1);
+  assert.equal(empty[0].amountK, V.burnK);
+  const team = deepFreeze({ ...createGame(2), team: Object.freeze(['VENTAS', 'CTO', 'CFO']) });
+  const parts = burnParts(team);
+  assert.equal(parts.reduce((a, p) => a + p.amountK, 0), burnFor(team.team, V));
+  assert.equal(parts[1].role, 'VENTAS');
+});
+
+test('activeClients counts unpaid contracts', () => {
+  const none = activeClients(createGame(2));
+  assert.equal(none, 0);
+  const s = deepFreeze({ ...createGame(2), invoices: Object.freeze([
+    Object.freeze({ amountK: 10, dueMonth: 5 }),
+    Object.freeze({ amountK: 20, dueMonth: 7 }),
+    Object.freeze({ amountK: 30, dueMonth: 9 }),
+  ]) });
+  assert.equal(activeClients(s), 3);
+  const { state } = applyAction({ ...s, month: 5 }, endMonth());
+  assert.equal(activeClients(state), 2);
+});
+
+test('forecast survives a funded horizon and reports no bankruptcy', () => {
+  const rich = deepFreeze({ ...createGame(11), cashK: 9000 });
+  const f = forecastOf(rich);
+  assert.equal(f.bankruptMonth, null);
+  assert.equal(f.months.at(-1).month, 24);
+});
+
+test('CFO moves projected arrivals one month earlier', () => {
+  const mk = (team) => deepFreeze({ ...createGame(21), cashK: 2000, traction: 30, mvpBuilds: 2, team: Object.freeze(team) });
+  const base = forecastOf(mk(['VENTAS']));
+  const withCfo = forecastOf(mk(['VENTAS', 'CFO']));
+  const firstDue = (f) => f.months.find((m) => m.inK > 0).month;
+  assert.equal(firstDue(withCfo), firstDue(base) - 1);
 });

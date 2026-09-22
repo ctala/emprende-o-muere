@@ -7,6 +7,38 @@ Rule: every version gets its section here **before** it is tagged.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-22
+
+The team finally works, and the money finally reads: the game
+projects your bankruptcy month before you reach it.
+
+
+### Added
+- Two team engines that run on their own every month (zero new randomness,
+  bootstrap replays byte-identical): each role adds leads (pipeline) passively,
+  and Ventas closes one deal per month with no click and no focus — hiring
+  sales finally means recurring work, not a discount coupon
+- MVP gate: the first signed client (founder's or the team's) requires 2
+  product builds. You can't sell vaporware anymore
+- `scripts/sweep.mjs`: balance sweep (6 policy families x 16 seeds) with its
+  acceptance bands pinned as tests; balance goldens re-pinned against it
+- Cash-flow forecast panel ("Flujo de caja"): deterministic month-by-month
+  projection of arrivals, departures, cash, and the projected bankruptcy
+  month — exact for the founder-does-nothing scenario (cash evolution is
+  morale-independent, so it replays the engine's cash line with zero PRNG)
+- Burn shown decomposed into named parts (base + each role's salary), making
+  hiring cost and the CFO's earlier collections legible
+- Clients field (active signed contracts) distinct from Leads (traction)
+
+### Changed
+- Traction is framed as Leads (interested contacts) across the HUD, cards,
+  help, and reasons — a pipeline you convert into invoices, not a score;
+  a labor action adds leads, not revenue
+- Content publishing pays off through the team (the pipeline it feeds is what
+  Ventas converts into invoices); help legend explains both engines, the
+  lead/client split, and the projection's assumptions (each contract pays
+  once; recurring revenue is roadmap)
+
 ## [0.1.0] - 2026-09-22
 
 First playable, versioned release: the game runs entirely in the browser with

@@ -34,9 +34,11 @@ export const ACTIVE_VERTICAL = 'b2b_saas';
 
 // Hireable roles: sign-on + salary feed cash; one perk each overrides action
 // defaults. Rules read them through perksFor()/burnFor(), never by name.
+// `pipeline` = interested-customers added every month; `autoClose` = the team
+// closes one deal on its own each month (table-granted, no rules branch).
 export const ROLES = Object.freeze({
-  VENTAS: Object.freeze({ signOnK: 3, salaryK: 2, closeCost: 6, hireOrder: 0 }),
-  CTO: Object.freeze({ signOnK: 5, salaryK: 4, buildBase: 12, buildMoraleCost: 6, hireOrder: 1 }),
+  VENTAS: Object.freeze({ signOnK: 3, salaryK: 2, closeCost: 6, pipeline: 6, autoClose: true, hireOrder: 0 }),
+  CTO: Object.freeze({ signOnK: 5, salaryK: 4, buildBase: 12, buildMoraleCost: 6, pipeline: 2, hireOrder: 1 }),
   CFO: Object.freeze({ signOnK: 12, salaryK: 8, delayMonths: 2, hireOrder: 2 }),
   CPO: Object.freeze({ signOnK: 8, salaryK: 6, talkBase: 9, talkMoraleCost: 3, hireOrder: 3 }),
 });
@@ -51,6 +53,7 @@ export const MORALE_MIN = 0;
 export const MORALE_MAX = 100;
 export const END_MONTH_DECAY = 5;
 export const END_MONTH_DECAY_JITTER = 2; // uniform integer in [-2, +2]
+export const MVP_REQUIRED_BUILDS = 2; // builds needed before any client signs
 
 // Founder energy + fundraising. Energy only drains on PITCH, so bootstrap
 // stays byte-identical; the drained floor (gate) equals start - drain - regen
@@ -101,6 +104,8 @@ export const EVENT_KEYS = Object.freeze({
   INVOICE_CREATED: 'evt.invoice_created',
   INVOICE_PAID: 'evt.invoice_paid',
   SALARIES_PAID: 'evt.salaries_paid',
+  PIPELINE_PRODUCED: 'evt.pipeline_produced',
+  CLIENT_CLOSED_BY_TEAM: 'evt.client_closed_by_team',
   OFFER_MADE: 'evt.offer_made',
   ROUND_CLOSED: 'evt.round_closed',
   OFFER_DECLINED: 'evt.offer_declined',
@@ -135,6 +140,8 @@ export function perksFor(team, vertical = VERTICALS[ACTIVE_VERTICAL]) {
     talkMoraleCost: ACTION_DEFS.TALK_TO_CUSTOMERS.moraleCost,
     closeCost: ACTION_DEFS.CLOSE_CLIENT.tractionCost,
     delayMonths: vertical.delayMonths,
+    pipelinePerMonth: 0,
+    autoClose: false,
   };
   for (const role of team) {
     const def = ROLES[role];
@@ -145,6 +152,8 @@ export function perksFor(team, vertical = VERTICALS[ACTIVE_VERTICAL]) {
     if (def.talkMoraleCost !== undefined) perks.talkMoraleCost = def.talkMoraleCost;
     if (def.closeCost !== undefined) perks.closeCost = def.closeCost;
     if (def.delayMonths !== undefined) perks.delayMonths = def.delayMonths;
+    if (def.pipeline !== undefined) perks.pipelinePerMonth += def.pipeline;
+    if (def.autoClose === true) perks.autoClose = true;
   }
   return perks;
 }
@@ -152,6 +161,88 @@ export function perksFor(team, vertical = VERTICALS[ACTIVE_VERTICAL]) {
 /** Monthly burn ($k) = profile burn + team salaries. */
 export function burnFor(team, vertical = VERTICALS[ACTIVE_VERTICAL]) {
   return vertical.burnK + team.reduce((sum, role) => sum + (ROLES[role]?.salaryK ?? 0), 0);
+}
+
+/** The product exists once enough BUILD_PRODUCT actions have landed. */
+export function hasMvp(state) {
+  return state.mvpBuilds >= MVP_REQUIRED_BUILDS;
+}
+
+/** Active signed client contracts (unpaid invoices), integer. */
+export function activeClients(state) {
+  return state.invoices.length;
+}
+
+/** Effective burn as named parts: [base, then one part per team role]. */
+export function burnParts(state) {
+  const vertical = VERTICALS[state.vertical];
+  const parts = [Object.freeze({ role: null, label: 'base', amountK: vertical.burnK })];
+  for (const role of state.team) {
+    const salaryK = ROLES[role]?.salaryK ?? 0;
+    if (salaryK > 0) parts.push(Object.freeze({ role, label: role, amountK: salaryK }));
+  }
+  return Object.freeze(parts);
+}
+
+/**
+ * Deterministic cash projection for the "founder does nothing" scenario:
+ * replays only the cash-relevant month-end steps (production -> auto-close
+ * -> collections -> burn) on plain integer copies. Cash evolution is
+ * morale-independent in the engine, so this equals repeated END_MONTH (cash
+ * only) byte-for-byte. Pure: no PRNG draw, no mutation, no new state fields.
+ * @param {Readonly<object>} state
+ * @param {number} [horizon] months ahead to project (default: the remaining run)
+ * @returns {Readonly<{ months: ReadonlyArray<{ month: number, inK: number, outK: number, cashK: number }>, bankruptMonth: number|null }>}
+ */
+export function forecastOf(state, horizon) {
+  const vertical = VERTICALS[state.vertical];
+  const perks = perksFor(state.team, vertical);
+  const burnK = burnFor(state.team, vertical);
+  // Real idle play applies one more cash flow per month AND one final flow at
+  // month totalMonths (the terminal END_MONTH), so the step count covers both.
+  const steps = Math.min(horizon ?? state.totalMonths - state.month + 1, state.totalMonths - state.month + 1);
+
+  let traction = state.traction;
+  let cashK = state.cashK;
+  let invoices = state.invoices.map((i) => ({ amountK: i.amountK, dueMonth: i.dueMonth }));
+  const months = [];
+  let bankruptMonth = null;
+
+  for (let k = 1; k <= steps && !state.gameOver; k += 1) {
+    const nextMonth = Math.min(state.month + k, state.totalMonths);
+    const postProduction = traction + perks.pipelinePerMonth;
+    const closer = perks.autoClose && hasMvp(state)
+      && postProduction >= perks.closeCost ? autoCloseRole(state.team) : null;
+    traction = postProduction;
+    let closedAmountK = 0;
+    if (closer !== null) {
+      traction = postProduction - perks.closeCost;
+      closedAmountK = dealPriceK(postProduction, vertical);
+      invoices = [...invoices, { amountK: closedAmountK, dueMonth: nextMonth + perks.delayMonths }];
+    }
+    const paid = invoices.filter((i) => i.dueMonth <= nextMonth);
+    invoices = invoices.filter((i) => i.dueMonth > nextMonth);
+    const inK = paid.reduce((sum, i) => sum + i.amountK, 0);
+    cashK = cashK + inK - burnK;
+    const row = months.at(-1);
+    if (row !== undefined && row.month === nextMonth) {
+      months[months.length - 1] = Object.freeze({
+        month: nextMonth, inK: row.inK + inK, outK: row.outK + burnK, cashK,
+      });
+    } else {
+      months.push(Object.freeze({ month: nextMonth, inK, outK: burnK, cashK }));
+    }
+    if (cashK < 0) {
+      bankruptMonth = nextMonth;
+      break;
+    }
+  }
+  return deepFreeze({ months: Object.freeze(months), bankruptMonth });
+}
+
+/** First team role whose table grants self-closing (table-driven, no name branch). */
+export function autoCloseRole(team) {
+  return team.find((role) => ROLES[role]?.autoClose === true) ?? null;
 }
 
 /**
@@ -426,6 +517,9 @@ function takeAction(state, type) {
   const perks = perksFor(state.team, vertical);
 
   if (type === 'CLOSE_CLIENT') {
+    if (!hasMvp(state)) {
+      throw new Error(`No product yet; ${type} rejected before MVP`);
+    }
     if (state.traction < perks.closeCost) {
       throw new Error(`Not enough traction; ${type} rejected`);
     }
@@ -459,6 +553,7 @@ function takeAction(state, type) {
   let tractionDelta = 0;
   let moraleDelta = 0;
   let energyDelta = 0;
+  const mvpDelta = type === 'BUILD_PRODUCT' ? 1 : 0;
 
   if (type === 'REST') {
     moraleDelta = Math.min(def.moraleGain, MORALE_MAX - state.teamMorale);
@@ -482,6 +577,7 @@ function takeAction(state, type) {
     rngState,
     focus: state.focus - 1,
     traction: state.traction + tractionDelta,
+    mvpBuilds: state.mvpBuilds + mvpDelta,
     teamMorale: clampMorale(state.teamMorale + moraleDelta),
     founderEnergy: clampEnergy(state.founderEnergy + energyDelta),
   });
@@ -504,6 +600,7 @@ function takeAction(state, type) {
 
 function endMonth(state) {
   const vertical = VERTICALS[state.vertical];
+  const perks = perksFor(state.team, vertical);
   const j = jitter(state.rngState, END_MONTH_DECAY_JITTER);
   const decay = END_MONTH_DECAY + j.offset;
   const newMorale = clampMorale(state.teamMorale - decay);
@@ -512,9 +609,23 @@ function endMonth(state) {
   const closing = state.month >= state.totalMonths;
   const newMonth = closing ? state.month : state.month + 1;
 
+  // Team engines (deterministic, zero PRNG draws): production feeds the
+  // pipeline, then sales closes one deal from it, before collections.
+  const production = perks.pipelinePerMonth;
+  const postProductionTraction = state.traction + production;
+  const closer = perks.autoClose && hasMvp(state)
+    && postProductionTraction >= perks.closeCost ? autoCloseRole(state.team) : null;
+  let tractionK = postProductionTraction;
+  const extraInvoices = [];
+  if (closer !== null) {
+    const amountK = dealPriceK(postProductionTraction, vertical);
+    tractionK = postProductionTraction - perks.closeCost;
+    extraInvoices.push(Object.freeze({ amountK, dueMonth: newMonth + perks.delayMonths }));
+  }
+
   // Cash flow: collect due invoices, then pay salaries (burn with team).
   const paid = state.invoices.filter((i) => i.dueMonth <= newMonth);
-  const kept = state.invoices.filter((i) => i.dueMonth > newMonth);
+  const kept = [...state.invoices.filter((i) => i.dueMonth > newMonth), ...extraInvoices];
   const collectedK = paid.reduce((sum, i) => sum + i.amountK, 0);
   const burnK = burnFor(state.team, vertical);
   const newCashK = state.cashK + collectedK - burnK;
@@ -527,6 +638,7 @@ function endMonth(state) {
     ...state,
     rngState: j.next,
     focus: FOCUS_PER_MONTH,
+    traction: tractionK,
     teamMorale: newMorale,
     founderEnergy: clampEnergy(state.founderEnergy + ENERGY_MONTH_REGEN),
     pitchCooldown: Math.max(0, state.pitchCooldown - 1),
@@ -541,6 +653,16 @@ function endMonth(state) {
   const events = [{ key: EVENT_KEYS.ACTION_TAKEN, params: { action: ACTION_END_MONTH, tractionDelta: 0, moraleDelta } }];
   if (expiredOffer !== null) {
     events.push({ key: EVENT_KEYS.OFFER_EXPIRED, params: { preK: expiredOffer.preK, roundK: expiredOffer.roundK } });
+  }
+  if (production > 0) {
+    events.push({ key: EVENT_KEYS.PIPELINE_PRODUCED, params: { tractionDelta: production } });
+  }
+  if (closer !== null) {
+    const invoice = extraInvoices[0];
+    events.push({
+      key: EVENT_KEYS.CLIENT_CLOSED_BY_TEAM,
+      params: { role: closer, amountK: invoice.amountK, dueMonth: invoice.dueMonth, tractionDelta: -perks.closeCost },
+    });
   }
   for (const invoice of paid) {
     events.push({
