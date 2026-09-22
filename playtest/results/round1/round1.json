@@ -1,0 +1,129 @@
+[
+  {
+    "id": "valentina-r1",
+    "persona": "valentina",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Gestionar una startup simulando decisiones mensuales para no quebrar.",
+      "jugarias": "quizas",
+      "por_que": "Suena a lo que hago en mi vida real pero con menos dolor de cabeza, solo si el texto no es tan chiquito.",
+      "fricciones": [
+        "Los textos chiquitos de las acciones (+8, -8) no se ven bien en el celular",
+        "No sé qué significa el 'Foco' con los dos puntitos oscuros",
+        "'Pitch a inversores' bloqueado hasta el mes 6? Aburrido esperar"
+      ],
+      "frase_textual": "Amigo, me mandas esto... parece mi Excel de Sazón pero en pixel art, ¿y por qué hay que esperar al mes 6 para buscar inversores? Eso sí es emprender o morir."
+    },
+    "raw": "{\n  \"de_que_va\": \"Gestionar una startup simulando decisiones mensuales para no quebrar.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Suena a lo que hago en mi vida real pero con menos dolor de cabeza, solo si el texto no es tan chiquito.\",\n  \"fricciones\": [\n    \"Los textos chiquitos de las acciones (+8, -8) no se ven bien en el celular\",\n    \"No sé qué significa el 'Foco' con los dos puntitos oscuros\",\n    \"'Pitch a inversores' bloqueado hasta el mes 6? Aburrido esperar\"\n  ],\n  \"frase_textual\": \"Amigo, me mandas esto... parece mi Excel de Sazón pero en pixel art, ¿y por qué hay que esperar al mes 6 para buscar inversores? Eso sí es emprender o morir.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-21T16:54:05+00:00"
+  },
+  {
+    "id": "diego-r1",
+    "persona": "diego",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "una gestión de recursos básica disfrazada de simulador de startups donde equilibras caja, moral y energía contra acciones de producto y ventas",
+      "jugarias": "quizas",
+      "por_que": "lo jugaría si me explican la mecánica sin infantilizar el burn rate ni el term sheet, pero me molesta que simplifiquen la jerga como si no supiera operar",
+      "fricciones": [
+        "El indicador de Foco no explica qué hace ni cómo se consigue",
+        "Firmar cliente deshabilitado en Mes 1 pero Contratar Ventas activo sin tracción previa no tiene lógica",
+        "Los efectos de acciones no muestran cómo impactan en el runway de forma clara",
+        "La estética de cuaderno no deja ver qué métrica prioriza el juego sobre otra"
+      ],
+      "frase_textual": "Ojo, $120k con 8 meses de runway en Mes 1 es un suicidio financiero, no un juego, pero si arreglás el sistema de Foco y el burn de Ventas te hago un playtest"
+    },
+    "raw": "{\n  \"de_que_va\": \"una gestión de recursos básica disfrazada de simulador de startups donde equilibras caja, moral y energía contra acciones de producto y ventas\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"lo jugaría si me explican la mecánica sin infantilizar el burn rate ni el term sheet, pero me molesta que simplifiquen la jerga como si no supiera operar\",\n  \"fricciones\": [\n    \"El indicador de Foco no explica qué hace ni cómo se consigue\",\n    \"Firmar cliente deshabilitado en Mes 1 pero Contratar Ventas activo sin tracción previa no tiene lógica\",\n    \"Los efectos de acciones no muestran cómo impactan en el runway de forma clara\",\n    \"La estética de cuaderno no deja ver qué métrica prioriza el juego sobre otra\"\n  ],\n  \"frase_textual\": \"Ojo, $120k con 8 meses de runway en Mes 1 es un suicidio financiero, no un juego, pero si arreglás el sistema de Foco y el burn de Ventas te hago un playtest\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-21T16:54:57+00:00"
+  },
+  {
+    "id": "camila-r1",
+    "persona": "camila",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Parece un simulador de ser emprendedor donde tenés que cuidar la plata y no quedarte sin energía.",
+      "jugarias": "no",
+      "por_que": "No me engancha porque la interfaz es horrible, parece una planilla vieja y me da fiaca leer tanto texto chiquito y feo.",
+      "fricciones": [
+        "No entiendo qué significa 'Burn' y suena a algo malo o confuso",
+        "El diseño es muy gris y antiguo, no tiene nada de identidad visual",
+        "No sé qué es 'Runway' ni por qué está en inglés",
+        "Los botones grises de 'Firmar cliente' no tienen sentido si no puedo tocarlos"
+      ],
+      "frase_textual": "Che, esto se ve horrible, parece un trámite bancario de los años 90 y encima no entiendo nada lo que dice 'Burn' o 'Runway'."
+    },
+    "raw": "{\n  \"de_que_va\": \"Parece un simulador de ser emprendedor donde tenés que cuidar la plata y no quedarte sin energía.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"No me engancha porque la interfaz es horrible, parece una planilla vieja y me da fiaca leer tanto texto chiquito y feo.\",\n  \"fricciones\": [\n    \"No entiendo qué significa 'Burn' y suena a algo malo o confuso\",\n    \"El diseño es muy gris y antiguo, no tiene nada de identidad visual\",\n    \"No sé qué es 'Runway' ni por qué está en inglés\",\n    \"Los botones grises de 'Firmar cliente' no tienen sentido si no puedo tocarlos\"\n  ],\n  \"frase_textual\": \"Che, esto se ve horrible, parece un trámite bancario de los años 90 y encima no entiendo nada lo que dice 'Burn' o 'Runway'.\"\n}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-21T16:56:06+00:00"
+  },
+  {
+    "id": "jorge-r1",
+    "persona": "jorge",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un juego de startups donde gestionas caja y esperas desbloquear ventas.",
+      "jugarias": "no",
+      "por_que": "No juego cosas con términos inventados como 'tracción' cuando las acciones de venta reales están bloqueadas.",
+      "fricciones": [
+        "No se entiende qué es 'Tracción' en números claros.",
+        "Las letras son muy pequeñas para leerlas bien en el celular.",
+        "Es absurdo bloquear 'Firmar cliente' al inicio del negocio."
+      ],
+      "frase_textual": "Che, esto no funciona. Me habla de 'tracción' y bloquea vender. Si no puedo facturar, para qué pierdo tiempo. Borra esto."
+    },
+    "raw": "{\n  \"de_que_va\": \"Un juego de startups donde gestionas caja y esperas desbloquear ventas.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"No juego cosas con términos inventados como 'tracción' cuando las acciones de venta reales están bloqueadas.\",\n  \"fricciones\": [\n    \"No se entiende qué es 'Tracción' en números claros.\",\n    \"Las letras son muy pequeñas para leerlas bien en el celular.\",\n    \"Es absurdo bloquear 'Firmar cliente' al inicio del negocio.\"\n  ],\n  \"frase_textual\": \"Che, esto no funciona. Me habla de 'tracción' y bloquea vender. Si no puedo facturar, para qué pierdo tiempo. Borra esto.\"\n}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-21T16:57:10+00:00"
+  },
+  {
+    "id": "fernanda-r1",
+    "persona": "fernanda",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Simulador de gestión de una startup donde optimizas recursos y estadísticas semana a semana.",
+      "jugarias": "quizas",
+      "por_que": "Lo abriría solo por la mecánica de gestión, pero la ilegibilidad del texto secundario en los botones me haría cerrar la pestaña en menos de dos minutos.",
+      "fricciones": [
+        "Contraste ilegible en las etiquetas de los botones (texto gris claro sobre beige).",
+        "Ayuda en rojo tan baja y borrosa que no se entiende",
+        "El foco y la tracción están alineados sin jerarquía clara."
+      ],
+      "frase_textual": "Me lo mando yo misma: el contraste del texto secundario en los botones está en nivel AA y es ilegible sin esfuerzo extra, pero el loop de gestión pinta interesante."
+    },
+    "raw": "{\"de_que_va\": \"Simulador de gestión de una startup donde optimizas recursos y estadísticas semana a semana.\",\"jugarias\": \"quizas\",\"por_que\": \"Lo abriría solo por la mecánica de gestión, pero la ilegibilidad del texto secundario en los botones me haría cerrar la pestaña en menos de dos minutos.\",\"fricciones\": [\"Contraste ilegible en las etiquetas de los botones (texto gris claro sobre beige).\", \"Ayuda en rojo tan baja y borrosa que no se entiende\", \"El foco y la tracción están alineados sin jerarquía clara.\"],\"frase_textual\": \"Me lo mando yo misma: el contraste del texto secundario en los botones está en nivel AA y es ilegible sin esfuerzo extra, pero el loop de gestión pinta interesante.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-21T16:57:46+00:00"
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "valentina-r2",
+    "persona": "valentina",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco Hablar con clientes porque es lo unico claro en la pantalla, necesito Traccion",
+      "firma_cliente_gris": "Esta gris porque necesito 10 de Traccion para poder firmar y tengo 0",
+      "espera_cerrar_mes": "Espero que pase el mes, gaste los puntos de foco y baje la caja porque seguro hay Burn",
+      "fricciones": [
+        "No entiendo que es Foco y como se usa bien",
+        "Que es Runway 8m? No dice cual es el gasto mensual",
+        "En la ayuda decia Negociar: 20 en., que es 20 en.?"
+      ],
+      "frase_textual": "Jugando a Emprende o Muere, pero no se que es Foco ni como funciona el Runway, a ver si entiendo"
+    },
+    "raw": "{\n  \"primero_toco\": \"Toco Hablar con clientes porque es lo unico claro en la pantalla, necesito Traccion\",\n  \"firma_cliente_gris\": \"Esta gris porque necesito 10 de Traccion para poder firmar y tengo 0\",\n  \"espera_cerrar_mes\": \"Espero que pase el mes, gaste los puntos de foco y baje la caja porque seguro hay Burn\",\n  \"fricciones\": [\n    \"No entiendo que es Foco y como se usa bien\",\n    \"Que es Runway 8m? No dice cual es el gasto mensual\",\n    \"En la ayuda decia Negociar: 20 en., que es 20 en.?\"\n  ],\n  \"frase_textual\": \"Jugando a Emprende o Muere, pero no se que es Foco ni como funciona el Runway, a ver si entiendo\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-21T17:07:06+00:00"
+  },
+  {
+    "id": "diego-r2",
+    "persona": "diego",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco 'Hablar con clientes' porque necesito tracción desesperadamente y construir producto me baja la moral demasiado rápido para ser el primer paso si no he validado nada.",
+      "firma_cliente_gris": "Está gris porque el botón dice explícitamente que cuesta 10 de tracción y yo tengo 0, así que es una acción bloqueada por falta de recursos, no un bug.",
+      "espera_cerrar_mes": "Que pase el mes, quemen la caja (calculado en 15k/mes dado el runway de 8 meses con 120k), actualicen las métricas de morale y energía, y me den dos puntos de foco nuevos.",
+      "fricciones": [
+        "No veo el número exacto de Moral, solo una barra, y el help habla de umbrales numéricos (67, 34) que no sé traducir a la barra visual.",
+        "El burn rate no está explícito, tengo que adivinarlo por la caja y el runway, lo cual es peligroso si cambia algo interno no visible."
+      ],
+      "frase_textual": "Acabo de empezar con 120k y cero tracción, el juego es brutalmente directo pero me mata que no diga el número de moral exacto para saber si estoy en zona de riesgo."
+    },
+    "raw": "{\n  \"primero_toco\": \"Toco 'Hablar con clientes' porque necesito tracción desesperadamente y construir producto me baja la moral demasiado rápido para ser el primer paso si no he validado nada.\",\n  \"firma_cliente_gris\": \"Está gris porque el botón dice explícitamente que cuesta 10 de tracción y yo tengo 0, así que es una acción bloqueada por falta de recursos, no un bug.\",\n  \"espera_cerrar_mes\": \"Que pase el mes, quemen la caja (calculado en 15k/mes dado el runway de 8 meses con 120k), actualicen las métricas de morale y energía, y me den dos puntos de foco nuevos.\",\n  \"fricciones\": [\n    \"No veo el número exacto de Moral, solo una barra, y el help habla de umbrales numéricos (67, 34) que no sé traducir a la barra visual.\",\n    \"El burn rate no está explícito, tengo que adivinarlo por la caja y el runway, lo cual es peligroso si cambia algo interno no visible.\"\n  ],\n  \"frase_textual\": \"Acabo de empezar con 120k y cero tracción, el juego es brutalmente directo pero me mata que no diga el número de moral exacto para saber si estoy en zona de riesgo.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-21T17:07:55+00:00"
+  },
+  {
+    "id": "camila-r2",
+    "persona": "camila",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco 'Hablar con clientes' porque parece que si o si tengo que hacer algo para arrancar y no quiero gastar el Foco en construir algo que nadie quiere.",
+      "firma_cliente_gris": "Debe estar gris porque todavía no tengo la Tracción suficiente para firmar, o sea, nadie sabe quién soy todavía.",
+      "espera_cerrar_mes": "Si toco 'Cerrar mes' espero que pasen los días, me baje la plata de la caja y vea qué pasó con lo que hice en el mes.",
+      "fricciones": [
+        "No entiendo bien qué significa 'Foco' ni cuántos tengo (¿son puntos? ¿son acciones? no está claro si son dos acciones totales por mes).",
+        "El texto de las acciones es muy chico y se me pierden detalles tipo 'Burn sube a 17k/mes' que asustan.",
+        "No tengo idea de qué hace 'Publicar contenido' vs 'Hablar con clientes', parece todo medio igual."
+      ],
+      "frase_textual": "Arranqué el juego de startups y me siento re tonta, no entiendo por qué no puedo firmar un cliente si tengo 120k, será que necesito más 'tracción'?"
+    },
+    "raw": "{\"primero_toco\": \"Toco 'Hablar con clientes' porque parece que si o si tengo que hacer algo para arrancar y no quiero gastar el Foco en construir algo que nadie quiere.\", \"firma_cliente_gris\": \"Debe estar gris porque todavía no tengo la Tracción suficiente para firmar, o sea, nadie sabe quién soy todavía.\", \"espera_cerrar_mes\": \"Si toco 'Cerrar mes' espero que pasen los días, me baje la plata de la caja y vea qué pasó con lo que hice en el mes.\", \"fricciones\": [\"No entiendo bien qué significa 'Foco' ni cuántos tengo (¿son puntos? ¿son acciones? no está claro si son dos acciones totales por mes).\", \"El texto de las acciones es muy chico y se me pierden detalles tipo 'Burn sube a 17k/mes' que asustan.\", \"No tengo idea de qué hace 'Publicar contenido' vs 'Hablar con clientes', parece todo medio igual.\"], \"frase_textual\": \"Arranqué el juego de startups y me siento re tonta, no entiendo por qué no puedo firmar un cliente si tengo 120k, será que necesito más 'tracción'?\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-21T17:08:34+00:00"
+  },
+  {
+    "id": "jorge-r2",
+    "persona": "jorge",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco Descansar porque la Moral está flaca y las reglas dicen que si está baja nada rinde bien",
+      "firma_cliente_gris": "Está gris porque dice 'requiere 10 trac' y tengo 0, es decir necesito interés del mercado antes de facturar",
+      "espera_cerrar_mes": "Debe avanzar el mes 1 al 2, gastarse el Burn y quizás cobrar la factura si firmé",
+      "fricciones": [
+        "Las reglas en la ayuda están muy chiquitas para leerlas bien en este celular",
+        "Me molesta que diga 'Runway' en vez de meses de vida, en un negocio real no hablamos así",
+        "Pitch a inversores está gris pero no sé por qué si tengo caja, es confuso"
+      ],
+      "frase_textual": "Esto no es para mí: 'Burn', 'Runway', 'Pitch'... parece tarea de universidad. Pero bueno, toco Descansar a ver si levanto Moral."
+    },
+    "raw": "{\"primero_toco\": \"Toco Descansar porque la Moral está flaca y las reglas dicen que si está baja nada rinde bien\", \"firma_cliente_gris\": \"Está gris porque dice 'requiere 10 trac' y tengo 0, es decir necesito interés del mercado antes de facturar\", \"espera_cerrar_mes\": \"Debe avanzar el mes 1 al 2, gastarse el Burn y quizás cobrar la factura si firmé\", \"fricciones\": [\"Las reglas en la ayuda están muy chiquitas para leerlas bien en este celular\", \"Me molesta que diga 'Runway' en vez de meses de vida, en un negocio real no hablamos así\", \"Pitch a inversores está gris pero no sé por qué si tengo caja, es confuso\"], \"frase_textual\": \"Esto no es para mí: 'Burn', 'Runway', 'Pitch'... parece tarea de universidad. Pero bueno, toco Descansar a ver si levanto Moral.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-21T17:09:19+00:00"
+  },
+  {
+    "id": "fernanda-r2",
+    "persona": "fernanda",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco Construir producto porque es la única que me da tracción rápida y tengo foco disponible.",
+      "firma_cliente_gris": "Está bloqueado porque pide 10 de tracción y tengo cero, aunque el contraste es tan bajo que parece más un glitch que un deshabilitado.",
+      "espera_cerrar_mes": "Espero que se procese el turno: se gaste el dinero, suba el burn y avance el contador, como en un idle game bien hecho.",
+      "fricciones": [
+        "El estado disabled de 'Firmar cliente' es terrible; el contraste texto/fondo es pésimo, no distingo si es un placeholder o una acción real.",
+        "La jerarquía del grid es plana: 'Construir producto' pesa lo mismo que 'Contratar Ventas' o 'Descansar', aunque una sea el core loop y la otra un reseteo de energía.",
+        "El hint rojo de arriba a la izquierda es minúsculo y no sigue la jerarquía de accesibilidad WCAG para texto de ayuda; si no tengo lupa, no existe.",
+        "No veo el botón de acciones disponibles explícito; asumo que son los puntos negros junto a 'Foco', pero la affordance es débil para un primer uso."
+      ],
+      "frase_textual": "Probando Emprende o Muere, pero el estado deshabilitado de Firmar cliente tiene un contraste ilegible y las jerarquías del grid están planas; se siente más debug que producto final."
+    },
+    "raw": "{\n  \"primero_toco\": \"Toco Construir producto porque es la única que me da tracción rápida y tengo foco disponible.\",\n  \"firma_cliente_gris\": \"Está bloqueado porque pide 10 de tracción y tengo cero, aunque el contraste es tan bajo que parece más un glitch que un deshabilitado.\",\n  \"espera_cerrar_mes\": \"Espero que se procese el turno: se gaste el dinero, suba el burn y avance el contador, como en un idle game bien hecho.\",\n  \"fricciones\": [\n    \"El estado disabled de 'Firmar cliente' es terrible; el contraste texto/fondo es pésimo, no distingo si es un placeholder o una acción real.\",\n    \"La jerarquía del grid es plana: 'Construir producto' pesa lo mismo que 'Contratar Ventas' o 'Descansar', aunque una sea el core loop y la otra un reseteo de energía.\",\n    \"El hint rojo de arriba a la izquierda es minúsculo y no sigue la jerarquía de accesibilidad WCAG para texto de ayuda; si no tengo lupa, no existe.\",\n    \"No veo el botón de acciones disponibles explícito; asumo que son los puntos negros junto a 'Foco', pero la affordance es débil para un primer uso.\"\n  ],\n  \"frase_textual\": \"Probando Emprende o Muere, pero el estado deshabilitado de Firmar cliente tiene un contraste ilegible y las jerarquías del grid están planas; se siente más debug que producto final.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-21T17:11:09+00:00"
+  }
+]

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Sobrevive 24 meses con una startup latinoamericana en este roguelite de decisiones: caja, burn, moral y un sello de goma al final." />
+    <meta property="og:title" content="Emprende o Muere — El juego de las startups" />
+    <meta property="og:description" content="24 meses, dos acciones por mes, y casi siempre sale mal. Ese es el juego." />
+    <meta
+      property="og:image"
+      content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%23efe7d3'/%3E%3Crect width='1200' height='630' fill='none' stroke='%23c9bda0' stroke-width='4'/%3E%3Ctext x='600' y='330' font-family='Georgia' font-size='88' font-weight='bold' fill='%23a3312a' text-anchor='middle' transform='rotate(-8 600 315)' stroke='%23a3312a' stroke-width='6' stroke-dasharray='14 10'%3EEMPRENDE O MUERE%3C/text%3E%3C/svg%3E"
+    />
+    <title>Emprende o Muere — El juego de las startups</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <h1 id="ui-title"></h1>
+      <p id="ui-subtitle"></p>
+      <div class="top-buttons">
+        <button id="library-btn" class="mini" data-testid="library"></button>
+        <button id="help-btn" class="mini" data-testid="help">?</button>
+      </div>
+    </header>
+    <p id="hint" class="hint" data-testid="hint" hidden></p>
+
+    <main>
+      <section class="state sheet" aria-label="Estado de la empresa" data-testid="state">
+        <div>
+          <div class="month-line"><span id="month-label" data-testid="month"></span></div>
+          <div class="month-track"><div id="month-fill" class="month-fill"></div></div>
+        </div>
+        <div id="hero" class="hero" data-testid="hero">
+          <div class="hero-label" id="hero-label"></div>
+          <div class="hero-value" id="hero-value" data-testid="hero-value"></div>
+          <div class="hero-gloss" id="hero-gloss"></div>
+        </div>
+        <div class="state-fields" id="state-fields"></div>
+      </section>
+
+      <section class="actions sheet" aria-label="Acciones del mes">
+        <ul id="action-list" data-testid="actions"></ul>
+        <div class="footer-rows">
+          <button id="end-btn" class="row row-end" data-testid="end"></button>
+          <button id="pitch-btn" class="row row-pitch row-secondary" data-testid="pitch"></button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="log sheet" aria-label="Registro" data-testid="log">
+      <ul id="log-lines" class="log-lines" data-testid="log-lines"></ul>
+    </footer>
+
+    <div id="offer-panel" class="modal" role="dialog" aria-label="Oferta de inversión" hidden>
+      <div class="modal-sheet sheet">
+        <h2 class="modal-title" id="offer-title"></h2>
+        <div class="offer-terms">
+          <p id="offer-terms-line" data-testid="offer-terms"></p>
+          <p id="offer-dilution" data-testid="offer-dilution"></p>
+          <p id="offer-risk" class="offer-risk"></p>
+        </div>
+        <div class="perforation" aria-hidden="true"></div>
+        <div class="offer-buttons">
+          <button id="accept-btn" class="row row-end" data-testid="accept"></button>
+          <button id="counter-btn" class="row row-secondary" data-testid="counter"></button>
+          <button id="decline-btn" class="row row-secondary" data-testid="decline"></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="help-modal" class="modal" hidden>
+      <div class="modal-sheet sheet" role="dialog" aria-modal="true" aria-label="Cómo se juega">
+        <div class="modal-head">
+          <h2 class="modal-title" id="help-title"></h2>
+          <button class="modal-close" data-testid="close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="help-grid" id="help-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="library-modal" class="modal" hidden>
+      <div class="modal-sheet sheet" role="dialog" aria-modal="true" aria-label="Lo que aprendiste">
+        <div class="modal-head">
+          <h2 class="modal-title" id="library-title"></h2>
+          <button class="modal-close" data-testid="close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="library-list" id="library-list" data-testid="library-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="terminal" class="terminal" role="dialog" aria-label="Fin de la partida" hidden>
+      <div class="terminal-sheet sheet" data-testid="terminal-sheet">
+        <div class="stamp" id="terminal-stamp" data-testid="stamp"></div>
+        <div class="terminal-headline" id="terminal-headline" data-testid="headline"></div>
+        <p class="terminal-learn" id="terminal-learn" data-testid="terminal-learn"></p>
+        <div class="settlement" id="settlement"></div>
+        <button id="restart-btn" class="row row-end" data-testid="restart"></button>
+      </div>
+    </div>
+
+    <script type="module" src="ui/main.js"></script>
+  </body>
+</html>

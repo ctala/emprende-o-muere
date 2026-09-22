@@ -1,0 +1,129 @@
+[
+  {
+    "id": "valentina-r2",
+    "persona": "valentina",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "toque el signo de interrogacion arriba a la derecha porque nadie se aventura sin leer el instructivo",
+      "firma_cliente_gris": "esta gris porque mi traccion es cero y el juego dice mas abajo que para firmar necesito 10",
+      "espera_cerrar_mes": "espero que me cobre los gastos del mes y me mande directo al mes 2",
+      "fricciones": [
+        "el boton firmar no se veia tan claro que no estaba habilitado hasta que no fui al menu de ayuda",
+        "la traccion esta arriba en cero pero no me explica de una que sirve para desbloquear acciones"
+      ],
+      "frase_textual": "me meti a un juego de startups y el mes 1 fue todo leer, ni pude vender porque me faltaban clientes"
+    },
+    "raw": "{\n  \"primero_toco\": \"toque el signo de interrogacion arriba a la derecha porque nadie se aventura sin leer el instructivo\",\n  \"firma_cliente_gris\": \"esta gris porque mi traccion es cero y el juego dice mas abajo que para firmar necesito 10\",\n  \"espera_cerrar_mes\": \"espero que me cobre los gastos del mes y me mande directo al mes 2\",\n  \"fricciones\": [\n    \"el boton firmar no se veia tan claro que no estaba habilitado hasta que no fui al menu de ayuda\",\n    \"la traccion esta arriba en cero pero no me explica de una que sirve para desbloquear acciones\"\n  ],\n  \"frase_textual\": \"me meti a un juego de startups y el mes 1 fue todo leer, ni pude vender porque me faltaban clientes\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T02:12:30+00:00"
+  },
+  {
+    "id": "diego-r2",
+    "persona": "diego",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Primero toco Construir producto porque con 0 de tracción no tienes nada que vender ni con quién firmar contratos.",
+      "firma_cliente_gris": "Esa acción debe estar gris o bloqueada porque dice en la ayuda que necesitas 10 de tracción y ahorita tienes cero, o sea, no te van a pagar un centavo sin producto.",
+      "espera_cerrar_mes": "Si toco cerrar mes, espero que se vayan los 15k de burn del mes y el runway baje a 7, pero siento que la interacción no refleja bien que estoy perdiendo oxígeno real.",
+      "fricciones": [
+        "Molesta que las métricas sean tan básicas, no veo ningún desglose de equity o cap table",
+        "Las acciones me quitan moral pero la interfaz no hace claro cuánto riesgo real asumes por esa baja moral",
+        "Que no haya feedback inmediato de dilución al hacer pitch me parece que simplifica demasiado la realidad de un founder"
+      ],
+      "frase_textual": ""
+    },
+    "raw": "{\n  \"primero_toco\": \"Primero toco Construir producto porque con 0 de tracción no tienes nada que vender ni con quién firmar contratos.\",\n  \"firma_cliente_gris\": \"Esa acción debe estar gris o bloqueada porque dice en la ayuda que necesitas 10 de tracción y ahorita tienes cero, o sea, no te van a pagar un centavo sin producto.\",\n  \"espera_cerrar_mes\": \"Si toco cerrar mes, espero que se vayan los 15k de burn del mes y el runway baje a 7, pero siento que la interacción no refleja bien que estoy perdiendo oxígeno real.\",\n  \"fricciones\": [\n    \"Molesta que las métricas sean tan básicas, no veo ningún desglose de equity o cap table\",\n    \"Las acciones me quitan moral pero la interfaz no hace claro cuánto riesgo real asumes por esa baja moral\",\n    \"Que no haya feedback inmediato de dilución al hacer pitch me parece que simplifica demasiado la realidad de un founder\"\n  ],\n  \"frase_text\": \"Ya voy viendo cómo va este jueguito, aunque ojalá y no me deje sin runway como me pasó en la real.\"\n}",
+    "attempts": 1,
+    "valid": false,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T02:13:12+00:00"
+  },
+  {
+    "id": "camila-r2",
+    "persona": "camila",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco el boton ? primero porque sino no se que significa nada de lo que dice ahi y tengo miedo de tocar algo mal.",
+      "firma_cliente_gris": "Estara gris porque en la ayuda dice que necesita 10 de traccion y yo tengo 0 asi que seguro esta bloqueado hasta que junte mas.",
+      "espera_cerrar_mes": "Espero que pase al mes 2 y me descuenten la plata o algo asi, o que cambien los numeros de caja.",
+      "fricciones": [
+        "Tener que leer un parrafo entero en la ayuda para saber que hace cada boton, quiero solo tocar y listo.",
+        "La interfaz es toda beige y cafe, parece un formulario bancario viejo o algo asi, es aburrida.",
+        "No se ve bien si el boton Firmar Cliente esta bloqueado por la traccion o es otro motivo, tuve que leer la letra chica de abajo."
+      ],
+      "frase_textual": "Estoy probando este juego de startups que me mandaron, el diseno esta un poco muerto y tengo que leer demasiado para saber que hace cada boton pero bueno, veamos si aguanto mas de 3 turnos."
+    },
+    "raw": "{\n  \"primero_toco\": \"Toco el boton ? primero porque sino no se que significa nada de lo que dice ahi y tengo miedo de tocar algo mal.\",\n  \"firma_cliente_gris\": \"Estara gris porque en la ayuda dice que necesita 10 de traccion y yo tengo 0 asi que seguro esta bloqueado hasta que junte mas.\",\n  \"espera_cerrar_mes\": \"Espero que pase al mes 2 y me descuenten la plata o algo asi, o que cambien los numeros de caja.\",\n  \"fricciones\": [\n    \"Tener que leer un parrafo entero en la ayuda para saber que hace cada boton, quiero solo tocar y listo.\",\n    \"La interfaz es toda beige y cafe, parece un formulario bancario viejo o algo asi, es aburrida.\",\n    \"No se ve bien si el boton Firmar Cliente esta bloqueado por la traccion o es otro motivo, tuve que leer la letra chica de abajo.\"\n  ],\n  \"frase_textual\": \"Estoy probando este juego de startups que me mandaron, el diseno esta un poco muerto y tengo que leer demasiado para saber que hace cada boton pero bueno, veamos si aguanto mas de 3 turnos.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T02:14:58+00:00"
+  },
+  {
+    "id": "jorge-r2",
+    "persona": "jorge",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco el signo de pregunta porque si no me explican qué significa 'Runway' y 'Quema', no voy a apretar ninguna acción a lo tonto.",
+      "firma_cliente_gris": "Está apagado porque en la ayuda dice que necesito 10 de tracción para firmar y ahora mismo tengo cero, así que no me deja hacerlo.",
+      "espera_cerrar_mes": "Espero que pase al siguiente mes, que se descuenten los gastos mensuales de la caja y se acabe una de las acciones del turno.",
+      "fricciones": [
+        "Tengo que leer demasiada letra chiquita en la ayuda para entender reglas básicas.",
+        "Palabras en inglés como Runway, Burn y Pitch confunden, mejor poner palabras claras en español."
+      ],
+      "frase_textual": "Me descargué ese juego de simulación que me pasaste. Me obligó a leer un manual antes de jugar. La letra es muy chica para mi celular y no me gusta cómo calcula la 'moral' del equipo, en la vida real eso se gestiona, no se juega."
+    },
+    "raw": "{\"primero_toco\":\"Toco el signo de pregunta porque si no me explican qué significa 'Runway' y 'Quema', no voy a apretar ninguna acción a lo tonto.\",\"firma_cliente_gris\":\"Está apagado porque en la ayuda dice que necesito 10 de tracción para firmar y ahora mismo tengo cero, así que no me deja hacerlo.\",\"espera_cerrar_mes\":\"Espero que pase al siguiente mes, que se descuenten los gastos mensuales de la caja y se acabe una de las acciones del turno.\",\"fricciones\":[\"Tengo que leer demasiada letra chiquita en la ayuda para entender reglas básicas.\",\"Palabras en inglés como Runway, Burn y Pitch confunden, mejor poner palabras claras en español.\"],\"frase_textual\":\"Me descargué ese juego de simulación que me pasaste. Me obligó a leer un manual antes de jugar. La letra es muy chica para mi celular y no me gusta cómo calcula la 'moral' del equipo, en la vida real eso se gestiona, no se juega.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T02:15:43+00:00"
+  },
+  {
+    "id": "fernanda-r2",
+    "persona": "fernanda",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Pico el botón de ayuda '?' arriba a la derecha porque no quiero perder una acción malgastada sin entender bien las reglas de tracción y moral.",
+      "firma_cliente_gris": "Está deshabilitado porque en la leyenda de abajo pone 'Requiere 10 de tracción' y yo arranco con 0, así que el sistema me avisa que no puedo ejecutar esa acción todavía.",
+      "espera_cerrar_mes": "Avanza al Mes 2, descuenta la Quema (15k) de la Caja, y resetea mis Acciones a 2/2 para poder jugar el siguiente turno.",
+      "fricciones": [
+        "El botón 'Firmar cliente' no se ve claramente en la lista principal; solo veo un recuadro punteado abajo que dice 'Requiere 10 de tracción', lo que hace que sea fácil pasar por alto qué acción está bloqueada y por qué sin scrollear.",
+        "La jerarquía visual del botón 'Pitch a inversores' (desbloqueado desde el mes 6) compite demasiado con los botones de acción activos; siento que me roba atención antes de que entienda qué puedo hacer hoy."
+      ],
+      "frase_textual": "Jugando Emprende o Muere, el UI es linda pero le falta aire, casi me pierdo el bloque de acciones bloqueadas porque lo tiraron abajo con letra chiquita y punteados raros, tipografía y contraste piden un refresh urgente."
+    },
+    "raw": "{\n  \"primero_toco\": \"Pico el botón de ayuda '?' arriba a la derecha porque no quiero perder una acción malgastada sin entender bien las reglas de tracción y moral.\",\n  \"firma_cliente_gris\": \"Está deshabilitado porque en la leyenda de abajo pone 'Requiere 10 de tracción' y yo arranco con 0, así que el sistema me avisa que no puedo ejecutar esa acción todavía.\",\n  \"espera_cerrar_mes\": \"Avanza al Mes 2, descuenta la Quema (15k) de la Caja, y resetea mis Acciones a 2/2 para poder jugar el siguiente turno.\",\n  \"fricciones\": [\n    \"El botón 'Firmar cliente' no se ve claramente en la lista principal; solo veo un recuadro punteado abajo que dice 'Requiere 10 de tracción', lo que hace que sea fácil pasar por alto qué acción está bloqueada y por qué sin scrollear.\",\n    \"La jerarquía visual del botón 'Pitch a inversores' (desbloqueado desde el mes 6) compite demasiado con los botones de acción activos; siento que me roba atención antes de que entienda qué puedo hacer hoy.\"\n  ],\n  \"frase_textual\": \"Jugando Emprende o Muere, el UI es linda pero le falta aire, casi me pierdo el bloque de acciones bloqueadas porque lo tiraron abajo con letra chiquita y punteados raros, tipografía y contraste piden un refresh urgente.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T02:16:34+00:00"
+  }
+]

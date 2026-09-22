@@ -1,0 +1,133 @@
+[
+  {
+    "id": "valentina-r2",
+    "persona": "valentina",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "El boton del signo de interrogacion porque no me quiero perder por no saber las reglas",
+      "firma_cliente_gris": "Probablemente porque necesito mas traccion o acciones para poder usarlo",
+      "espera_cerrar_mes": "Que se avance el mes y se gaste la plata y las acciones pendientes",
+      "fricciones": [
+        "La letra es muy chiquita para leer en el celular",
+        "No entiendo bien que significa que el pitch requiera coolodown o energia sin explicacion previa",
+        "El diseno parece una hoja de Excel vieja y me aburre"
+      ],
+      "frase_textual": "Puse a jugar este juego de startups y la verdad la interfaz es bien seca y la letra chiquita, pero bueno, a ver si aguanto mes 1"
+    },
+    "raw": "{\n  \"primero_toco\": \"El boton del signo de interrogacion porque no me quiero perder por no saber las reglas\",\n  \"firma_cliente_gris\": \"Probablemente porque necesito mas traccion o acciones para poder usarlo\",\n  \"espera_cerrar_mes\": \"Que se avance el mes y se gaste la plata y las acciones pendientes\",\n  \"fricciones\": [\n    \"La letra es muy chiquita para leer en el celular\",\n    \"No entiendo bien que significa que el pitch requiera coolodown o energia sin explicacion previa\",\n    \"El diseno parece una hoja de Excel vieja y me aburre\"\n  ],\n  \"frase_textual\": \"Puse a jugar este juego de startups y la verdad la interfaz es bien seca y la letra chiquita, pero bueno, a ver si aguanto mes 1\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T08:46:27+00:00"
+  },
+  {
+    "id": "diego-r2",
+    "persona": "diego",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco el signo de interrogacion arriba a la derecha porque si me meten un pitch a inversores en el mes 6 yo quiero saber exactamente que requisitos me van a exigir antes de quemar mis dos acciones iniciales.",
+      "firma_cliente_gris": "Lo veo gris y bloqueado en la ayuda porque la traccion esta en cero y yo se muy bien que ninguna empresa te firma un contrato si no tienes un producto funcional o al menos pruebas de concepto.",
+      "espera_cerrar_mes": "Al cerrar mes espero que se me descuenten los 15k de burn rate de la caja, el runway baje a 7 meses y los efectos de las acciones que escogi se apliquen a mis estadisticas.",
+      "fricciones": [
+        "La accion Firmar cliente no esta visible en las tarjetas del mes 1 pero la ayuda menciona que consume 10 de traccion y se cobra en 3 meses.",
+        "Las acciones Descansar y Contratar aparecen en la ayuda pero no tienen tarjetas visuales en la interfaz del mes 1 para poder tocarlas directamente.",
+        "El Pitch a inversores requiere energia y el pitch gasta energia pero la tarjeta de la interfaz solo pone un requerimiento de traccion de 10 sin mostrar el costo en energia.",
+        "No me queda claro si las 2 acciones se consumen solo con elegir la tarjeta o si tengo que tocar Cerrar mes para confirmar todo."
+      ],
+      "frase_textual": "Esta buena la interfaz del juego pero me enoja que las reglas de la ayuda no coincidan con las tarjetas visibles para el mes uno"
+    },
+    "raw": "{\n  \"primero_toco\": \"Toco el signo de interrogacion arriba a la derecha porque si me meten un pitch a inversores en el mes 6 yo quiero saber exactamente que requisitos me van a exigir antes de quemar mis dos acciones iniciales.\",\n  \"firma_cliente_gris\": \"Lo veo gris y bloqueado en la ayuda porque la traccion esta en cero y yo se muy bien que ninguna empresa te firma un contrato si no tienes un producto funcional o al menos pruebas de concepto.\",\n  \"espera_cerrar_mes\": \"Al cerrar mes espero que se me descuenten los 15k de burn rate de la caja, el runway baje a 7 meses y los efectos de las acciones que escogi se apliquen a mis estadisticas.\",\n  \"fricciones\": [\"La accion Firmar cliente no esta visible en las tarjetas del mes 1 pero la ayuda menciona que consume 10 de traccion y se cobra en 3 meses.\", \"Las acciones Descansar y Contratar aparecen en la ayuda pero no tienen tarjetas visuales en la interfaz del mes 1 para poder tocarlas directamente.\", \"El Pitch a inversores requiere energia y el pitch gasta energia pero la tarjeta de la interfaz solo pone un requerimiento de traccion de 10 sin mostrar el costo en energia.\", \"No me queda claro si las 2 acciones se consumen solo con elegir la tarjeta o si tengo que tocar Cerrar mes para confirmar todo.\"],\n  \"frase_textual\": \"Esta buena la interfaz del juego pero me enoja que las reglas de la ayuda no coincidan con las tarjetas visibles para el mes uno\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T08:47:15+00:00"
+  },
+  {
+    "id": "camila-r2",
+    "persona": "camila",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toco el ? porque sino no tengo ni idea de qué significan todas esas palabras en inglés y no quiero perder el tiempo mirando números sin saber qué hacer.",
+      "firma_cliente_gris": "Debe estar bloqueado o no disponible porque mi tracción está en 0 y la ayuda dice que para firmar hay que tener 10, así que es como un botón que espera a que crezcas un poco más.",
+      "espera_cerrar_mes": "Espero que el mes avance, se me descuenten los gastos de la caja y ver qué pasa con mis estadísticas si no hice nada productivo.",
+      "fricciones": [
+        "El texto de la ayuda es muy largo y chico para leerlo en el celu, me canso de scrollear.",
+        "No está claro por qué algunos términos están en inglés (Runway, Burn) y otros en español, mezclado así queda medio feo.",
+        "No veo bien donde está el botón 'Firmar cliente' en la pantalla principal si no está listado claramente como los otros, me confunde un poco."
+      ],
+      "frase_textual": "Jugando a Emprende o Muere, está lindo pero me perdí un poco con los términos en inglés y la ayuda es un pelotón de texto."
+    },
+    "raw": "{\n  \"primero_toco\": \"Toco el ? porque sino no tengo ni idea de qué significan todas esas palabras en inglés y no quiero perder el tiempo mirando números sin saber qué hacer.\",\n  \"firma_cliente_gris\": \"Debe estar bloqueado o no disponible porque mi tracción está en 0 y la ayuda dice que para firmar hay que tener 10, así que es como un botón que espera a que crezcas un poco más.\",\n  \"espera_cerrar_mes\": \"Espero que el mes avance, se me descuenten los gastos de la caja y ver qué pasa con mis estadísticas si no hice nada productivo.\",\n  \"fricciones\": [\n    \"El texto de la ayuda es muy largo y chico para leerlo en el celu, me canso de scrollear.\",\n    \"No está claro por qué algunos términos están en inglés (Runway, Burn) y otros en español, mezclado así queda medio feo.\",\n    \"No veo bien donde está el botón 'Firmar cliente' en la pantalla principal si no está listado claramente como los otros, me confunde un poco.\"\n  ],\n  \"frase_textual\": \"Jugando a Emprende o Muere, está lindo pero me perdí un poco con los términos en inglés y la ayuda es un pelotón de texto.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T08:47:57+00:00"
+  },
+  {
+    "id": "jorge-r2",
+    "persona": "jorge",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "El signo de interrogación porque no entiendo para qué sirven las métricas con nombres raros como Runway o Burn.",
+      "firma_cliente_gris": "Porque la ayuda dice que necesitas 10 de tracción para firmar y yo tengo 0, es lógica de negocio: no puedes vender si nadie te quiere comprar.",
+      "espera_cerrar_mes": "Que me descuenten los 15k de gasto mensual y si no hice nada para generar caja, se me acaba la plata antes de tiempo.",
+      "fricciones": [
+        "El texto muy chico para mi celular gama media, tengo que agudizar la vista.",
+        "Usar palabras en inglés como Runway o Burn en vez de decir Meses de caja y Gasto mensual, para confundir al que recién entra.",
+        "No veo claramente dónde están las 2 acciones que tengo, parece que faltan botones claros de confirmación."
+      ],
+      "frase_textual": "Jugando a ser startupero, pero con estos nombres en inglés y la letra tan chica, parece que quieren que te confundas para que no entiendas tus propios números."
+    },
+    "raw": "{\n  \"primero_toco\": \"El signo de interrogación porque no entiendo para qué sirven las métricas con nombres raros como Runway o Burn.\",\n  \"firma_cliente_gris\": \"Porque la ayuda dice que necesitas 10 de tracción para firmar y yo tengo 0, es lógica de negocio: no puedes vender si nadie te quiere comprar.\",\n  \"espera_cerrar_mes\": \"Que me descuenten los 15k de gasto mensual y si no hice nada para generar caja, se me acaba la plata antes de tiempo.\",\n  \"fricciones\": [\n    \"El texto muy chico para mi celular gama media, tengo que agudizar la vista.\",\n    \"Usar palabras en inglés como Runway o Burn en vez de decir Meses de caja y Gasto mensual, para confundir al que recién entra.\",\n    \"No veo claramente dónde están las 2 acciones que tengo, parece que faltan botones claros de confirmación.\"\n  ],\n  \"frase_textual\": \"Jugando a ser startupero, pero con estos nombres en inglés y la letra tan chica, parece que quieren que te confundas para que no entiendas tus propios números.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T08:48:47+00:00"
+  },
+  {
+    "id": "fernanda-r2",
+    "persona": "fernanda",
+    "round": 2,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "primero_toco": "Toqué el ? primero porque la jerarquía de la pantalla principal es confusa y necesitaba entender las reglas para no jugar a ciegas.",
+      "firma_cliente_gris": "Está deshabilitado porque no cumplí el requisito de tracción (probablemente requiere 10), pero la UI no me dice claramente por qué no puedo tocarlo, solo me deja adivinar.",
+      "espera_cerrar_mes": "Espero que reinicie las acciones disponibles, consuma la caja (burn) y avance el contador de meses, pero sin feedback de transición claro, siento que puede cerrar el mes sin avisar si la moral se desploma.",
+      "fricciones": [
+        "El contraste de la leyenda superior 'Nuevo aquí?...' es muy bajo, casi invisible, lo que sugiere descuido de accesibilidad.",
+        "'Cerrar mes' tiene el mismo peso visual que las acciones menores, generando ambigüedad sobre cuál es la acción primaria de la pantalla.",
+        "No hay un tooltip o mensaje claro al interactuar con botones deshabilitados como 'Firmar cliente', obliga a leer la ayuda para entender las restricciones."
+      ],
+      "frase_textual": "Jugando 'Emprende o Muere': la UI tiene buenas intenciones en métricas, pero falla en accesibilidad y feedback táctil, me confundió más que me guió."
+    },
+    "raw": "{\n  \"primero_toco\": \"Toqué el ? primero porque la jerarquía de la pantalla principal es confusa y necesitaba entender las reglas para no jugar a ciegas.\",\n  \"firma_cliente_gris\": \"Está deshabilitado porque no cumplí el requisito de tracción (probablemente requiere 10), pero la UI no me dice claramente por qué no puedo tocarlo, solo me deja adivinar.\",\n  \"espera_cerrar_mes\": \"Espero que reinicie las acciones disponibles, consuma la caja (burn) y avance el contador de meses, pero sin feedback de transición claro, siento que puede cerrar el mes sin avisar si la moral se desploma.\",\n  \"fricciones\": [\n    \"El contraste de la leyenda superior 'Nuevo aquí?...' es muy bajo, casi invisible, lo que sugiere descuido de accesibilidad.\",\n    \"'Cerrar mes' tiene el mismo peso visual que las acciones menores, generando ambigüedad sobre cuál es la acción primaria de la pantalla.\",\n    \"No hay un tooltip o mensaje claro al interactuar con botones deshabilitados como 'Firmar cliente', obliga a leer la ayuda para entender las restricciones.\"\n  ],\n  \"frase_textual\": \"Jugando 'Emprende o Muere': la UI tiene buenas intenciones en métricas, pero falla en accesibilidad y feedback táctil, me confundió más que me guió.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png",
+      "help_portrait.png"
+    ],
+    "ts": "2026-09-22T08:49:35+00:00"
+  }
+]

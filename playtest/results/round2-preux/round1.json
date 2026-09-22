@@ -1,0 +1,125 @@
+[
+  {
+    "id": "valentina-r1",
+    "persona": "valentina",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Parece un simulador donde tienes que mantener viva una startup sin que se te acabe la plata ni te depriman los empleados, tipo 'Sims' pero de oficina",
+      "jugarias": "quizas",
+      "por_que": "Porque me choca la temática pero el diseño se ve cansón y oscuro, y si la primera acción no me dice qué hace no pierdo el tiempo",
+      "fricciones": [
+        "La acción de Publicar contenido no dice cuánta tracción ni moral afecta, eso es inaceptable",
+        "El fondo café oscuro y las letras beige hacen que se lea difícil y parezca app de los 2005",
+        "No sé si puedo hacer scroll o si ya está todo ahí, se ve apretado"
+      ],
+      "frase_textual": "Oye, está interesante pero la UI está muy cansona y no dice qué hace publicar contenido, si no lo arreglas no lo juego"
+    },
+    "raw": "{\n  \"de_que_va\": \"Parece un simulador donde tienes que mantener viva una startup sin que se te acabe la plata ni te depriman los empleados, tipo 'Sims' pero de oficina\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Porque me choca la temática pero el diseño se ve cansón y oscuro, y si la primera acción no me dice qué hace no pierdo el tiempo\",\n  \"fricciones\": [\n    \"La acción de Publicar contenido no dice cuánta tracción ni moral afecta, eso es inaceptable\",\n    \"El fondo café oscuro y las letras beige hacen que se lea difícil y parezca app de los 2005\",\n    \"No sé si puedo hacer scroll o si ya está todo ahí, se ve apretado\"\n  ],\n  \"frase_textual\": \"Oye, está interesante pero la UI está muy cansona y no dice qué hace publicar contenido, si no lo arreglas no lo juego\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T02:08:42+00:00"
+  },
+  {
+    "id": "diego-r1",
+    "persona": "diego",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Parece un simulador de gestión de startup donde tienes que sobrevivir 24 meses optimizando caja, tracción y moral sin quedarte sin runway antes de hacer un pitch viable.",
+      "jugarias": "quizas",
+      "por_que": "Me intriga la gestión de trade-offs entre tracción y moral, pero no jugaría una interfaz que no me muestra los costos reales de 'Publicar contenido'.",
+      "fricciones": [
+        "'Publicar contenido' no muestra efecto ni costo, mientras las otras dos acciones sí detallan tracción y moral; inconsistencia que impide decidir",
+        "'Pitch a inversores' aparece visible en la ronda 1 pero está bloqueada hasta el mes 6, ruido visual que no aporta en el primer turno",
+        "Barra de energía sin valor numérico, no sabes cuánta acción te queda o cómo se consume"
+      ],
+      "frase_textual": "Bro, la UI está a medias: dos acciones tienen números y la tercera es un misterio, y el pitch está bloqueado pero pegado ahí; o me das los costos o borra lo que no puedo tocar."
+    },
+    "raw": "{\n  \"de_que_va\": \"Parece un simulador de gestión de startup donde tienes que sobrevivir 24 meses optimizando caja, tracción y moral sin quedarte sin runway antes de hacer un pitch viable.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Me intriga la gestión de trade-offs entre tracción y moral, pero no jugaría una interfaz que no me muestra los costos reales de 'Publicar contenido'.\",\n  \"fricciones\": [\n    \"'Publicar contenido' no muestra efecto ni costo, mientras las otras dos acciones sí detallan tracción y moral; inconsistencia que impide decidir\",\n    \"'Pitch a inversores' aparece visible en la ronda 1 pero está bloqueada hasta el mes 6, ruido visual que no aporta en el primer turno\",\n    \"Barra de energía sin valor numérico, no sabes cuánta acción te queda o cómo se consume\"\n  ],\n  \"frase_textual\": \"Bro, la UI está a medias: dos acciones tienen números y la tercera es un misterio, y el pitch está bloqueado pero pegado ahí; o me das los costos o borra lo que no puedo tocar.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T02:09:40+00:00"
+  },
+  {
+    "id": "camila-r1",
+    "persona": "camila",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "De manejar una startup donde tenés que gastar plata y cuidar que no se mueran todos antes de venderla, pero no sé bien cómo funciona.",
+      "jugarias": "no",
+      "por_que": "Porque me confunden los términos financieros y el diseño es horrible, parece una hoja de cálculo aburrida.",
+      "fricciones": [
+        "No sé qué es exactamente 'Quema' ni cómo me afecta",
+        "El diseño beige/marrón parece de un banco viejo, no de un juego moderno",
+        "No entiendo la diferencia entre 'Energía' y 'Moral'"
+      ],
+      "frase_textual": "Amiga, esto está re rulo, no entiendo ni el Burn Rate y encima los colores son espantosos, parece Excel."
+    },
+    "raw": "{\n  \"de_que_va\": \"De manejar una startup donde tenés que gastar plata y cuidar que no se mueran todos antes de venderla, pero no sé bien cómo funciona.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"Porque me confunden los términos financieros y el diseño es horrible, parece una hoja de cálculo aburrida.\",\n  \"fricciones\": [\n    \"No sé qué es exactamente 'Quema' ni cómo me afecta\",\n    \"El diseño beige/marrón parece de un banco viejo, no de un juego moderno\",\n    \"No entiendo la diferencia entre 'Energía' y 'Moral'\"\n  ],\n  \"frase_textual\": \"Amiga, esto está re rulo, no entiendo ni el Burn Rate y encima los colores son espantosos, parece Excel.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T02:10:20+00:00"
+  },
+  {
+    "id": "jorge-r1",
+    "persona": "jorge",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "una frase: de quu00e9 creu00e9s que trata este juego, segu00fan lo que se ve",
+      "jugarias": "si|no|quizas",
+      "por_que": "una frase de por quu00e9 su00ed o no lo jugaru00edas, en primera persona, con tu voz",
+      "fricciones": [
+        "lista corta de cosas que no se entienden, no se ven o molesten; vacu00edo si ninguna"
+      ],
+      "frase_textual": "una frase textual en primera persona sobre la pantalla, como se la mandaru00edas a un amigo por WhatsApp"
+    },
+    "raw": "{\"de_que_va\": \"una frase: de quu00e9 creu00e9s que trata este juego, segu00fan lo que se ve\",\"jugarias\": \"si|no|quizas\",\"por_que\": \"una frase de por quu00e9 su00ed o no lo jugaru00edas, en primera persona, con tu voz\",\"fricciones\": [\"lista corta de cosas que no se entienden, no se ven o molesten; vacu00edo si ninguna\"],\"frase_textual\": \"una frase textual en primera persona sobre la pantalla, como se la mandaru00edas a un amigo por WhatsApp\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T02:10:48+00:00"
+  },
+  {
+    "id": "fernanda-r1",
+    "persona": "fernanda",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Simulador de supervivencia de startup donde gestionas recursos limitados para no quebrar en 24 meses.",
+      "jugarias": "quizas",
+      "por_que": "Me engancha la estética limpia, pero si no veo el impacto numérico inmediato de cada botón, me frustro y cierro la app.",
+      "fricciones": [
+        "'Publicar contenido' no muestra el delta de métricas como las otras acciones",
+        "El texto rojo 'Se destraba en el mes 6' distrae y no es accionable",
+        "Las barras de verde (Moral/Energía) carecen de diferenciación cromática o textual clara"
+      ],
+      "frase_textual": "Nene, este UI necesita un rejigger urgente, 'Publicar contenido' está huérfano y ese texto rojo grita más que las acciones que sí puedo tomar."
+    },
+    "raw": "{\"de_que_va\":\"Simulador de supervivencia de startup donde gestionas recursos limitados para no quebrar en 24 meses.\",\"jugarias\":\"quizas\",\"por_que\":\"Me engancha la estética limpia, pero si no veo el impacto numérico inmediato de cada botón, me frustro y cierro la app.\",\"fricciones\":[\"'Publicar contenido' no muestra el delta de métricas como las otras acciones\",\"El texto rojo 'Se destraba en el mes 6' distrae y no es accionable\",\"Las barras de verde (Moral/Energía) carecen de diferenciación cromática o textual clara\"],\"frase_textual\":\"Nene, este UI necesita un rejigger urgente, 'Publicar contenido' está huérfano y ese texto rojo grita más que las acciones que sí puedo tomar.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T02:11:42+00:00"
+  }
+]

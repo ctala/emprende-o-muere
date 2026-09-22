@@ -1,0 +1,125 @@
+[
+  {
+    "id": "valentina-r3",
+    "persona": "valentina",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "entiendes_por_que_perdiste": "Gastaste todo en crecer sin calcular los meses reales de caja que te dejaban los gastos de energía y moral de los primeros meses.",
+      "compartiras": "quizas",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "El término 'runway' para decir meses de caja, si no se habla simple no se explica bien.",
+        "La interfaz es muy oscura y los números de 'energía' o 'tracción' sin contexto no dicen nada real sobre el negocio.",
+        "Que salga el mensaje de culpable ('burn manda') después de perder es puro golpe bajo sin explicación previa."
+      ],
+      "frase_textual": "Pura verdad de la calle me pegó el juego este. Quebré en el 9 porque me fui de boca con los gastos sin medir el runway. ¿Alguien más lo jugó?"
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"Gastaste todo en crecer sin calcular los meses reales de caja que te dejaban los gastos de energía y moral de los primeros meses.\",\n  \"compartiras\": \"quizas\",\n  \"con_que_texto\": \"Pura verdad de la calle me pegó el juego este. Quebré en el 9 porque me fui de boca con los gastos sin medir el runway. ¿Alguien más lo jugó?\",\n  \"volves_a_jugar\": \"quizas\",\n  \"fricciones\": [\n    \"El término 'runway' para decir meses de caja, si no se habla simple no se explica bien.\",\n    \"La interfaz es muy oscura y los números de 'energía' o 'tracción' sin contexto no dicen nada real sobre el negocio.\",\n    \"Que salga el mensaje de culpable ('burn manda') después de perder es puro golpe bajo sin explicación previa.\"\n  ],\n  \"frase_textual\": \"Pura verdad de la calle me pegó el juego este. Quebré en el 9 porque me fui de boca con los gastos sin medir el runway. ¿Alguien más lo jugó?\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-22T08:50:28+00:00"
+  },
+  {
+    "id": "diego-r3",
+    "persona": "diego",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "entiendes_por_que_perdiste": "Gasté sin control, ignorando el burn rate mensual hasta que se me terminó el runway.",
+      "compartiras": "si",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "No quiero que me digan 'te lo dije' en el grupo de emprendedores",
+        "Quiero ver la curva de burn en el replays, si el juego tiene",
+        "Me molesta que me digan 'el burn manda' como si no lo supiera"
+      ],
+      "frase_textual": "Me quebró un juego. En 9 meses. Yo en 16. Al final el mensaje es el mismo: 'conoce tu runway antes de gastar'."
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"Gasté sin control, ignorando el burn rate mensual hasta que se me terminó el runway.\",\n  \"compartiras\": \"si\",\n  \"con_que_texto\": \"Puse que me quebrara este juego de simulación. Me quedé sin caja en el mes 9. El mensaje que me tira es 'conoce tu runway antes de gastar'. Yo sé, pero bueno, a veces uno se enamora de las métricas y deja de lado la caja. ¿Quién más le jugó y cómo le fue?\",\n  \"volves_a_jugar\": \"quizas\",\n  \"fricciones\": [\n    \"No quiero que me digan 'te lo dije' en el grupo de emprendedores\",\n    \"Quiero ver la curva de burn en el replays, si el juego tiene\",\n    \"Me molesta que me digan 'el burn manda' como si no lo supiera\"\n  ],\n  \"frase_textual\": \"Me quebró un juego. En 9 meses. Yo en 16. Al final el mensaje es el mismo: 'conoce tu runway antes de gastar'.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-22T08:51:05+00:00"
+  },
+  {
+    "id": "camila-r3",
+    "persona": "camila",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "entiendes_por_que_perdiste": "El juego me dice que no miré el runway y me quedé sin caja, pero bueno, yo pensé que era más sobre la idea y el diseño y menos sobre planillas de excel.",
+      "compartiras": "si",
+      "volves_a_jugar": "no",
+      "fricciones": [
+        "Me siento medio tonta porque el juego asume que sé qué es el runway y yo no tenía ni idea",
+        "Los del grupo hablan de pivotar y term sheets y si pongo que no entendí la mecánica se van a reír"
+      ],
+      "frase_textual": "Quebraste en el mes 9, o sea, ni medio año aguanté."
+    },
+    "raw": "{\"entiendes_por_que_perdiste\": \"El juego me dice que no miré el runway y me quedé sin caja, pero bueno, yo pensé que era más sobre la idea y el diseño y menos sobre planillas de excel.\", \"compartiras\": \"si\", \"con_que_texto\": \"Probando este juego de startups y me quebré en el mes 9. Me dice que hay que calcular el burn rate, yo pensé que era un juego de estética y ya. Igual le gané al miedo de mirar los números, jajaja.\", \"volves_a_jugar\": \"no\", \"fricciones\": [\"Me siento medio tonta porque el juego asume que sé qué es el runway y yo no tenía ni idea\", \"Los del grupo hablan de pivotar y term sheets y si pongo que no entendí la mecánica se van a reír\"], \"frase_textual\": \"Quebraste en el mes 9, o sea, ni medio año aguanté.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-22T08:51:44+00:00"
+  },
+  {
+    "id": "jorge-r3",
+    "persona": "jorge",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "entiendes_por_que_perdiste": "Porque no controlé el burn rate y me quedé sin caja, igual que si no pago a los motoristas.",
+      "compartiras": "no",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "Pérdida de tiempo frente a mis responsabilidades reales",
+        "No quiero que me vean como un novato en emprendimiento"
+      ],
+      "frase_textual": "Perdí la partida por no cuidar la caja. Ojo con el runway."
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"Porque no controlé el burn rate y me quedé sin caja, igual que si no pago a los motoristas.\",\n  \"compartiras\": \"no\",\n  \"con_que_texto\": \"\",\n  \"volves_a_jugar\": \"quizas\",\n  \"fricciones\": [\n    \"Pérdida de tiempo frente a mis responsabilidades reales\",\n    \"No quiero que me vean como un novato en emprendimiento\"\n  ],\n  \"frase_textual\": \"Perdí la partida por no cuidar la caja. Ojo con el runway.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-22T08:52:17+00:00"
+  },
+  {
+    "id": "fernanda-r3",
+    "persona": "fernanda",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "entiendes_por_que_perdiste": "Me quedé sin caja porque el juego no me dio feedback claro sobre qué acción drenaba el runway antes de que fuera tarde.",
+      "compartiras": "no",
+      "volves_a_jugar": "no",
+      "fricciones": [
+        "La UI es un desastre: tipografía ilegible y contraste que duele los ojos.",
+        "No hay análisis post-mortem, solo un 'quebraste' genérico sin datos.",
+        "El tono es punitivo sin ser educativo, no respeta la inteligencia del jugador."
+      ],
+      "frase_textual": "Quebré en el mes 9, pero la verdadera quebra fue perder 15 minutos con una interfaz que no se puede leer."
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"Me quedé sin caja porque el juego no me dio feedback claro sobre qué acción drenaba el runway antes de que fuera tarde.\",\n  \"compartiras\": \"no\",\n  \"con_que_texto\": \"\",\n  \"volves_a_jugar\": \"no\",\n  \"fricciones\": [\n    \"La UI es un desastre: tipografía ilegible y contraste que duele los ojos.\",\n    \"No hay análisis post-mortem, solo un 'quebraste' genérico sin datos.\",\n    \"El tono es punitivo sin ser educativo, no respeta la inteligencia del jugador.\"\n  ],\n  \"frase_textual\": \"Quebré en el mes 9, pero la verdadera quebra fue perder 15 minutos con una interfaz que no se puede leer.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-22T08:52:50+00:00"
+  }
+]

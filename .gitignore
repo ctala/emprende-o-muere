@@ -1,0 +1,14 @@
+# local-only environments and caches
+playtest/.venv/
+__pycache__/
+*.pyc
+node_modules/
+.opencode/node_modules/
+*.log
+.DS_Store
+
+# editor/agent tool droppings (local session state, not project content)
+.claude/
+.cline/
+.clinerules/
+.hermes/

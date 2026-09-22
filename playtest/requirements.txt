@@ -1,0 +1,2 @@
+# Pin TinyTroupe main to a resolved commit (their API churns; design.md risk).
+git+https://github.com/microsoft/TinyTroupe.git@a6244b358a1fe1c71bf751f7ba0f8dfa368ec5a4

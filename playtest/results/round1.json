@@ -1,0 +1,127 @@
+[
+  {
+    "id": "valentina-r1",
+    "persona": "valentina",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Gestionar una startup donde tienes que decidir cada mes si gastas el dinero en producto o clientes antes de que se acabe la plata",
+      "jugarias": "quizas",
+      "por_que": "Porque aunque me duele la vista con tanto número chico y fondo oscuro, quiero ver si me sale mejor que la realidad",
+      "fricciones": [
+        "La fuente es muy chiquita y cansa",
+        "No entiendo qué significa 'Quema' sin más explicación",
+        "El botón 'Cerrar mes' parece trámite burocrático",
+        "No sé qué pasa si hago las decisiones 'malas'"
+      ],
+      "frase_textual": "Amiga esto parece Excel disfrazado, la letra es microscópica pero me da curiosidad saber si fundo o quiebro jaja"
+    },
+    "raw": "{\n  \"de_que_va\": \"Gestionar una startup donde tienes que decidir cada mes si gastas el dinero en producto o clientes antes de que se acabe la plata\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Porque aunque me duele la vista con tanto número chico y fondo oscuro, quiero ver si me sale mejor que la realidad\",\n  \"fricciones\": [\n    \"La fuente es muy chiquita y cansa\",\n    \"No entiendo qué significa 'Quema' sin más explicación\",\n    \"El botón 'Cerrar mes' parece trámite burocrático\",\n    \"No sé qué pasa si hago las decisiones 'malas'\"\n  ],\n  \"frase_textual\": \"Amiga esto parece Excel disfrazado, la letra es microscópica pero me da curiosidad saber si fundo o quiebro jaja\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T08:42:20+00:00"
+  },
+  {
+    "id": "diego-r1",
+    "persona": "diego",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador de gestión de recursos donde optimizas caja, quema y acciones para no quedarte sin runway antes del pitch.",
+      "jugarias": "quizas",
+      "por_que": "Lo pruebo un rato porque la interfaz está limpia, pero las mecánicas me parecen muy naif para una simulación real de fundraising.",
+      "fricciones": [
+        "La tarjeta de Publicar contenido está cortada y no ves el efecto completo.",
+        "La barra de Energía es solo gráfica, no muestra cuántas unidades tienes.",
+        "El balance de Hablar con clientes (+6 tracción / -5 moral) es demasiado lineal y simplista."
+      ],
+      "frase_textual": "Che, la UI está limpia pero tienes un bug visual donde te comiste la parte inferior de Publicar contenido. Y ojo, que Hablar con clientes te baje solo moral y no energía es muy naif para una simulación real, en la práctica eso quema tiempo y recursos."
+    },
+    "raw": "{\n  \"de_que_va\": \"Un simulador de gestión de recursos donde optimizas caja, quema y acciones para no quedarte sin runway antes del pitch.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Lo pruebo un rato porque la interfaz está limpia, pero las mecánicas me parecen muy naif para una simulación real de fundraising.\",\n  \"fricciones\": [\n    \"La tarjeta de Publicar contenido está cortada y no ves el efecto completo.\",\n    \"La barra de Energía es solo gráfica, no muestra cuántas unidades tienes.\",\n    \"El balance de Hablar con clientes (+6 tracción / -5 moral) es demasiado lineal y simplista.\"\n  ],\n  \"frase_textual\": \"Che, la UI está limpia pero tienes un bug visual donde te comiste la parte inferior de Publicar contenido. Y ojo, que Hablar con clientes te baje solo moral y no energía es muy naif para una simulación real, en la práctica eso quema tiempo y recursos.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T08:43:07+00:00"
+  },
+  {
+    "id": "camila-r1",
+    "persona": "camila",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "es como un simulador donde tenés una startup y tenés que hacerla sobrevivir sin que se te acabe la plata.",
+      "jugarias": "quizas",
+      "por_que": "me tienta porque la onda visual está linda, pero no sé si tengo paciencia para calcular números de quema y tracción todo el tiempo.",
+      "fricciones": [
+        "que significa 'tracción' en la práctica no se entiende sin ayuda",
+        "el botón de ayuda es solo un signo de interrogación, da fiaca clickear si no explica enseguida"
+      ],
+      "frase_textual": "che, está medio linda la interfaz pero no tengo ni idea qué significa 'tracción' ni por qué me baja la moral si hablo con clientes jajajaja"
+    },
+    "raw": "{\n  \"de_que_va\": \"es como un simulador donde tenés una startup y tenés que hacerla sobrevivir sin que se te acabe la plata.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"me tienta porque la onda visual está linda, pero no sé si tengo paciencia para calcular números de quema y tracción todo el tiempo.\",\n  \"fricciones\": [\n    \"que significa 'tracción' en la práctica no se entiende sin ayuda\",\n    \"el botón de ayuda es solo un signo de interrogación, da fiaca clickear si no explica enseguida\"\n  ],\n  \"frase_textual\": \"che, está medio linda la interfaz pero no tengo ni idea qué significa 'tracción' ni por qué me baja la moral si hablo con clientes jajajaja\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T08:43:45+00:00"
+  },
+  {
+    "id": "jorge-r1",
+    "persona": "jorge",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador de startups ficticias para gente joven que no ha visto una factura real.",
+      "jugarias": "no",
+      "por_que": "No me sirve para mi negocio de transporte; la letra es chica y términos como 'moral' o 'tracción' no se traducen en ganancias.",
+      "fricciones": [
+        "Letra muy pequeña en celular gama media",
+        "Confusión con métricas abstractas (tracción/moral) vs números reales",
+        "Solo 2 acciones por mes es irreal para la operación diaria"
+      ],
+      "frase_textual": "Mira, esto parece un Excel disfrazado. No veo camiones, no veo rutas, solo números raros. La letra es chica y no entiendo qué es 'tracción'. Si no te enseña a calcular diesel o a hacer facturas, es pérdida de tiempo. No lo juego."
+    },
+    "raw": "{\n  \"de_que_va\": \"Un simulador de startups ficticias para gente joven que no ha visto una factura real.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"No me sirve para mi negocio de transporte; la letra es chica y términos como 'moral' o 'tracción' no se traducen en ganancias.\",\n  \"fricciones\": [\"Letra muy pequeña en celular gama media\", \"Confusión con métricas abstractas (tracción/moral) vs números reales\", \"Solo 2 acciones por mes es irreal para la operación diaria\"],\n  \"frase_textual\": \"Mira, esto parece un Excel disfrazado. No veo camiones, no veo rutas, solo números raros. La letra es chica y no entiendo qué es 'tracción'. Si no te enseña a calcular diesel o a hacer facturas, es pérdida de tiempo. No lo juego.\"\n}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T08:44:53+00:00"
+  },
+  {
+    "id": "fernanda-r1",
+    "persona": "fernanda",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Es un simulador de gestión de recursos donde tienes que equilibrar dinero, moral y tracción para sobrevivir a 24 meses.",
+      "jugarias": "quizas",
+      "por_que": "Me atrae la mecánica de gestión, pero la interfaz se siente un poco como un dashboard interno y no un juego con 'juice'.",
+      "fricciones": [
+        "La inconsistencia en cómo se representan los datos: 'Moral' tiene barra, pero 'Caja' y 'Quema' no, aunque son igualmente críticos.",
+        "El fondo de cuadernos/revistas genera ruido visual y compite con el contenido.",
+        "El texto rojo en 'Pitch a inversores' mezcla restricciones ('Requiere 10') con resultados negativos ('Se destraba'), confunde la lectura rápida."
+      ],
+      "frase_textual": "Che, la UI está medio 'dashboard' de oficina, los datos de moral tienen barra pero la plata no, y el fondo distrae bastante."
+    },
+    "raw": "{\n  \"de_que_va\": \"Es un simulador de gestión de recursos donde tienes que equilibrar dinero, moral y tracción para sobrevivir a 24 meses.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Me atrae la mecánica de gestión, pero la interfaz se siente un poco como un dashboard interno y no un juego con 'juice'.\",\n  \"fricciones\": [\n    \"La inconsistencia en cómo se representan los datos: 'Moral' tiene barra, pero 'Caja' y 'Quema' no, aunque son igualmente críticos.\",\n    \"El fondo de cuadernos/revistas genera ruido visual y compite con el contenido.\",\n    \"El texto rojo en 'Pitch a inversores' mezcla restricciones ('Requiere 10') con resultados negativos ('Se destraba'), confunde la lectura rápida.\"\n  ],\n  \"frase_textual\": \"Che, la UI está medio 'dashboard' de oficina, los datos de moral tienen barra pero la plata no, y el fondo distrae bastante.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T08:45:38+00:00"
+  }
+]
