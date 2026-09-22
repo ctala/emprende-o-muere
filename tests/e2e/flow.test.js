@@ -22,6 +22,8 @@ test('cash-flow panel projects a red bankruptcy month on a fresh run', async (t)
   const rows = await browser.eval('Array.from(document.querySelectorAll(\'[data-testid="flow-rows"] .flow-row\')).map(r => r.textContent)');
   assert.equal(rows.length, 6, 'window shows the first six projected months');
   assert.match(rows[0], /m2.*0.*-15.*105k/, 'first row: month 2, nothing in, 15 out, 105 cash');
+  const heads = await browser.eval("['flow-h-in','flow-h-out','flow-h-cash'].map(id => document.querySelector(`[data-testid='${id}']`)?.textContent ?? '')");
+  assert.deepEqual(heads, ['entra', 'sale', 'Caja'], 'flow columns must be labeled');
   const gloss = await browser.eval('document.querySelector(\'.flow-gloss\').textContent');
   assert.match(gloss, /no toc/i, 'projection must name its founder-does-nothing assumption');
   assert.match(gloss, /una vez/, 'and that contracts pay once');
