@@ -210,3 +210,10 @@ build step are load-bearing — keep them. Issues welcome.
 
 MIT — see [LICENSE](LICENSE). The vendored `ui-ux-pro-max` skill keeps its own
 MIT license and provenance in `.opencode/skills/ui-ux-pro-max/`.
+- `open-source-release`: v0.1.0 published 2026-09-22 as
+  github.com/ctala/emprende-o-muere (public, MIT, tagged annotated release).
+  Version source is `package.json`; CHANGELOG.md is written before every tag.
+  What to test from a stranger's phone: open the game from any static host
+  (or the repo's Pages once set up), expect a readable one-column portrait
+  layout with no zooming, and run `npm run gate` — green means the page
+  boots, renders, and plays for real.
