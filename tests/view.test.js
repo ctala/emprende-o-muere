@@ -112,6 +112,26 @@ test('bankrupt terminal model carries stamp + headline', () => {
   assert.match(m.terminal.headline, /Quebraste/);
 });
 
+test('terminal names the run: meta line + share post carry the seed', () => {
+  const bankrupt = { ...createGame(1), gameOver: true, reason: 'bankrupt' };
+  const m = model(bankrupt, { seed: 777, shareUrl: 'http://host/game.html' });
+  assert.match(m.terminal.meta, /seed 777 · mes 1/);
+  assert.match(m.terminal.post, /\b1 meses\b/);
+  assert.ok(!m.terminal.post.includes('QUEBRASTE'), 'bankrupt post is a dare, not a confession');
+  assert.ok(!m.terminal.post.includes('mes 1.'), 'no month-confession sentence in the dare');
+  assert.match(m.terminal.post, /\?seed=777/);
+  assert.equal(m.terminal.reason, 'bankrupt');
+});
+
+test('survived post uses the settlement personal total', () => {
+  const survived = { ...createGame(1), month: 24, gameOver: true, reason: 'survived', traction: 20, cashK: 50, founderPctBps: 8000 };
+  const settlement = { traction: 20, cashK: 50, founderPctBps: 8000, valuationK: 350, payoutK: 280, cashOutK: 40, personalK: 320 };
+  const m = model(survived, { settlement, seed: 7, shareUrl: 'http://h/p.html' });
+  assert.match(m.terminal.post, /24 meses/);
+  assert.match(m.terminal.post, /\$320k/);
+  assert.equal(m.terminal.reason, 'survived');
+});
+
 test('survived terminal model includes settlement lines', () => {
   const survived = { ...createGame(1), month: 24, gameOver: true, reason: 'survived', traction: 20, cashK: 50, founderPctBps: 8000 };
   const settlement = { traction: 20, cashK: 50, founderPctBps: 8000, valuationK: 350, payoutK: 280, cashOutK: 40, personalK: 320 };

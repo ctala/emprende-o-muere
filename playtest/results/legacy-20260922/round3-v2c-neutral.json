@@ -1,0 +1,132 @@
+[
+  {
+    "id": "valentina-r3",
+    "persona": "valentina",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Te quedaste sin caja en el mes 9 y los gastos te comieron viva, igual que me pasa cuando no cobro a tiempo",
+      "compartiras": "no",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "El link es localhost y nadie en WhatsApp lo va a poder abrir",
+        "Sentirse una fracasada aunque sea un juego",
+        "No me dice qué gasto específico me mató, solo generalidades"
+      ],
+      "frase_textual": "Quebré en el mes 9 del juego, me quedé sin caja exacto como en la vida real, me toca replantear todo",
+      "el_post_ayuda": "no"
+    },
+    "raw": "{\"entiendes_por_que_perdiste\":\"Te quedaste sin caja en el mes 9 y los gastos te comieron viva, igual que me pasa cuando no cobro a tiempo\",\"compartiras\":\"no\",\"con_que_texto\":\"\",\"el_post_ayuda\":\"no\",\"volves_a_jugar\":\"quizas\",\"fricciones\":[\"El link es localhost y nadie en WhatsApp lo va a poder abrir\",\"Sentirse una fracasada aunque sea un juego\",\"No me dice qué gasto específico me mató, solo generalidades\"],\"frase_textual\":\"Quebré en el mes 9 del juego, me quedé sin caja exacto como en la vida real, me toca replantear todo\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:17:31+00:00"
+  },
+  {
+    "id": "diego-r3",
+    "persona": "diego",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "El burn rate me comió el runway antes de que ajustara el gasto, un descuido de libro en modelos financieros básicos",
+      "compartiras": "si",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "El mensaje prellenado me simplifica el concepto financiero como si fuera tonto; 'mira hasta cuándo alcanza' es un tablero de control de una pyme, no un modelo de SaaS, y a nadie en el grupo le van a importar mis números de un juego de escritorio",
+        "No me gusta compartir cosas que no tienen profundidad o valor real para el networking"
+      ],
+      "frase_textual": "Quebré a los 9 meses. Burn mal calculado y a llorar a la iglesia.",
+      "el_post_ayuda": "no"
+    },
+    "raw": "{\n\"entiendes_por_que_perdiste\": \"El burn rate me comió el runway antes de que ajustara el gasto, un descuido de libro en modelos financieros básicos\",\n\"compartiras\": \"si\",\n\"con_que_texto\": \"Quebraste. Fin de la partida.\\nSeed 20260918 | Mes 9\\n\\n\\\"Te quedaste sin caja y quebraste. Los gastos mandan: mira hasta cuándo alcanza antes de gastar.\\\"\\n\\nUn clásico descuido de novato: subestimé el burn rate y me quedé sin runway antes del mes 10. En la vida real uno modela el runway, pero el juego tiene su gracia.\\n\\nDuré 9 meses. Jugué mi partida: http://localhost:8765/index.html?seed=20260918\",\n\"el_post_ayuda\": \"no\",\n\"volves_a_jugar\": \"quizas\",\n\"fricciones\": [\"El mensaje prellenado me simplifica el concepto financiero como si fuera tonto; 'mira hasta cuándo alcanza' es un tablero de control de una pyme, no un modelo de SaaS, y a nadie en el grupo le van a importar mis números de un juego de escritorio\", \"No me gusta compartir cosas que no tienen profundidad o valor real para el networking\"],\n\"frase_textual\": \"Quebré a los 9 meses. Burn mal calculado y a llorar a la iglesia.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:18:20+00:00"
+  },
+  {
+    "id": "camila-r3",
+    "persona": "camila",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "me pasé de gastos sin cubrir con ingresos antes del mes 9, tal como dice la pantalla.",
+      "compartiras": "quizas",
+      "volves_a_jugar": "no",
+      "fricciones": [
+        "el link dice localhost y es imposible de abrir para los demás",
+        "el texto propuesto es muy genérico y no refleja mi humor",
+        "el rojo de 'QUEBRASTE' me genera rechazo estético"
+      ],
+      "frase_textual": "Quebré en 9 meses. Se los merecen.",
+      "el_post_ayuda": "no u2014 el texto es muy seco y el link dice localhost, nadie del grupo lo va a poder abrir."
+    },
+    "raw": " {\"entiendes_por_que_perdiste\": \"me pasé de gastos sin cubrir con ingresos antes del mes 9, tal como dice la pantalla.\", \"compartiras\": \"quizas\", \"con_que_texto\": \"Quebré en 9 meses. Se los merecen.\", \"el_post_ayuda\": \"no u2014 el texto es muy seco y el link dice localhost, nadie del grupo lo va a poder abrir.\", \"volves_a_jugar\": \"no\", \"fricciones\": [\"el link dice localhost y es imposible de abrir para los demás\", \"el texto propuesto es muy genérico y no refleja mi humor\", \"el rojo de 'QUEBRASTE' me genera rechazo estético\"], \"frase_textual\": \"Quebré en 9 meses. Se los merecen.\", \"reason\": \"No hay más acciones\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:18:59+00:00"
+  },
+  {
+    "id": "jorge-r3",
+    "persona": "jorge",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Según la pantalla, quebraste por no controlar los gastos antes de gastar, lo cual es básico si tenés un negocio real.",
+      "compartiras": "no",
+      "volves_a_jugar": "no",
+      "fricciones": [
+        "El link es de localhost y no abre en el celular, nadie en el grupo va a poder jugar",
+        "Me parece una broma que un juego me diga cómo manejar la caja",
+        "Me molesta que el texto de compartir esté predeterminado, no es mi estilo",
+        "Si no funciona bien en Android gama media, no tiene sentido"
+      ],
+      "frase_textual": "Me sale quebrado en el mes 9 por no mirar la caja, como si yo no supiera manejar mi negocio",
+      "el_post_ayuda": "no"
+    },
+    "raw": "{\"entiendes_por_que_perdiste\":\"Según la pantalla, quebraste por no controlar los gastos antes de gastar, lo cual es básico si tenés un negocio real.\",\"compartiras\":\"no\",\"con_que_texto\":\"\",\"el_post_ayuda\":\"no\",\"volves_a_jugar\":\"no\",\"fricciones\":[\"El link es de localhost y no abre en el celular, nadie en el grupo va a poder jugar\",\"Me parece una broma que un juego me diga cómo manejar la caja\",\"Me molesta que el texto de compartir esté predeterminado, no es mi estilo\",\"Si no funciona bien en Android gama media, no tiene sentido\"],\"frase_textual\":\"Me sale quebrado en el mes 9 por no mirar la caja, como si yo no supiera manejar mi negocio\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:19:36+00:00"
+  },
+  {
+    "id": "fernanda-r3",
+    "persona": "fernanda",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "El juego dice que los gastos mandan y me quedé sin caja, pero el feedback visual durante los 9 meses no fue suficientemente claro para anticipar ese final.",
+      "compartiras": "si",
+      "volves_a_jugar": "si",
+      "fricciones": [
+        "El link compartido es localhost, inútil para WhatsApp.",
+        "El botón 'Compartir' tiene un contraste pobre comparado con 'Jugar otra vez'.",
+        "El mensaje final es paternalista y asume que no sé leer la curva de gastos."
+      ],
+      "frase_textual": "Me quebraron en el mes 9 y encima el juego me hace la explicación del porqué, como si no tuviera ojos para ver la curva roja.",
+      "el_post_ayuda": "no — el texto pre-cargado asume que el link funciona y tiene un tono de 'aprendizaje' que no siento; además el link era local."
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"El juego dice que los gastos mandan y me quedé sin caja, pero el feedback visual durante los 9 meses no fue suficientemente claro para anticipar ese final.\",\n  \"compartiras\": \"si\",\n  \"con_que_texto\": \"Llegué al mes 9 antes de quebrar. El juego 'Quebraste' me enseñó que mi gestión de caja era peor que mi pitch. Seed 20260918 si quieren ver cómo se hace mal. (Nota: el link del post era localhost, así que copien el título en Steam/GameJolt).\",\n  \"el_post_ayuda\": \"no — el texto pre-cargado asume que el link funciona y tiene un tono de 'aprendizaje' que no siento; además el link era local.\",\n  \"volves_a_jugar\": \"si\",\n  \"fricciones\": [\n    \"El link compartido es localhost, inútil para WhatsApp.\",\n    \"El botón 'Compartir' tiene un contraste pobre comparado con 'Jugar otra vez'.\",\n    \"El mensaje final es paternalista y asume que no sé leer la curva de gastos.\"\n  ],\n  \"frase_textual\": \"Me quebraron en el mes 9 y encima el juego me hace la explicación del porqué, como si no tuviera ojos para ver la curva roja.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:20:25+00:00"
+  }
+]

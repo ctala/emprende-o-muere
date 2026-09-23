@@ -1,0 +1,128 @@
+[
+  {
+    "id": "valentina-r3",
+    "persona": "valentina",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Los gastos mandaron y no alcancé la caja a tiempo, tal como dice la pantalla.",
+      "compartiras": "si",
+      "volves_a_jugar": "si",
+      "fricciones": [
+        "El post ya está escrito pero suena argentino (vos), debo cambiarlo a colombiano para no quedar como copion",
+        "Compararme en el grupo puede ser incómodo si alguien aguantó más"
+      ],
+      "frase_textual": "El mes 9 me quebraron los gastos, pero aguanto mejor que este juego 😎",
+      "el_post_ayuda": "si — ya viene con el reto y el link, solo le cambio el vos por tú"
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"Los gastos mandaron y no alcancé la caja a tiempo, tal como dice la pantalla.\",\n  \"compartiras\": \"si\",\n  \"con_que_texto\": \"Aguanté 9 meses. ¿Y tú aguantas más? 🤔 Mi Sazón Express lleva más, pero este juego me quebró. Juega: http://localhost:8765/index.html?seed=20260918\",\n  \"el_post_ayuda\": \"si — ya viene con el reto y el link, solo le cambio el vos por tú\",\n  \"volves_a_jugar\": \"si\",\n  \"fricciones\": [\n    \"El post ya está escrito pero suena argentino (vos), debo cambiarlo a colombiano para no quedar como copion\",\n    \"Compararme en el grupo puede ser incómodo si alguien aguantó más\"\n  ],\n  \"frase_textual\": \"El mes 9 me quebraron los gastos, pero aguanto mejor que este juego 😎\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:09:52+00:00"
+  },
+  {
+    "id": "diego-r3",
+    "persona": "diego",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "No calibraste la quema de caja inicial y los gastos fijos te comieron antes de llegar al punto de equilibrio operativo en el mes 9",
+      "compartiras": "no",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "El texto de compartir es demasiado simplista y parecería que me jacto de haber quebrado en un juego de simulación en vez de aprender de ello",
+        "El título 'QUEBRASTE' en rojo es ofensivo para alguien que ha levantado capital real y sabe lo que es el riesgo real"
+      ],
+      "frase_textual": "Mes 9, caja en cero. Los gastos fijos mandan. El juego asume que el usuario no sabe leer un P&L, pero la quiebra es siempre problema de modelo de negocio, no de suerte.",
+      "el_post_ayuda": "no"
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"No calibraste la quema de caja inicial y los gastos fijos te comieron antes de llegar al punto de equilibrio operativo en el mes 9\",\n  \"compartiras\": \"no\",\n  \"con_que_texto\": \"\",\n  \"el_post_ayuda\": \"no\",\n  \"volves_a_jugar\": \"quizas\",\n  \"fricciones\": [\"El texto de compartir es demasiado simplista y parecería que me jacto de haber quebrado en un juego de simulación en vez de aprender de ello\", \"El título 'QUEBRASTE' en rojo es ofensivo para alguien que ha levantado capital real y sabe lo que es el riesgo real\"],\n  \"frase_textual\": \"Mes 9, caja en cero. Los gastos fijos mandan. El juego asume que el usuario no sabe leer un P&L, pero la quiebra es siempre problema de modelo de negocio, no de suerte.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:11:34+00:00"
+  },
+  {
+    "id": "camila-r3",
+    "persona": "camila",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Me quedé sin caja porque los gastos mandan, no supe manejar los números antes de gastar.\n",
+      "compartiras": "si",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "el link localhost no funciona para compartir por WhatsApp",
+        "me da un poco de vergüenza admitir que perdí rápido, como que no sé de finanzas"
+      ],
+      "frase_textual": "Qubrase en el mes 9, pero bueno, la estética del sello en rojo estuvo divina 💸",
+      "el_post_ayuda": "no — el texto tiene el link de localhost que no funciona y suena muy técnico, lo tuve que editar"
+    },
+    "raw": " {\n  \"entiendes_por_que_perdiste\": \"Me quedé sin caja porque los gastos mandan, no supe manejar los números antes de gastar.\\n\",\n  \"compartiras\": \"si\",\n  \"con_que_texto\": \"Aguanté 9 meses 🎨. ¿Vos aguantás más? Jugué mi partida (link en el primer comentario, este se rompió je):\\n\\n[link real copiado]\",\n  \"el_post_ayuda\": \"no — el texto tiene el link de localhost que no funciona y suena muy técnico, lo tuve que editar\",\n  \"volves_a_jugar\": \"quizas\",\n  \"fricciones\": [\n    \"el link localhost no funciona para compartir por WhatsApp\",\n    \"me da un poco de vergüenza admitir que perdí rápido, como que no sé de finanzas\"\n  ],\n  \"frase_textual\": \"Qubrase en el mes 9, pero bueno, la estética del sello en rojo estuvo divina 💸\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:12:14+00:00"
+  },
+  {
+    "id": "jorge-r3",
+    "persona": "jorge",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "No miré bien cómo se iban los gastos, el juego no te muestra bien los números hasta que ya te quedaste sin plata, como me pasó una vez con los repuestos.",
+      "compartiras": "no",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "El link es una IP local que no funciona afuera",
+        "No quiero ensuciar el chat de trabajo con cosas de jueguitos",
+        "El texto suena a desafío tonto de 'a ver si vos podés'",
+        "Me siento tratado como si no supiera manejar un negocio"
+      ],
+      "frase_textual": "Me quedé sin caja en el mes 9, igual que cuando uno no calcula bien los costos hormiga. Pero no voy a compartir el link porque es local y nadie va a entrar.",
+      "el_post_ayuda": "no"
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"No miré bien cómo se iban los gastos, el juego no te muestra bien los números hasta que ya te quedaste sin plata, como me pasó una vez con los repuestos.\",\n  \"compartiras\": \"no\",\n  \"con_que_texto\": \"\",\n  \"el_post_ayuda\": \"no\",\n  \"volves_a_jugar\": \"quizas\",\n  \"fricciones\": [\n    \"El link es una IP local que no funciona afuera\",\n    \"No quiero ensuciar el chat de trabajo con cosas de jueguitos\",\n    \"El texto suena a desafío tonto de 'a ver si vos podés'\",\n    \"Me siento tratado como si no supiera manejar un negocio\"\n  ],\n  \"frase_textual\": \"Me quedé sin caja en el mes 9, igual que cuando uno no calcula bien los costos hormiga. Pero no voy a compartir el link porque es local y nadie va a entrar.\"\n}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:13:30+00:00"
+  },
+  {
+    "id": "fernanda-r3",
+    "persona": "fernanda",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Subestimé la velocidad de drenaje de caja en los eventos de mes 8 y 9, priorizando crecimiento sobre flujo de fondos.",
+      "compartiras": "si",
+      "volves_a_jugar": "si",
+      "fricciones": [
+        "El link localhost no funciona fuera de mi máquina, tengo que pedir la URL pública si alguien quiere jugar de verdad"
+      ],
+      "frase_textual": "Quebraste en mes 9. El flujo de caja mata más rápido que el mercado.",
+      "el_post_ayuda": "si"
+    },
+    "raw": "{\n  \"entiendes_por_que_perdiste\": \"Subestimé la velocidad de drenaje de caja en los eventos de mes 8 y 9, priorizando crecimiento sobre flujo de fondos.\",\n  \"compartiras\": \"si\",\n  \"con_que_texto\": \"Aguanté 9 meses. ¿Vos aguantás más? Jugá mi partida: http://localhost:8765/index.html?seed=20260918\",\n  \"el_post_ayuda\": \"si\",\n  \"volves_a_jugar\": \"si\",\n  \"fricciones\": [\"El link localhost no funciona fuera de mi máquina, tengo que pedir la URL pública si alguien quiere jugar de verdad\"],\n  \"frase_textual\": \"Quebraste en mes 9. El flujo de caja mata más rápido que el mercado.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T13:14:04+00:00"
+  }
+]

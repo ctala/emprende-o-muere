@@ -1,0 +1,131 @@
+[
+  {
+    "id": "valentina-r3",
+    "persona": "valentina",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Gasté sin mirar hasta cuándo me alcanzaba la caja, puro gasto hormiga sin ingresos",
+      "compartiras": "si",
+      "volves_a_jugar": "si",
+      "fricciones": [
+        "El ego de mostrar que quebré en un juego de emprendedores",
+        "El link del post está chiquito y feo"
+      ],
+      "frase_textual": "Me quedé sin caja en el mes 9, pero los gastos mandan y ya aprendí a mirar el saldo antes de gastar",
+      "el_post_ayuda": "si"
+    },
+    "raw": "{\"entiendes_por_que_perdiste\": \"Gasté sin mirar hasta cuándo me alcanzaba la caja, puro gasto hormiga sin ingresos\", \"compartiras\": \"si\", \"con_que_texto\": \"QUEBRASTE · Quebré en el mes 9 · Te quedaste sin caja y quebraste. Los gastos mandan: mira hasta cuándo alcanza antes de gastar. · Jugá mi misma partida: http://localhost:8765/index.html?seed=20260918\", \"el_post_ayuda\": \"si\", \"volves_a_jugar\": \"si\", \"fricciones\": [\"El ego de mostrar que quebré en un juego de emprendedores\", \"El link del post está chiquito y feo\"], \"frase_textual\": \"Me quedé sin caja en el mes 9, pero los gastos mandan y ya aprendí a mirar el saldo antes de gastar\"}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T11:29:52+00:00"
+  },
+  {
+    "id": "diego-r3",
+    "persona": "diego",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Subestimé el burn rate mensual al ignorar la alerta temprana de caja, dejándome llevar por la inercia del crecimiento sin cortar gastos a tiempo.",
+      "compartiras": "quizas",
+      "volves_a_jugar": "si",
+      "fricciones": [
+        "Me molesta que la IA asuma que no sé leer un flujo de caja, la dificultad es baja para mi perfil",
+        "Compartir una quiebra, aunque sea simulada, me expone a juicios en un grupo competitivo como el de emprendedores",
+        "El texto genérico del post no refleja mi voz ni mi experiencia real levantando rondas"
+      ],
+      "frase_textual": "Me quedé sin caja en el mes 9. La plata no es tuya, la propiedad sí, y el burn mata primero. Vuelvo a jugar para encontrar el bug en la lógica de gastos.",
+      "el_post_ayuda": "si"
+    },
+    "raw": "{\"entiendes_por_que_perdiste\": \"Subestimé el burn rate mensual al ignorar la alerta temprana de caja, dejándome llevar por la inercia del crecimiento sin cortar gastos a tiempo.\", \"compartiras\": \"quizas\", \"con_que_texto\": \"Quebré en el mes 9. No fue falta de revenue, fue falta de disciplina en el opex. El juego simula bien la euforia del crecimiento antes de la quiebra. El post ya escrito me ahorró tiempo pero le falta punch, lo edité para sonar menos 'perdedor simpático' y más post-mortem. Si alguien del grupo quiere jugar mi seed, avise.\", \"el_post_ayuda\": \"si\", \"volves_a_jugar\": \"si\", \"fricciones\": [\"Me molesta que la IA asuma que no sé leer un flujo de caja, la dificultad es baja para mi perfil\", \"Compartir una quiebra, aunque sea simulada, me expone a juicios en un grupo competitivo como el de emprendedores\", \"El texto genérico del post no refleja mi voz ni mi experiencia real levantando rondas\"], \"frase_textual\": \"Me quedé sin caja en el mes 9. La plata no es tuya, la propiedad sí, y el burn mata primero. Vuelvo a jugar para encontrar el bug en la lógica de gastos.\"}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T11:32:07+00:00"
+  },
+  {
+    "id": "camila-r3",
+    "persona": "camila",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "Porque la plata se iba y no entendí cómo calcular los gastos, me sentí perdida con esa frase de 'gastos mandan'.",
+      "compartiras": "no",
+      "volves_a_jugar": "no",
+      "fricciones": [
+        "Me da vergüenza mostrar que quebré, parece que no sé hacer plata.",
+        "El texto pre-armado es muy seco y me hace sentir que me están corrigiendo.",
+        "No quiero que vean el link del juego, da pena."
+      ],
+      "frase_textual": "A veces la plata se va antes de que te des cuenta, y uno queda mirando el vacío.",
+      "el_post_ayuda": "no"
+    },
+    "raw": "{\"entiendes_por_que_perdiste\": \"Porque la plata se iba y no entendí cómo calcular los gastos, me sentí perdida con esa frase de 'gastos mandan'.\", \"compartiras\": \"no\", \"con_que_texto\": \"\", \"el_post_ayuda\": \"no\", \"volves_a_jugar\": \"no\", \"fricciones\": [\"Me da vergüenza mostrar que quebré, parece que no sé hacer plata.\", \"El texto pre-armado es muy seco y me hace sentir que me están corrigiendo.\", \"No quiero que vean el link del juego, da pena.\"], \"frase_textual\": \"A veces la plata se va antes de que te des cuenta, y uno queda mirando el vacío.\"}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T11:33:12+00:00"
+  },
+  {
+    "id": "jorge-r3",
+    "persona": "jorge",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "los gastos me comieron la caja hasta el mes 9",
+      "compartiras": "no",
+      "volves_a_jugar": "no",
+      "fricciones": [
+        "link localhost inutil",
+        "ridiculo compartir fracaso",
+        "perdida de tiempo"
+      ],
+      "frase_textual": "Me quedé sin caja y quebraste en el mes 9, pero ni locos comparto esto en el grupo de emprendedores.",
+      "el_post_ayuda": "no"
+    },
+    "raw": "{\"entiendes_por_que_perdiste\":\"los gastos me comieron la caja hasta el mes 9\",\"compartiras\":\"no\",\"con_que_texto\":\"\",\"el_post_ayuda\":\"no\",\"volves_a_jugar\":\"no\",\"fricciones\":[\"link localhost inutil\",\"ridiculo compartir fracaso\",\"perdida de tiempo\"],\"frase_textual\":\"Me quedé sin caja y quebraste en el mes 9, pero ni locos comparto esto en el grupo de emprendedores.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T11:33:44+00:00"
+  },
+  {
+    "id": "fernanda-r3",
+    "persona": "fernanda",
+    "round": 3,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v2",
+    "answers": {
+      "entiendes_por_que_perdiste": "No regulé el burn rate: el mensaje dice explícitamente que los gastos mandan y me quedé sin caja antes de generar ingresos suficientes.",
+      "compartiras": "si",
+      "volves_a_jugar": "quizas",
+      "fricciones": [
+        "El sello rojo es visualmente agresivo y denota fracaso sin dar opciones de aprendizaje",
+        "El copy del post es muy frío y parece un sistema automático",
+        "Repetir el mismo seed aburre si la curva de dificultad es plana"
+      ],
+      "frase_textual": "Quebré en el mes 9. Los gastos me pasaron por encima. A ver si con el mismo seed logro no quedarme en cero.",
+      "el_post_ayuda": "si"
+    },
+    "raw": "{\"entiendes_por_que_perdiste\": \"No regulé el burn rate: el mensaje dice explícitamente que los gastos mandan y me quedé sin caja antes de generar ingresos suficientes.\", \"compartiras\": \"si\", \"con_que_texto\": \"QUEBRASTE en el mes 9. Te quedaste sin caja y quebraste. Los gastos mandan: mira hasta cuándo alcanza antes de gastar. · Jugá mi misma partida: http://localhost:8765/index.html?seed=20260918\", \"el_post_ayuda\": \"si\", \"volves_a_jugar\": \"quizas\", \"fricciones\": [\"El sello rojo es visualmente agresivo y denota fracaso sin dar opciones de aprendizaje\", \"El copy del post es muy frío y parece un sistema automático\", \"Repetir el mismo seed aburre si la curva de dificultad es plana\"], \"frase_textual\": \"Quebré en el mes 9. Los gastos me pasaron por encima. A ver si con el mismo seed logro no quedarme en cero.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "gameover_portrait.png"
+    ],
+    "ts": "2026-09-23T11:34:26+00:00"
+  }
+]

@@ -319,11 +319,36 @@ dialog::backdrop { cursor: default; }
   margin: 0 0 26px;
   transform: rotate(-8deg);
 }
-.terminal-headline { font-family: var(--mono); font-size: 1.3rem; margin: 0 0 4px; }
+.stamp.survived { color: var(--tier-high); border-color: var(--tier-high); outline-color: var(--tier-high); }
+.terminal-headline {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.terminal-meta { font-family: var(--mono); font-size: 1rem; color: var(--ink-dim); text-align: right; margin: 0 0 8px; }
 .terminal-learn { font-size: 1rem; color: var(--ink); margin: 8px 0 0; }
 .settlement { margin: 10px 0 0; font-size: 1rem; }
 .settlement p { margin: 3px 0; }
 .settlement .personal { font-family: var(--mono); font-weight: bold; }
+.share-row { display: grid; gap: 8px; margin-top: 14px; }
+.row-share { min-height: 48px; font-size: 1.05rem; text-align: center; }
+.share-post {
+  width: 100%;
+  margin-top: 10px;
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: var(--rule-line);
+  color: var(--ink-dim);
+  background: var(--card);
+  border: 1px dashed var(--paper-rule);
+  padding: 6px 10px 8px;
+  resize: none;
+  overflow: hidden;
+}
+.share-post::selection { background: var(--paper-rule); }
+.share-status { display: block; min-height: 1.5em; margin-top: 4px; font-size: 1rem; color: var(--ink-dim); font-style: italic; text-align: center; }
 
 [hidden] { display: none !important; }
 

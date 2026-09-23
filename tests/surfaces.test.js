@@ -81,3 +81,9 @@ test('disabled lock reasons stay off ledger red (red is for negative money)', ()
   assert.ok(m, 'no dim treatment for lock reasons');
   assert.notEqual(m[1], 'red', 'lock reason must not borrow alarm red');
 });
+
+test('the survived seal is the positive tier, never ledger red', () => {
+  const m = CSS.match(/\.stamp\.survived\s*{[^}]*color:\s*var\(--([\w-]+)\)/);
+  assert.ok(m, 'no .stamp.survived modifier');
+  assert.equal(m[1], 'tier-high', 'survived stamp must use the positive tier token');
+});

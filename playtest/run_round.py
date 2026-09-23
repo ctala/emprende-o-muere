@@ -25,7 +25,7 @@ logging.disable(logging.CRITICAL)
 from tinytroupe.agent import TinyPerson  # noqa: E402
 
 BASE = Path(__file__).parent
-PROMPT_VERSION = "v1"
+PROMPT_VERSION = os.environ.get("SHIM_PROMPT", "v1")
 MODEL = os.environ.get("SHIM_MODEL", "qwen3.8-flash-next-vllm")
 PERSONA_IDS = ["valentina", "diego", "camila", "jorge", "fernanda"]
 ROUND_SHOTS = {
@@ -38,6 +38,8 @@ REQUIRED_FIELDS = {
     2: ["primero_toco", "firma_cliente_gris", "espera_cerrar_mes", "fricciones", "frase_textual"],
     3: ["entiendes_por_que_perdiste", "compartiras", "volves_a_jugar", "fricciones", "frase_textual"],
 }
+# round-3 prompts that show the in-game post also ask whether it helps
+POST_HELP_FIELD = "el_post_ayuda"
 
 
 def extract_json(text):
@@ -90,6 +92,8 @@ def run_case(persona_id, round_n):
         TinyPerson.all_agents.pop(person.name, None)
     fields = REQUIRED_FIELDS[round_n]
     answers = {f: (parsed or {}).get(f, "") for f in fields} if parsed else {}
+    if parsed and round_n == 3 and POST_HELP_FIELD in parsed:
+        answers[POST_HELP_FIELD] = parsed[POST_HELP_FIELD]
     ok = parsed is not None and all(str(answers.get(f, "")).strip() for f in fields)
     return {
         "id": f"{persona_id}-r{round_n}",

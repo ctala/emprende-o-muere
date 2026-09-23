@@ -7,8 +7,26 @@ Rule: every version gets its section here **before** it is tagged.
 
 ## [Unreleased]
 
-The ledger finally reads like a document, not a spreadsheet: surface depth,
-a real type rhythm, and a vocabulary that stops speaking startup English.
+The ledger finally reads like a document, not a spreadsheet — and its final
+page became a trophy you can forward: a green "Sobreviviste" seal and a share
+post whose link makes a friend replay your exact run.
+
+### Added
+- Share block on the game-over screen: a "Compartir" button and a visible
+  ready-to-send post (stamp, months, personal total, this run's learning)
+  whose link carries `?seed=<the run's own seed>` — the receiver plays YOUR
+  exact 24 months through the deterministic replay contract; degrades
+  platform share → clipboard ("Copiado") → select the on-page post
+- Bankrupt posts are dares, not confessions: "Aguanté N meses. ¿Vos aguantás
+  más?" — the failure stamp and the loss lesson stay on the player's own
+  screen, never in the WhatsApp message (panel: the confession version
+  tripped the shame wall 4/5; the dare moved share intent 2/5 → 3/5)
+- Run identity on the terminal sheet: `seed · mes` metadata line, mono
+- survived_portrait/landscape/desktop shots + a harvest driver in the
+  screenshot rig (mirrors the pinned sweep policy to reach the green seal)
+- Contrast/rhythm contract tests (tests/surfaces.test.js) parsing the CSS
+  tokens: surface seams, CTA ink fill, dim-text floors, the green seal token,
+  the 48px touch square
 
 ### Changed
 - Surface hierarchy from measured separation, not same-tone fills: cards lift
@@ -22,6 +40,13 @@ a real type rhythm, and a vocabulary that stops speaking startup English.
   the HUD's only remaining English is the role abbreviations (CTO/CFO/CPO)
 - Energy shows its number next to the bar (the panel asked twice)
 - Help rules gained the money loop (contactos → firmar → factura → cobra)
+- The survived seal is stamped in the ledger's positive tier (the same green
+  the morale/energy bars use); ledger red now brands only negative money and
+  bankruptcy — before this, SOBREVIVISTE and QUEBRASTE looked identical
+- Terminal headline moved to the documentary header treatment (uppercase mono,
+  wide tracking); the lesson one-liner only ever comes from THIS run's
+  unlocks (a previous company's loss lesson no longer sits under a survived
+  stamp — pinned by an e2e restart scenario)
 
 ### Fixed
 - Flow-head column labels ("entra / sale / Caja") rendered empty — `wire()`
@@ -33,13 +58,23 @@ a real type rhythm, and a vocabulary that stops speaking startup English.
 - Lock reasons (e.g. "Se destraba en el mes 6") no longer borrow the ledger
   red reserved for negative money
 - "?" help button was a 35px-wide touch target; it now holds the full 48px square
+- The terminal is now a proper modal dialog: `aria-modal`, focus lands on the
+  primary action at first paint, the copied state is announced politely
 
 ### Evidence
-- ux-review agent re-run: all five prior P1s closed (evidence in
-  `openspec/changes/redesign-documentary-ledger/evidence/`)
-- Synthetic panel (LLM, needs human confirmation): comprehension 5/5, intent
-  "sí" 1/5 (was 0/5), zero jargon-friction complaints (was the dominant
-  "habla en cristiano" cluster); balance sweep untouched
+- ux-review re-run on the redesign: all five prior P1s closed; ux-review pass
+  on the new terminal: 0 P0, its three P2s fixed in change (post auto-sizes so
+  the seed link shows without an inner scrollbar, live region + modal focus,
+  post reads as a field with a dashed well)
+- Synthetic panel: comprehension 5/5, intent "sí" 1/5 after the jargon pass
+  (was 0/5) with zero jargon complaints; round-3 share-copy A/B (same terminal):
+  dare 3/5 "sí compartir" (confession 2/5, neutral 2/5), one founder
+  spontaneously reused the seed ("a ver si con el mismo seed…"), shame
+  friction 4/5 → 1/5 — all synthetic; the 5-human WhatsApp pass remains the
+  real gate
+- Balance sweep byte-identical to the two-engines record across all three
+  changes (zero economy touched)
+
 
 ## [0.2.0] - 2026-09-22
 

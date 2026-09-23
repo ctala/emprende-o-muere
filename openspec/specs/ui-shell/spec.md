@@ -167,15 +167,19 @@ requirement.
 
 
 ### Requirement: Terminal screen states the reason
-On game-over the UI SHALL distinguish, from the core terminal reason only, at least the `survived` (reached month 24) and `bankrupt` endings, with distinct copy from the strings content. On a `survived` end the UI SHALL render a settlement ledger from the run-ended event params only (no UI math): final valuation, founder ownership %, equity payout, whether the company cash was cashed out, and the personal total. Bankruptcy shows its own line with no ledger. The terminal screen SHALL also satisfy the shareable terminal screen requirement (glanceable stamp block plus the learning one-liner when one was unlocked).
+On game-over the UI SHALL distinguish, from the core terminal reason only, at least the `survived` (reached month 24) and `bankrupt` endings, with distinct copy from the strings content. The outcome stamp SHALL carry the color of its verdict inside the ledger identity: the survived seal renders in the ledger's positive tier color (the same green the morale/energy high tier uses), and the bankrupt seal keeps ledger red — red SHALL never brand a positive outcome. Under the headline the sheet SHALL show a metadata line of right-aligned mono facts identifying this exact run (the active seed and the months reached), so two different runs are told apart at a glance. On a `survived` end the UI SHALL render a settlement ledger from the run-ended event params only (no UI math): final valuation, founder ownership %, equity payout, whether the company cash was cashed out, and the personal total. Bankruptcy shows its own line with no ledger. The terminal screen SHALL also satisfy the shareable terminal screen requirement (glanceable stamp block plus the learning one-liner when one was unlocked).
 
 #### Scenario: Bankruptcy shown
 - **WHEN** the run ends with reason `bankrupt`
-- **THEN** the terminal screen shows the bankruptcy message instead of the survive message
+- **THEN** the terminal screen shows the bankruptcy message instead of the survive message, stamped in red
 
 #### Scenario: Survival shown
 - **WHEN** the run ends with reason `survived`
-- **THEN** the terminal screen shows the survival message
+- **THEN** the terminal screen shows the survival message, stamped in the positive-tier green — visually distinct from the bankrupt seal without reading the words
+
+#### Scenario: Run identity on the sheet
+- **WHEN** any run ends on a page loaded with `?seed=12345`
+- **THEN** the terminal metadata line shows seed 12345 and the months reached, in the mono treatment
 
 #### Scenario: Settlement ledger rendered from event facts
 - **WHEN** a survived run-ended event carries valuationK 350, founderPctBps 4210, payoutK 147, cashK 0, personalK 147
@@ -184,8 +188,6 @@ On game-over the UI SHALL distinguish, from the core terminal reason only, at le
 #### Scenario: Cash-out line appears for controllers
 - **WHEN** the settlement params carry a personalK that exceeds payoutK
 - **THEN** the ledger includes the company-cash line explaining the difference
-
-
 
 ### Requirement: Offer decision panel
 While a term-sheet offer is pending the UI SHALL render a panel derived only from the offer state: pre-money, round size, investor percentage and resulting founder percentage, all read from the integers carried in the offer (the UI SHALL NOT compute dilution itself). The panel SHALL expose three actions — ACCEPT, DECLINE and NEGOCIAR — dispatching ACCEPT_ROUND / DECLINE_ROUND / COUNTER_ROUND respectively, and no other action button SHALL dispatch while the panel is open. As a modal dialog over the game, it SHALL trap player focus until decided: the month does not auto-close and the rest of the game is inert while it is visible. The NEGOCIAR action SHALL show its energy cost and that the investor may walk away, and SHALL be drawn disabled with its reason (energy or already-countered) and dispatch nothing when the rules say so. After a successful counter the panel SHALL re-render with the improved terms from the offer and a disabled NEGOCIAR action. After the decision the panel SHALL disappear and the run log SHALL contain the decision action like any other click. On phones the panel SHALL be reachable by thumb (buttons at or near the lower half of the screen) at >= 48px targets.
@@ -406,7 +408,9 @@ Action buttons SHALL render as ledger rows with hierarchy: the core-loop actions
 
 
 ### Requirement: Shareable terminal screen
-On game over the UI SHALL render a stamp-styled terminal screen readable in a single glance as a shareable artifact: outcome stamp (Sobreviviste / Quebraste), the run's headline number, the learned one-liner from the learnings copy when available, and the settlement ledger for survived runs. The terminal copy SHALL be a single coherent block such that selecting it (or the page) reads as a post worth forwarding in a WhatsApp group. The document head SHALL expose the name, description, and social preview meta sufficient for a link preview.
+On game over the UI SHALL render a stamp-styled terminal screen readable in a single glance as a shareable artifact: outcome stamp (Sobreviviste / Quebraste), the run's headline number, the learned one-liner from the learnings copy when one was unlocked during THIS run (an old lesson from a previous company must never contradict this run's stamp), and the settlement ledger for survived runs. The terminal copy SHALL be a single coherent block such that selecting it (or the page) reads as a post worth forwarding in a WhatsApp group. The document head SHALL expose the name, description, and social preview meta sufficient for a link preview.
+
+The terminal SHALL also present an explicit share action: a share button (secondary treatment under the single ink primary "Jugar otra vez", >= 48px target) that shares a Spanish result post built from strings content and terminal facts only — the stamp word for survived runs, months reached, the personal total for survived runs, the learning line when unlocked by THIS run, and the page's own URL carrying the active `?seed=` so the receiver plays the same run. A bankrupt post SHALL frame the run as a dare, not a confession: it names how many months the player held out and challenges the reader to last longer, and it SHALL NOT contain the failure stamp word or the loss lesson (those stay on the player's own screen). The action SHALL use the platform share mechanism when one is available, SHALL fall back to copying the post to the clipboard with a visible confirmation when only the clipboard is available, and SHALL degrade to selecting the visible post text when neither works. The post text SHALL also be rendered on the sheet (annotation treatment) so the block can be copied manually. Sharing SHALL NOT change game state, SHALL NOT draw randomness, and the composed post text SHALL be a pure function of the terminal facts (same facts in, same text out).
 
 #### Scenario: Terminal reads as a share card
 - **WHEN** a run ends bankrupt at month 9
@@ -415,6 +419,22 @@ On game over the UI SHALL render a stamp-styled terminal screen readable in a si
 #### Scenario: Link preview exists
 - **WHEN** the page is loaded
 - **THEN** the head contains title, description and og-style preview metadata with the Spanish game name
+
+#### Scenario: Share post replays the same seed
+- **WHEN** a finished run on `?seed=777` builds its share post
+- **THEN** the post's link carries `seed=777` and the post names the months reached and the personal total from this run's settlement facts
+
+#### Scenario: Bankrupt posts dare instead of confess
+- **WHEN** a run that ended bankrupt builds its share post
+- **THEN** the text says how many months the player held out and challenges the reader, and contains neither the failure stamp word nor the loss lesson
+
+#### Scenario: Share degrades without the platform API
+- **WHEN** the player taps share in a browser with no platform share mechanism but with clipboard access
+- **THEN** the post text lands on the clipboard and the button's state visibly confirms the copy, with no game-state change
+
+#### Scenario: Post text is deterministic copy
+- **WHEN** the same terminal facts compose the post text twice
+- **THEN** both compositions are byte-identical and drawn from strings content only
 
 ### Requirement: Cash-flow panel projects the ledger
 The UI SHALL render a "flujo de caja" panel from the core forecast derivation only (no UI-side projection math): one ledger row per projected month showing money arriving, money leaving, and the running cash, plus a run-rate summary line above the rows (expected $/month from currently signed contracts and leads/month the team adds) and a distinct projected-bankruptcy line naming the month when cash is projected to go negative. The panel SHALL be visually secondary to the hero runway, SHALL use ledger styling (parts, mono digits, red for negatives and the bankruptcy line), and SHALL NOT draw randomness or change game state. When the horizon completes without bankruptcy the panel SHALL show a survived/no-bankruptcy line instead. The panel's numbers SHALL originate only from the core derivation and existing strings keys. Column headers for arriving/leaving/cash SHALL align over their respective numeric columns (right-aligned over right-aligned numbers).

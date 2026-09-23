@@ -39,6 +39,12 @@ const STRINGS = {
   'ui.flow.gloss': 'Si no tocás nada; cada contrato paga una vez',
   'ui.stamp.survived': 'SOBREVIVISTE',
   'ui.stamp.bankrupt': 'QUEBRASTE',
+  'ui.share.button': 'Compartir',
+  'ui.share.copied': 'Copiado',
+  'ui.share.survived': 'Aguanté {months} meses y salí con ${personalK}k. ¿La superás?',
+  'ui.share.bankrupt': 'Aguanté {months} meses. ¿Vos aguantás más?',
+  'ui.share.cta': 'Jugá mi partida',
+  'ui.terminal.meta': 'seed {seed} · mes {month}',
 
   'action.BUILD_PRODUCT': 'Construir producto',
   'action.BURNED.desc': 'Contactos +0 · Moral −{moraleCost}',

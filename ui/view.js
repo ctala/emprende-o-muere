@@ -25,6 +25,7 @@ import {
   END_MONTH_DECAY_JITTER,
 } from '../core/game.js';
 import { renderLabel } from './renderer.js';
+import { composeShareText } from './share.js';
 
 export const ACTION_IDS = Object.freeze([
   'BUILD_PRODUCT',
@@ -196,11 +197,28 @@ export function buildModel(state, ctx) {
     doomed: forecast.bankruptMonth !== null,
     gloss: renderLabel('ui.flow.gloss'),
   };
+  const reason = state.reason ?? 'survived';
+  // the one-liner only comes from THIS run's unlocks: a lesson about losing a
+  // previous company must not sit under this run's stamp (or its share post)
+  const learn = ctx.lastLearn ? renderLabel(`learning.${ctx.lastLearn}`) : '';
+  const personalK = reason === 'survived' ? (ctx.settlement?.personalK ?? null) : null;
   const terminal = state.gameOver
     ? {
-        stamp: renderLabel(`ui.stamp.${state.reason ?? 'survived'}`),
-        headline: renderLabel(`ui.game_over.${state.reason ?? 'survived'}`),
-        learn: ctx.lastLearn ? renderLabel(`learning.${ctx.lastLearn}`) : '',
+        reason,
+        stamp: renderLabel(`ui.stamp.${reason}`),
+        headline: renderLabel(`ui.game_over.${reason}`),
+        meta: renderLabel('ui.terminal.meta', { seed: ctx.seed ?? 0, month: state.month }),
+        shareLabel: renderLabel('ui.share.button'),
+        // bankrupt posts are a dare, not a confession: no failure stamp, no
+        // loss lesson -- the group sees "how many months can YOU last", the
+        // player still reads the lesson on screen
+        post: composeShareText({
+          stampWord: reason === 'survived' ? renderLabel(`ui.stamp.${reason}`) : '',
+          months: state.month,
+          personalK,
+          learn: reason === 'survived' ? learn : '',
+        }, ctx.seed ?? 0, ctx.shareUrl ?? ''),
+        learn,
         settlement: ctx.settlement
           ? [
               renderLabel('ui.exit.valuation', ctx.settlement),
@@ -482,9 +500,21 @@ export function renderView(model) {
 
   const terminal = document.getElementById('terminal');
   if (model.terminal) {
+    const firstPaint = terminal.hidden;
     terminal.hidden = false;
-    setText('terminal-stamp', model.terminal.stamp);
+    const stampEl = document.getElementById('terminal-stamp');
+    stampEl.textContent = model.terminal.stamp;
+    stampEl.className = `stamp${model.terminal.reason === 'survived' ? ' survived' : ''}`;
     setText('terminal-headline', model.terminal.headline);
+    setText('terminal-meta', model.terminal.meta);
+    const shareBtn = document.getElementById('share-btn');
+    if (!shareBtn.dataset.copied) shareBtn.textContent = model.terminal.shareLabel;
+    const post = document.getElementById('share-post');
+    post.value = model.terminal.post;
+    // one logical line that wraps: grow to its content so the seed link is
+    // visible without an inner scrollbar on the primary device
+    post.style.height = 'auto';
+    post.style.height = `${post.scrollHeight + 2}px`;
     const learn = document.getElementById('terminal-learn');
     learn.hidden = model.terminal.learn === '';
     setText('terminal-learn', model.terminal.learn);
@@ -496,6 +526,7 @@ export function renderView(model) {
       p.textContent = line;
       st.append(p);
     });
+    if (firstPaint) document.getElementById('restart-btn').focus();
   } else {
     terminal.hidden = true;
   }

@@ -28,6 +28,7 @@ import { render, renderLabel } from './renderer.js';
 import { LEARNING_IDS, createObserver, matchLearnings, loadUnlocked, saveUnlocked } from './learnings.js';
 import { getString, getHelpSections } from '../content/strings_es.js';
 import { shouldShowHint, loadHelpSeen, saveHelpSeen } from './help.js';
+import { performShare } from './share.js';
 import { buildModel, renderView } from './view.js';
 
 const DEFAULT_SEED = 20260918;
@@ -190,7 +191,7 @@ function draw() {
     nextRole: nextRole(),
     closing: inputLocked,
     settlement,
-    lastLearn: lastLearn ?? learningObserver.unlocked.at(-1) ?? null,
+    lastLearn,
     afford,
     reason,
     rowOrder: ROW_ORDER,
@@ -198,6 +199,8 @@ function draw() {
     pitchCost: PITCH_ENERGY_COST,
     counterCost: COUNTER_ENERGY_COST,
     log,
+    seed: SEED,
+    shareUrl: `${window.location.origin}${window.location.pathname}`,
   });
   renderView(model);
   document.getElementById('hint').hidden = libraryOpen || helpOpen
@@ -312,6 +315,11 @@ function wire() {
   document.getElementById('decline-btn').addEventListener('click', () => dispatch({ type: ACTION_DECLINE_ROUND }));
 
   document.getElementById('restart-btn').addEventListener('click', restartRun);
+
+  document.getElementById('share-btn').addEventListener('click', (ev) => {
+    const post = document.getElementById('share-post');
+    performShare(post.value, ev.currentTarget);
+  });
 
   for (const [id, kind] of [['help-modal', 'help'], ['library-modal', 'library']]) {
     const modal = document.getElementById(id);

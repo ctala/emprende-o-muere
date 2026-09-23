@@ -252,6 +252,25 @@ core and replay logs unchanged).
   document, not a planilla). Panel post-pass: comprehension 5/5, intent 1/5
   "sí", zero jargon complaints; still synthetic — the 5-human WhatsApp-founder
   pass remains the real gate before v0.3.0.
+- `polish-terminal-and-share`: the terminal is a trophy, and now you can hand
+  it to someone. The survived seal stamps in the ledger's positive green (the
+  same token as the morale/energy high tier) — red brands only negatives, so
+  SOBREVIVISTE and QUEBRASTE are told apart without reading. A `seed · mes`
+  line identifies which run this was. Share: `composeShareText` (pure,
+  Node-tested) builds ONE post used for both the visible on-sheet text and the
+  share payload; its link carries the seed actually played (`?seed=`), so a
+  forwarded post replays YOUR exact 24 months through the existing replay
+  contract; `performShare` degrades navigator.share → clipboard("Copiado") →
+  select-the-post, never touching game state. The copy went through three
+  synthetic round-3s on the same terminal: the confession ("Quebré en el mes
+  9") tripped the shame wall (4/5 named it; share intent 2/5); the dare
+  ("Aguanté N meses. ¿Vos aguantás más?" — no failure stamp, no loss lesson in
+  the message) hit the 3/5 bar and pulled shame to 1/5; a neutral variant fell
+  back to 2/5 as "seco". The loss lesson stays on the player's own screen
+  only (and now comes only from THIS run's unlocks — a bankrupt→restart→
+  survived run must show no old lesson, pinned e2e). e2e also pins the
+  seed-in-link, seal colors by computed style, the clipboard stub, and
+  AbortError silence.
 
 ## Contributing
 
