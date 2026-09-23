@@ -49,7 +49,7 @@ test('team works on its own: production and auto-close lines appear without clic
   assert.ok(await waitForMonth(browser, 3), 'auto-close did not fire after hire + rest');
 
   const log = await logText(browser);
-  assert.match(log, /Tu equipo sumó 6 leads/, 'pipeline production must be visible');
+  assert.match(log, /Tu equipo sumó 6 contactos/, 'pipeline production must be visible');
   assert.match(log, /Ventas cerró un cliente: factura \$\d+k/, 'auto-close must show up in the ledger log');
   assert.deepEqual(browser.errors, [], `page errors: ${browser.errors.join(' | ')}`);
 });
@@ -62,7 +62,7 @@ test('no-team month one is byte-identical to the pre-engines core', async (t) =>
   assert.ok(await waitForMonth(browser, 2));
   const log = await logText(browser);
   assert.match(log, /Cierra el mes\. Moral -6\./, 'decay line unchanged');
-  assert.match(log, /Planillas: −\$15k\./, 'burn line unchanged');
+  assert.match(log, /Sueldos: −\$15k\./, 'burn line unchanged');
   assert.match(log, /Avanzas al mes 2\./, 'month line unchanged');
   assert.doesNotMatch(log, /equipo|cerró/i, 'no team engine lines may appear without a team');
   assert.deepEqual(browser.errors, [], `page errors: ${browser.errors.join(' | ')}`);

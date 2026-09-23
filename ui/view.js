@@ -92,7 +92,9 @@ export function buildModel(state, ctx) {
   const parts = burnParts(state);
   fields.push({
     id: 'burn', label: renderLabel('hud.burn'), value: `${burn}k/${renderLabel('hud.burn.period')}`,
-    parts: parts.map((p) => ({ label: p.role ? renderLabel(`role.${p.role}`) : renderLabel('hud.burn.base'), amountK: p.amountK })),
+    parts: parts.length > 1
+      ? parts.map((p) => ({ label: p.role ? renderLabel(`role.${p.role}`) : renderLabel('hud.burn.base'), amountK: p.amountK }))
+      : null,
   });
   fields.push({
     id: 'traction', label: renderLabel('hud.traction'), value: String(state.traction),
@@ -120,6 +122,8 @@ export function buildModel(state, ctx) {
   }
   fields.push({
     id: 'energy', label: renderLabel('hud.energy'),
+    value: String(state.founderEnergy),
+    gloss: renderLabel('hud.energy.gloss'),
     bar: { pct: Math.round((state.founderEnergy * 100) / ENERGY_MAX), energy: state.founderEnergy },
   });
   if (team) fields.push({ id: 'team', label: renderLabel('hud.team'), value: team });
@@ -216,7 +220,7 @@ export function buildModel(state, ctx) {
   return {
     month: renderLabel('month.label', { month: state.month, total: state.totalMonths }),
     monthPct: Math.round((state.month / state.totalMonths) * 100),
-    hero: { label: renderLabel('hud.runway'), value: `${runway}m`, gloss: renderLabel('hud.runway.gloss'), alarm },
+    hero: { label: renderLabel('hud.runway'), value: `${runway} meses`, gloss: renderLabel('hud.runway.gloss'), alarm },
     fields,
     rows,
     flow,
@@ -262,6 +266,7 @@ export function buildModel(state, ctx) {
         }
       : null,
     log: ctx.log.slice(-20),
+    logEmpty: renderLabel('log.empty'),
     terminal,
   };
 }
@@ -444,11 +449,13 @@ export function renderView(model) {
   fillRow(pitchBtn, { ...model.pitch, disabled: model.pitch.disabled || model.offer !== null || model.terminal !== null });
 
   const logList = document.getElementById('log-lines');
+  const shown = model.log.length ? model.log : [model.logEmpty];
   const lines = [...logList.children].map((li) => li.textContent);
-  if (lines.join('\n') !== model.log.join('\n')) {
+  if (lines.join('\n') !== shown.join('\n')) {
     logList.textContent = '';
-    model.log.forEach((line) => {
+    shown.forEach((line) => {
       const li = document.createElement('li');
+      if (!model.log.length) li.className = 'dim';
       li.textContent = line;
       logList.append(li);
     });

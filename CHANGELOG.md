@@ -7,6 +7,40 @@ Rule: every version gets its section here **before** it is tagged.
 
 ## [Unreleased]
 
+The ledger finally reads like a document, not a spreadsheet: surface depth,
+a real type rhythm, and a vocabulary that stops speaking startup English.
+
+### Changed
+- Surface hierarchy from measured separation, not same-tone fills: cards lift
+  off the ruled paper with a hard shadow token, the desk frames the sheet, and
+  "Cerrar mes" is the one ink-dark stamp on the page (paper-on-ink >= 4.5:1)
+- Documentary rhythm: ruled lines at 28px with list text locked to that grid,
+  17px reading size, uppercase mono section headers, month metadata right-aligned
+- Jargon pass (owner override of the "jargon stays, glossed" policy): Runway →
+  Alcanza, Quema/Burn → Gastos, Leads → Contactos, Founder → Dueño, Pitch →
+  Buscar inversor, Pre → Valor; the runway hero says "8 meses", never "8m", and
+  the HUD's only remaining English is the role abbreviations (CTO/CFO/CPO)
+- Energy shows its number next to the bar (the panel asked twice)
+- Help rules gained the money loop (contactos → firmar → factura → cobra)
+
+### Fixed
+- Flow-head column labels ("entra / sale / Caja") rendered empty — `wire()`
+  looked up ids the markup never had
+- Pinned action bar could cover the last log line on a 393x852 phone (pinned
+  by an e2e occlusion test)
+- Fresh log rendered an empty band; it is now a real ledger line
+- Burn echoed itself ("15k/mes · operativa 15k") on a teamless start
+- Lock reasons (e.g. "Se destraba en el mes 6") no longer borrow the ledger
+  red reserved for negative money
+- "?" help button was a 35px-wide touch target; it now holds the full 48px square
+
+### Evidence
+- ux-review agent re-run: all five prior P1s closed (evidence in
+  `openspec/changes/redesign-documentary-ledger/evidence/`)
+- Synthetic panel (LLM, needs human confirmation): comprehension 5/5, intent
+  "sí" 1/5 (was 0/5), zero jargon-friction complaints (was the dominant
+  "habla en cristiano" cluster); balance sweep untouched
+
 ## [0.2.0] - 2026-09-22
 
 The team finally works, and the money finally reads: the game

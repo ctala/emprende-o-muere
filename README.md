@@ -236,6 +236,22 @@ core and replay logs unchanged).
   cash-for-cash (pinned by test). Each contract pays once: the "MRR" shown is
   a run-rate, recurring revenue stays roadmap. Also fixed the CFO card
   advertising "+0 leads/mes".
+- `redesign-documentary-ledger`: the identity held; the craft caught up. The
+  evidence protocol ran BEFORE the proposal: the ux-review agent graded the
+  shipped v0.2.0 build (5 P1s: beige soup, weak CTA, bar occluding the log on
+  phones, empty-log band, missing flow labels), the synthetic panel confirmed
+  the same from screenshots, and only then did the change get authored — that
+  order (evidence → proposal → implement → re-run) is the loop now pinned by
+  the change's acceptance tasks. The ledger vocabulary flip is an OWNER
+  OVERRIDE of the `improve-onboarding` jargon policy: after three panel rounds
+  at 0/5 "would play" with "habla en cristiano" as the recurring verdict, the
+  jargon itself (Runway/Quema/Leads/Pitch/Founder) was renamed to plain
+  Spanish instead of glossed (Quema→Gastos etc.), the hero says "8 meses" not
+  "8m", and type went 16→17px on a 28px rule grid (reference bar: the owner's
+  own elhda-ep22 script mock — big serif prose on wide rules reads as a
+  document, not a planilla). Panel post-pass: comprehension 5/5, intent 1/5
+  "sí", zero jargon complaints; still synthetic — the 5-human WhatsApp-founder
+  pass remains the real gate before v0.3.0.
 
 ## Contributing
 

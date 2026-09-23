@@ -51,6 +51,6 @@ test('terminal can be dismissed and the run restarted', async (t) => {
   await browser.poll('document.getElementById("terminal").hidden', { timeoutMs: 1500 });
   assert.equal(await browser.eval('document.getElementById("terminal").hidden'), true, 'terminal still open after restart');
   assert.equal(await browser.eval('document.getElementById("month-label").textContent'), 'Mes 1 de 24', 'restart did not reset the run');
-  assert.match(await browser.eval('document.getElementById("hero-value").textContent'), /^8m$/, 'restart did not restore fresh runway');
+  assert.match(await browser.eval('document.getElementById("hero-value").textContent'), /^8 meses$/, 'restart did not restore fresh runway');
   assert.deepEqual(browser.errors, [], `page errors: ${browser.errors.join(' | ')}`);
 });

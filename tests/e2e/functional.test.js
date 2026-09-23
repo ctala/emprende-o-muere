@@ -33,7 +33,7 @@ test('burned team (tier 0 morale): labor rows warn instead of silently yielding 
   }
   const morale = Number(await browser.eval('document.querySelector(\'[data-testid="field-morale"] .field-value\').textContent'));
   assert.ok(morale < 34, `spiral did not reach burned morale (got ${morale})`);
-  assert.match(await browser.eval('document.querySelector(\'[data-testid="row-BUILD_PRODUCT-warn"]\')?.textContent ?? ""'), /quemado/i,
+  assert.match(await browser.eval('document.querySelector(\'[data-testid="row-BUILD_PRODUCT-warn"]\')?.textContent ?? ""'), /agotado/i,
     'labor row must carry the burned warning at tier 0');
   assert.equal(await browser.eval('!!document.querySelector(\'[data-testid="field-morale"] .field-value.alarm\')'), true,
     'morale field must alarm at tier 0');
@@ -55,7 +55,7 @@ test('dom play: reasons, action click, manual close, hire raises burn', async (t
 
   // An enabled action click changes a displayed stat.
   const descBefore = await browser.eval('document.querySelector(\'[data-testid="row-BUILD_PRODUCT"] .row-desc\').textContent');
-  assert.match(descBefore, /Leads \+\d+–\d+ · Moral −8/, 'labor card must show a yield range, never a bare +8');
+  assert.match(descBefore, /Contactos \+\d+–\d+ · Moral −8/, 'labor card must show a yield range, never a bare +8');
   assert.equal(await fieldText(browser, 'traction'), '0');
   await browser.click('[data-action="BUILD_PRODUCT"]');
   assert.ok(await browser.poll('document.querySelector(\'[data-testid="field-traction"] .field-value\').textContent !== "0"', { timeoutMs: 1500 }),

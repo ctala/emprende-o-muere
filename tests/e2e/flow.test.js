@@ -30,17 +30,35 @@ test('cash-flow panel projects a red bankruptcy month on a fresh run', async (t)
   assert.deepEqual(browser.errors, [], `page errors: ${browser.errors.join(' | ')}`);
 });
 
+test('the pinned footer never covers the log (portrait P1)', async (t) => {
+  const { server, browser } = await withHarness(t, { viewport: { width: 393, height: 852 } });
+  await boot(browser, server);
+  await browser.click('[data-action="BUILD_PRODUCT"]');
+  await browser.eval('window.scrollTo(0, document.body.scrollHeight)');
+  await new Promise((r) => setTimeout(r, 900));
+  await browser.eval('window.scrollTo(0, document.body.scrollHeight)');
+  await new Promise((r) => setTimeout(r, 150));
+  const m = await browser.eval(`(() => {
+    const last = document.querySelector('#log-lines li:last-child');
+    const bar = document.querySelector('.footer-rows');
+    if (!last || !bar) return null;
+    return { lastBottom: last.getBoundingClientRect().bottom, barTop: bar.getBoundingClientRect().top };
+  })()`);
+  assert.ok(m, 'log line and pinned bar both exist');
+  assert.ok(m.lastBottom <= m.barTop, `log line at ${m.lastBottom} is covered by the bar top at ${m.barTop}`);
+});
+
 test('burn breakdown and separate leads/clients fields render', async (t) => {
   const { server, browser } = await withHarness(t);
   await boot(browser, server);
 
-  assert.match(await browser.eval('document.querySelector(\'[data-testid="field-burn-parts"]\')?.textContent ?? ""'), /operativa 15k/,
-    'empty team burn is just the base part');
+  assert.equal(await browser.eval('!!document.querySelector(\'[data-testid="field-burn-parts"]\')'), false,
+    'no team means no parts echo — the total alone is the information');
   assert.equal(await browser.eval('document.querySelector(\'[data-testid="field-clients"] .field-value\').textContent'), '0',
     'clients (contracts) render as their own field');
   const leadLabel = await browser.eval('document.querySelector(\'[data-testid="field-traction"] .field-label\').textContent');
   const clientLabel = await browser.eval('document.querySelector(\'[data-testid="field-clients"] .field-label\').textContent');
-  assert.match(leadLabel, /Leads/);
+  assert.match(leadLabel, /Contactos/);
   assert.match(clientLabel, /Clientes/);
 
   await browser.click('[data-action="HIRE"]');

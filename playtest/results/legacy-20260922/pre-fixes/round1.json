@@ -1,0 +1,128 @@
+[
+  {
+    "id": "valentina-r1",
+    "persona": "valentina",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador triste donde tu negocio se muere de hambre si no le haces clic rapido.",
+      "jugarias": "no",
+      "por_que": "Tiene cara de Excel viejo y eso de 'Quema' suena a que voy a perder la plata sin entender por que.",
+      "fricciones": [
+        "Letra muy chiquita para mi vista",
+        "Jerga raras como Runway y Quema",
+        "No se ve ningun boton claro para empezar"
+      ],
+      "frase_textual": "Oiga, esto parece mas una factura atrasada que un juego. Le faltan colores y emojis para que yo entienda que onda."
+    },
+    "raw": "{\"de_que_va\": \"Un simulador triste donde tu negocio se muere de hambre si no le haces clic rapido.\", \"jugarias\": \"no\", \"por_que\": \"Tiene cara de Excel viejo y eso de 'Quema' suena a que voy a perder la plata sin entender por que.\", \"fricciones\": [\"Letra muy chiquita para mi vista\", \"Jerga raras como Runway y Quema\", \"No se ve ningun boton claro para empezar\"], \"frase_textual\": \"Oiga, esto parece mas una factura atrasada que un juego. Le faltan colores y emojis para que yo entienda que onda.\"}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T20:25:56+00:00"
+  },
+  {
+    "id": "diego-r1",
+    "persona": "diego",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Simulador de gestión de startup donde tienes que sobrevivir a la quema de caja antes de que se acabe tu runway.",
+      "jugarias": "quizas",
+      "por_que": "Me interesa el concepto pero me rechina que el cálculo de la quiebra no cuadre con los números mostrados y las mecánicas de bloqueo parezcan injustas.",
+      "fricciones": [
+        "Dice que se acaba la caja en el mes 10 pero con $120k y quema de $15k/mes el runway es de 8 meses totales (mes 9 incluido), los números no cuadran.",
+        "El botón de Pitch está bloqueado hasta el mes 6, si muero en el mes 9 tengo solo 3 meses para levantar, muy ajustado y sin información de términos.",
+        "No veo el valor inicial de energía, solo que la barra está llena, no sé cuánta tengo para gastar en otras acciones potenciales."
+      ],
+      "frase_textual": "Hermano, el juego tiene mala pata: dice que te mueres en el mes 10 pero si divides 120 entre 15 te quedan 8 meses, no cuadran los números; además te bloquean el pitch hasta el mes 6, si te mueres rápido ni oportunidad tienes."
+    },
+    "raw": "{\"de_que_va\": \"Simulador de gestión de startup donde tienes que sobrevivir a la quema de caja antes de que se acabe tu runway.\", \"jugarias\": \"quizas\", \"por_que\": \"Me interesa el concepto pero me rechina que el cálculo de la quiebra no cuadre con los números mostrados y las mecánicas de bloqueo parezcan injustas.\", \"fricciones\": [\"Dice que se acaba la caja en el mes 10 pero con $120k y quema de $15k/mes el runway es de 8 meses totales (mes 9 incluido), los números no cuadran.\", \"El botón de Pitch está bloqueado hasta el mes 6, si muero en el mes 9 tengo solo 3 meses para levantar, muy ajustado y sin información de términos.\", \"No veo el valor inicial de energía, solo que la barra está llena, no sé cuánta tengo para gastar en otras acciones potenciales.\"], \"frase_textual\": \"Hermano, el juego tiene mala pata: dice que te mueres en el mes 10 pero si divides 120 entre 15 te quedan 8 meses, no cuadran los números; además te bloquean el pitch hasta el mes 6, si te mueres rápido ni oportunidad tienes.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T20:27:22+00:00"
+  },
+  {
+    "id": "camila-r1",
+    "persona": "camila",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador donde tenés que administrar la plata y el equipo de una startup mes a mes sin quedarte en cero.",
+      "jugarias": "quizas",
+      "por_que": "El tema de startups me da curiosidad pero esta estética de hoja de cálculo me agota, necesito algo que se vea mejor para enganchar.",
+      "fricciones": [
+        "Diseño plano y feo, parece una planilla de Excel sin formato",
+        "La palabra 'Quema' es confusa y suena agresiva",
+        "No se entiende a qué se refiere la 'Moral', si es del equipo o del fundador"
+      ],
+      "frase_textual": "Che, es horrible el diseño, parece una planilla de Excel del 2005 y no entiendo qué es la 'quema', me siento tonta mirándolo."
+    },
+    "raw": "{\n  \"de_que_va\": \"Un simulador donde tenés que administrar la plata y el equipo de una startup mes a mes sin quedarte en cero.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"El tema de startups me da curiosidad pero esta estética de hoja de cálculo me agota, necesito algo que se vea mejor para enganchar.\",\n  \"fricciones\": [\"Diseño plano y feo, parece una planilla de Excel sin formato\", \"La palabra 'Quema' es confusa y suena agresiva\", \"No se entiende a qué se refiere la 'Moral', si es del equipo o del fundador\"],\n  \"frase_textual\": \"Che, es horrible el diseño, parece una planilla de Excel del 2005 y no entiendo qué es la 'quema', me siento tonta mirándolo.\"\n}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T20:29:21+00:00"
+  },
+  {
+    "id": "jorge-r1",
+    "persona": "jorge",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "de tratar de sobrevivir unos meses más antes de quebrar gastando plata en inventos que nadie compra",
+      "jugarias": "no",
+      "por_que": "porque me obliga a usar jerga extranjera como 'leads' y 'pitch' en vez de decirme claramente cuánto gasto y cuánto cobro, y eso no es hacer negocios, es perder el tiempo",
+      "fricciones": [
+        "No sé qué es un 'lead' exactamente ni por qué es distinto de un cliente",
+        "La palabra 'Quema' es confusa para referirse a gastos mensuales",
+        "La letra es muy chica y el botón de 'Pitch' está bloqueado sin explicación clara"
+      ],
+      "frase_textual": "Hermano, esto parece para chicos que creen que un negocio es un videojuego. 'Leads', 'Quema', 'Pitch'... habla en cristiano o cierra el local. No entiendo nada y no me sirve."
+    },
+    "raw": "{\n  \"de_que_va\": \"de tratar de sobrevivir unos meses más antes de quebrar gastando plata en inventos que nadie compra\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"porque me obliga a usar jerga extranjera como 'leads' y 'pitch' en vez de decirme claramente cuánto gasto y cuánto cobro, y eso no es hacer negocios, es perder el tiempo\",\n  \"fricciones\": [\n    \"No sé qué es un 'lead' exactamente ni por qué es distinto de un cliente\",\n    \"La palabra 'Quema' es confusa para referirse a gastos mensuales\",\n    \"La letra es muy chica y el botón de 'Pitch' está bloqueado sin explicación clara\"\n  ],\n  \"frase_textual\": \"Hermano, esto parece para chicos que creen que un negocio es un videojuego. 'Leads', 'Quema', 'Pitch'... habla en cristiano o cierra el local. No entiendo nada y no me sirve.\"\n}",
+    "attempts": 3,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T20:34:52+00:00"
+  },
+  {
+    "id": "fernanda-r1",
+    "persona": "fernanda",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador de gestión de startup donde debes sobrevivir 24 meses sin quedarte sin caja y gestionando recursos como energía y moral.",
+      "jugarias": "quizas",
+      "por_que": "El concepto de 'runway' y gestión de quema me engancha porque es real y estratégico, pero la UI está tan cruda que me haría falta mucha paciencia para no frustrarme con el feedback visual.",
+      "fricciones": [
+        "Contraste ilegible en los textos grises de ayuda (WCAG fail)",
+        "Color rojo usado para estado bloqueado/informativo en 'Pitch', generando confusión semántica",
+        "Texto interno de depuración visible en la barra de Energía ('vigor; el pitch gasta...')",
+        "Jerarquía tipográfica débil: cuesta escanear rápido entre Caja, Quema y Moral"
+      ],
+      "frase_textual": "Amiga, la mecánica parece interesante (gestión de runway es duro), pero la UI está en modo prototipo de Figma sin pulir: el texto gris es ilegible y el rojo del botón bloqueado me grita error cuando solo está inactivo."
+    },
+    "raw": "{\"de_que_va\": \"Un simulador de gestión de startup donde debes sobrevivir 24 meses sin quedarte sin caja y gestionando recursos como energía y moral.\", \"jugarias\": \"quizas\", \"por_que\": \"El concepto de 'runway' y gestión de quema me engancha porque es real y estratégico, pero la UI está tan cruda que me haría falta mucha paciencia para no frustrarme con el feedback visual.\", \"fricciones\": [\"Contraste ilegible en los textos grises de ayuda (WCAG fail)\", \"Color rojo usado para estado bloqueado/informativo en 'Pitch', generando confusión semántica\", \"Texto interno de depuración visible en la barra de Energía ('vigor; el pitch gasta...')\", \"Jerarquía tipográfica débil: cuesta escanear rápido entre Caja, Quema y Moral\"], \"frase_textual\": \"Amiga, la mecánica parece interesante (gestión de runway es duro), pero la UI está en modo prototipo de Figma sin pulir: el texto gris es ilegible y el rojo del botón bloqueado me grita error cuando solo está inactivo.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T20:37:14+00:00"
+  }
+]

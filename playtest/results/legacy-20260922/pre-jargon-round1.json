@@ -1,0 +1,129 @@
+[
+  {
+    "id": "valentina-r1",
+    "persona": "valentina",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "De sobrevivir a los números de una startup sin quemarte en el intento.",
+      "jugarias": "no",
+      "por_que": "Porque me parece demasiado denso y técnico, se ve como un Excel chistoso y no tengo tiempo para eso.",
+      "fricciones": [
+        "Qué diablos es 'Quema' y por qué se gasta energía con un 'pitch'",
+        "No sé qué son las 'Acciones 2/2' ni cómo se ejecutan"
+      ],
+      "frase_textual": "Parce esto se ve más enredado que mi balance de julio, si no entiendo 'quema' no juego 😂"
+    },
+    "raw": "{\n  \"de_que_va\": \"De sobrevivir a los números de una startup sin quemarte en el intento.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"Porque me parece demasiado denso y técnico, se ve como un Excel chistoso y no tengo tiempo para eso.\",\n  \"fricciones\": [\n    \"Qué diablos es 'Quema' y por qué se gasta energía con un 'pitch'\",\n    \"No sé qué son las 'Acciones 2/2' ni cómo se ejecutan\"\n  ],\n  \"frase_textual\": \"Parce esto se ve más enredado que mi balance de julio, si no entiendo 'quema' no juego 😂\"\n}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T22:40:29+00:00"
+  },
+  {
+    "id": "diego-r1",
+    "persona": "diego",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador de gestión de recursos donde administras la caja, la moral y la energía para no quedarte sin runway en 24 meses.",
+      "jugarias": "quizas",
+      "por_que": "Me tienta la mecánica de optimización de acciones, pero esta interfaz tan plana y la falta de feedback numérico claro en la energía me generan fricción inmediata.",
+      "fricciones": [
+        "La contradicción entre el contador de 8 meses hasta cero y el aviso rojo que dice que se acaba la caja en el mes 10.",
+        "No veo cuánta energía tengo exactamente, solo una barra sin escala.",
+        "El valor pre de $150k sin tener clientes o leads parece un número inflado o arbitrario."
+      ],
+      "frase_textual": "Oye, la interfaz parece de Windows 95 y el tema de la energía está confuso, pero el cálculo del runway sí está bien planteado, aunque el texto rojo del mes 10 contradice al contador de arriba."
+    },
+    "raw": "{\n\"de_que_va\": \"Un simulador de gestión de recursos donde administras la caja, la moral y la energía para no quedarte sin runway en 24 meses.\",\n\"jugarias\": \"quizas\",\n\"por_que\": \"Me tienta la mecánica de optimización de acciones, pero esta interfaz tan plana y la falta de feedback numérico claro en la energía me generan fricción inmediata.\",\n\"fricciones\": [\n\"La contradicción entre el contador de 8 meses hasta cero y el aviso rojo que dice que se acaba la caja en el mes 10.\",\n\"No veo cuánta energía tengo exactamente, solo una barra sin escala.\",\n\"El valor pre de $150k sin tener clientes o leads parece un número inflado o arbitrario.\"\n],\n\"frase_textual\": \"Oye, la interfaz parece de Windows 95 y el tema de la energía está confuso, pero el cálculo del runway sí está bien planteado, aunque el texto rojo del mes 10 contradice al contador de arriba.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T22:41:23+00:00"
+  },
+  {
+    "id": "camila-r1",
+    "persona": "camila",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un juego donde administrás una startup hasta que te quedas sin plata.",
+      "jugarias": "no",
+      "por_que": "Se ve aburrido y lleno de palabras que no entiendo, parece una planilla de cálculo disfrazada.",
+      "fricciones": [
+        "No sé qué significa 'Leads' ni para qué sirve",
+        "No veo cómo gasto o invierto la caja, solo puedo cerrar el mes",
+        "La barra de energía no se puede hacer clic ni sé qué acciones consumen más",
+        "El nombre 'Runway' no sé si es la empresa o un concepto"
+      ],
+      "frase_textual": "Che, esto parece una planilla de Excel mal diseñada, no sé ni qué tocar, me da fiaca"
+    },
+    "raw": "{\"de_que_va\": \"Un juego donde administrás una startup hasta que te quedas sin plata.\", \"jugarias\": \"no\", \"por_que\": \"Se ve aburrido y lleno de palabras que no entiendo, parece una planilla de cálculo disfrazada.\", \"fricciones\": [\"No sé qué significa 'Leads' ni para qué sirve\", \"No veo cómo gasto o invierto la caja, solo puedo cerrar el mes\", \"La barra de energía no se puede hacer clic ni sé qué acciones consumen más\", \"El nombre 'Runway' no sé si es la empresa o un concepto\"], \"frase_textual\": \"Che, esto parece una planilla de Excel mal diseñada, no sé ni qué tocar, me da fiaca\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T22:41:57+00:00"
+  },
+  {
+    "id": "jorge-r1",
+    "persona": "jorge",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador de startups para ver si llegas al mes 24 sin quebrar.",
+      "jugarias": "no",
+      "por_que": "Es pura letra chica y números sin moneda clara; yo manejo mi negocio con cuentas claras, no con juegos de palabras raras.",
+      "fricciones": [
+        "No dice si los $120k son soles o dólares",
+        "'Quema' y 'Leads' son términos que no uso en el negocio",
+        "'Pitch a inversores' bloqueado hasta el mes 6, ¿para qué lo muestran?",
+        "Tantos términos raros para una simple caja y gastos"
+      ],
+      "frase_textual": "Oye, me abrí la app y no entiendo nada: ¿120k es soles o dólares? Y ese tal 'Runway' 8 meses, ¿es mi caja? Me parece un excel disfrazado, para qué perder el tiempo en eso."
+    },
+    "raw": "{\"de_que_va\": \"Un simulador de startups para ver si llegas al mes 24 sin quebrar.\",\"jugarias\": \"no\",\"por_que\": \"Es pura letra chica y números sin moneda clara; yo manejo mi negocio con cuentas claras, no con juegos de palabras raras.\",\"fricciones\": [\"No dice si los $120k son soles o dólares\",\"'Quema' y 'Leads' son términos que no uso en el negocio\",\"'Pitch a inversores' bloqueado hasta el mes 6, ¿para qué lo muestran?\",\"Tantos términos raros para una simple caja y gastos\"],\"frase_textual\": \"Oye, me abrí la app y no entiendo nada: ¿120k es soles o dólares? Y ese tal 'Runway' 8 meses, ¿es mi caja? Me parece un excel disfrazado, para qué perder el tiempo en eso.\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T22:42:38+00:00"
+  },
+  {
+    "id": "fernanda-r1",
+    "persona": "fernanda",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador de gestión de startup donde tienes que sobrevivir al run rate cerrando meses y gestionando recursos.",
+      "jugarias": "quizas",
+      "por_que": "Lo probaría si el gameplay tiene depth, pero visualmente siento que no hay jerarquía y se ve demasiado plano para mantener mi atención.",
+      "fricciones": [
+        "El contraste de los textos secundarios es muy bajo para la accesibilidad",
+        "No sé qué es 'Energía' ni cómo se gasta sin leer el texto fino",
+        "La barra de progreso del mes es un simple trazo rojo, falta información contextual",
+        "Las cajas de estadísticas no indican si son clickeables o interactivas"
+      ],
+      "frase_textual": "Ami, esto parece un wireframe de Figma que no pasó por UI. El contraste me está matando los ojos y no entiendo qué es clickeable."
+    },
+    "raw": "{\n  \"de_que_va\": \"Un simulador de gestión de startup donde tienes que sobrevivir al run rate cerrando meses y gestionando recursos.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Lo probaría si el gameplay tiene depth, pero visualmente siento que no hay jerarquía y se ve demasiado plano para mantener mi atención.\",\n  \"fricciones\": [\n    \"El contraste de los textos secundarios es muy bajo para la accesibilidad\",\n    \"No sé qué es 'Energía' ni cómo se gasta sin leer el texto fino\",\n    \"La barra de progreso del mes es un simple trazo rojo, falta información contextual\",\n    \"Las cajas de estadísticas no indican si son clickeables o interactivas\"\n  ],\n  \"frase_textual\": \"Ami, esto parece un wireframe de Figma que no pasó por UI. El contraste me está matando los ojos y no entiendo qué es clickeable.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T22:43:12+00:00"
+  }
+]

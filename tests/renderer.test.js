@@ -17,7 +17,7 @@ test('action event renders Spanish with core numbers', () => {
   const { events } = applyAction(createGame(12345), { type: 'TALK_TO_CUSTOMERS' });
   const e = events[0];
   const text = render(e);
-  assert.ok(text.startsWith('Hablaste con clientes: tracción '), text);
+  assert.ok(text.startsWith('Hablaste con clientes: contactos '), text);
   assert.ok(text.includes(String(e.params.tractionDelta)), text);
 });
 

@@ -49,9 +49,9 @@ test('every action name appears in the help text', () => {
 
 test('venture jargon terms carry a plain-Spanish gloss', () => {
   const text = joined();
-  assert.match(text, /Runway: meses de vida/);
-  assert.match(text, /Burn: gasto mensual/);
-  assert.match(text, /Pre\s*=\s*valor/);
+  assert.match(text, /Alcanza: meses con lo puesto/);
+  assert.match(text, /Gastos: lo que sale por mes/);
+  assert.match(text, /Buscar inversor: das % por plata/);
 });
 
 test('all HUD label keys still resolve', () => {

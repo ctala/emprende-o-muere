@@ -1,0 +1,127 @@
+[
+  {
+    "id": "valentina-r1",
+    "persona": "valentina",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "un simulador de startup donde tienes que llegar a no gastar plata o quebrar",
+      "jugarias": "quizas",
+      "por_que": "se ve como un excel disfrazado y no tengo tiempo para descifrar qué significa cada número",
+      "fricciones": [
+        "no entiendo si el objetivo son 8 meses o 8m (millones?)",
+        "el texto esta muy amontonado y no veo botones claros para tocar",
+        "no se ve que puedo hacer en el mes 1 aparte de cerrar"
+      ],
+      "frase_textual": "oye, esto parece mi vida pero version aburrida, me perdí con lo del objetivo de 8m si estamos en el mes 1 de 24 jaja"
+    },
+    "raw": "{\"de_que_va\": \"un simulador de startup donde tienes que llegar a no gastar plata o quebrar\", \"jugarias\": \"quizas\", \"por_que\": \"se ve como un excel disfrazado y no tengo tiempo para descifrar qué significa cada número\", \"fricciones\": [\"no entiendo si el objetivo son 8 meses o 8m (millones?)\", \"el texto esta muy amontonado y no veo botones claros para tocar\", \"no se ve que puedo hacer en el mes 1 aparte de cerrar\"], \"frase_textual\": \"oye, esto parece mi vida pero version aburrida, me perdí con lo del objetivo de 8m si estamos en el mes 1 de 24 jaja\"}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-23T00:30:08+00:00"
+  },
+  {
+    "id": "diego-r1",
+    "persona": "diego",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Gestionar el burn rate y recursos de una startup durante 24 meses para evitar la quiebra por falta de caja.",
+      "jugarias": "quizas",
+      "por_que": "Me interesa el modelo de simulación de runway, pero la interfaz es descuidada y las mecánicas de valor están mal explicadas.",
+      "fricciones": [
+        "'8m meses' es ambiguo y amateur, debería ser '8 meses'.",
+        "La mecánica de 'Energía' es opaca y su interacción con la moral no está clara."
+      ],
+      "frase_textual": "Man, '8m meses'? ¿Millones de meses? Parece error de dev, y bloquear inversores hasta el mes 6 es mecánica de tutorial mal disfrazada."
+    },
+    "raw": "{\n    \"de_que_va\": \"Gestionar el burn rate y recursos de una startup durante 24 meses para evitar la quiebra por falta de caja.\",\n    \"jugarias\": \"quizas\",\n    \"por_que\": \"Me interesa el modelo de simulación de runway, pero la interfaz es descuidada y las mecánicas de valor están mal explicadas.\",\n    \"fricciones\": [\n        \"'8m meses' es ambiguo y amateur, debería ser '8 meses'.\",\n        \"La mecánica de 'Energía' es opaca y su interacción con la moral no está clara.\"\n    ],\n    \"frase_textual\": \"Man, '8m meses'? ¿Millones de meses? Parece error de dev, y bloquear inversores hasta el mes 6 es mecánica de tutorial mal disfrazada.\"\n}",
+    "attempts": 2,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-23T00:32:23+00:00"
+  },
+  {
+    "id": "camila-r1",
+    "persona": "camila",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Trata de sobrevivir a los gastos mensuales de una startup sin quedarte sin plata ni sin ganas.",
+      "jugarias": "quizas",
+      "por_que": "No lo jugaría porque la estética me mata, parece una planilla de Excel aburrida y no me transmite nada de emoción ni modernidad.",
+      "fricciones": [
+        "No entiendo qué significa 'hasta cero', ¿cero plata?",
+        "El diseño es horrible, colores terrosos y tipografía difícil de leer",
+        "No veo qué hago con los contactos o clientes, parece que no sirven para nada"
+      ],
+      "frase_textual": "Che, esto tiene un diseño horrible, parece un formulario de AFIP de los 90s. No entiendo nada de la lógica y es súper aburrido de mirar."
+    },
+    "raw": "{\n  \"de_que_va\": \"Trata de sobrevivir a los gastos mensuales de una startup sin quedarte sin plata ni sin ganas.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"No lo jugaría porque la estética me mata, parece una planilla de Excel aburrida y no me transmite nada de emoción ni modernidad.\",\n  \"fricciones\": [\"No entiendo qué significa 'hasta cero', ¿cero plata?\", \"El diseño es horrible, colores terrosos y tipografía difícil de leer\", \"No veo qué hago con los contactos o clientes, parece que no sirven para nada\"],\n  \"frase_textual\": \"Che, esto tiene un diseño horrible, parece un formulario de AFIP de los 90s. No entiendo nada de la lógica y es súper aburrido de mirar.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-23T00:33:03+00:00"
+  },
+  {
+    "id": "jorge-r1",
+    "persona": "jorge",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Simular administrar una empresa que no produce nada concreto, sino que gestiona 'moral' y 'energía' como si fuera un videojuego de niños.",
+      "jugarias": "no",
+      "por_que": "No juego porque si no veo utilidades reales, inventarios o deudas claras, es un pasatiempo para gente que no ha firmado un solo pagaré en su vida.",
+      "fricciones": [
+        "El objetivo dice 'hasta cero' pero la caja dice 120k, confunde el texto y me hace cerrar la app",
+        "No entiendo qué es 'Moral 80' ni cómo me afecta el bolsillo en concreto",
+        "Botones de 'Buscar inversor' bloqueados hasta el mes 6, pérdida de tiempo en los primeros clics",
+        "Letra muy pequeña en la parte inferior para ver los detalles de gastos en mi celular"
+      ],
+      "frase_textual": "Mira, está bonito pero está muerto. Nada de esto me sirve para facturar o pagar planillas. Un juego sin números reales es solo distracción, no negocio."
+    },
+    "raw": "{\n  \"de_que_va\": \"Simular administrar una empresa que no produce nada concreto, sino que gestiona 'moral' y 'energía' como si fuera un videojuego de niños.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"No juego porque si no veo utilidades reales, inventarios o deudas claras, es un pasatiempo para gente que no ha firmado un solo pagaré en su vida.\",\n  \"fricciones\": [\n    \"El objetivo dice 'hasta cero' pero la caja dice 120k, confunde el texto y me hace cerrar la app\",\n    \"No entiendo qué es 'Moral 80' ni cómo me afecta el bolsillo en concreto\",\n    \"Botones de 'Buscar inversor' bloqueados hasta el mes 6, pérdida de tiempo en los primeros clics\",\n    \"Letra muy pequeña en la parte inferior para ver los detalles de gastos en mi celular\"\n  ],\n  \"frase_textual\": \"Mira, está bonito pero está muerto. Nada de esto me sirve para facturar o pagar planillas. Un juego sin números reales es solo distracción, no negocio.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-23T00:33:45+00:00"
+  },
+  {
+    "id": "fernanda-r1",
+    "persona": "fernanda",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "una gestión de runway donde optimizas métricas para no quedarte en cero antes del mes 24",
+      "jugarias": "no",
+      "por_que": "el panel no tiene jerarquía real, siento que estoy leyendo una factura y no jugando",
+      "fricciones": [
+        "la jerarquía de las métricas no es clara, caja y gastos compiten visualmente con contactos",
+        "el bloqueo de Buscar inversor explica el costo pero no la razón estratégica del mes 6",
+        "el texto pequeño en las etiquetas de contacto y cliente cansa la vista"
+      ],
+      "frase_textual": "no puedo con esto, la jerarquía está rota y no me deja leer el juego"
+    },
+    "raw": "{\n  \"de_que_va\": \"una gestión de runway donde optimizas métricas para no quedarte en cero antes del mes 24\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"el panel no tiene jerarquía real, siento que estoy leyendo una factura y no jugando\",\n  \"fricciones\": [\n    \"la jerarquía de las métricas no es clara, caja y gastos compiten visualmente con contactos\",\n    \"el bloqueo de Buscar inversor explica el costo pero no la razón estratégica del mes 6\",\n    \"el texto pequeño en las etiquetas de contacto y cliente cansa la vista\"\n  ],\n  \"frase_textual\": \"no puedo con esto, la jerarquía está rota y no me deja leer el juego\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-23T00:34:18+00:00"
+  }
+]

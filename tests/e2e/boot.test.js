@@ -15,7 +15,7 @@ test('page boots and renders the game shell', async (t) => {
     'boot marker never appeared (wiring incomplete)');
   assert.match(await browser.eval('document.getElementById("month-label").textContent'), /1/,
     'month label not rendered');
-  assert.match(await browser.eval('document.getElementById("hero-value").textContent'), /^\d+m$/,
+  assert.match(await browser.eval('document.getElementById("hero-value").textContent'), /^\d+ meses$/,
     'runway hero not rendered');
   const rowCount = await browser.eval('document.querySelectorAll("#action-list [data-action]").length');
   assert.equal(rowCount, 6, 'action list not populated');
@@ -24,7 +24,7 @@ test('page boots and renders the game shell', async (t) => {
     const num = (id) => Number(document.querySelector('[data-testid="field-' + id + '"] .field-value')?.textContent.match(/[\\d.]+/)?.[0]);
     const cash = num('cash');
     const burn = num('burn');
-    const hero = Number(document.getElementById('hero-value').textContent.replace('m', ''));
+    const hero = Number(document.getElementById('hero-value').textContent.replace(' meses', ''));
     return document.querySelector('[data-testid="field-cash"] .field-value') !== null
       && document.querySelector('[data-testid="field-burn"] .field-value') !== null
       && hero === Math.floor(cash / burn);

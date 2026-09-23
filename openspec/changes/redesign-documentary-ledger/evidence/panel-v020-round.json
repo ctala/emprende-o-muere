@@ -1,0 +1,130 @@
+[
+  {
+    "id": "valentina-r1",
+    "persona": "valentina",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "de manejar una startup con platas y estrés, tipo lo que vivo yo pero en versión videojuego.",
+      "jugarias": "no",
+      "por_que": "porque me parece muy feo y no entiendo ni la mitad de las cosas, y si no lo entiende mi mamá en 5 segundos, yo tampoco.",
+      "fricciones": [
+        "No veo en cuánto tengo que dejar la valuación para no quebrar en el mes 6",
+        "Los números son muy chiquitos y me cansan",
+        "No sé qué es 'pre-money valuation' ni cómo se sube"
+      ],
+      "frase_textual": "Oye, ¿qué es esto? Está muy feo y no entiendo a dónde tengo que llegar con la valuación, ni cómo subo eso. Si no es intuitivo lo dejo."
+    },
+    "raw": "{\n  \"de_que_va\": \"de manejar una startup con platas y estrés, tipo lo que vivo yo pero en versión videojuego.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"porque me parece muy feo y no entiendo ni la mitad de las cosas, y si no lo entiende mi mamá en 5 segundos, yo tampoco.\",\n  \"fricciones\": [\n    \"No veo en cuánto tengo que dejar la valuación para no quebrar en el mes 6\",\n    \"Los números son muy chiquitos y me cansan\",\n    \"No sé qué es 'pre-money valuation' ni cómo se sube\"\n  ],\n  \"frase_textual\": \"Oye, ¿qué es esto? Está muy feo y no entiendo a dónde tengo que llegar con la valuación, ni cómo subo eso. Si no es intuitivo lo dejo.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T19:30:43+00:00"
+  },
+  {
+    "id": "diego-r1",
+    "persona": "diego",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Simulador de startups donde gestionas caja, quema y moral hasta conseguir inversión o quebrar.",
+      "jugarias": "quizas",
+      "por_que": "Lo pruebo solo para ver qué tan ridículo es el algoritmo de valoración, porque bloquear el pitch hasta el mes 6 con 120k de caja es una receta para la asfixia financiera.",
+      "fricciones": [
+        "¿Por qué el pitch se destraba hasta el mes 6 si la caja se agota antes o justo ahí?",
+        "¿Cómo generas ingresos si no hay leads ni clientes al inicio?",
+        "La redundancia entre 'Quema 15k/mes' y 'operativa 15k' no aporta nada"
+      ],
+      "frase_textual": "Compa, esto está jodido. Si el pitch recién se destraba en el mes 6, con 120k de caja y burn de 15k, te quedas seco antes de poder levantar. ¿Cómo vendes si tienes 0 leads? Está mal calibrado el modelo de ingresos."
+    },
+    "raw": "{\n  \"de_que_va\": \"Simulador de startups donde gestionas caja, quema y moral hasta conseguir inversión o quebrar.\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"Lo pruebo solo para ver qué tan ridículo es el algoritmo de valoración, porque bloquear el pitch hasta el mes 6 con 120k de caja es una receta para la asfixia financiera.\",\n  \"fricciones\": [\n    \"¿Por qué el pitch se destraba hasta el mes 6 si la caja se agota antes o justo ahí?\",\n    \"¿Cómo generas ingresos si no hay leads ni clientes al inicio?\",\n    \"La redundancia entre 'Quema 15k/mes' y 'operativa 15k' no aporta nada\"\n  ],\n  \"frase_textual\": \"Compa, esto está jodido. Si el pitch recién se destraba en el mes 6, con 120k de caja y burn de 15k, te quedas seco antes de poder levantar. ¿Cómo vendes si tienes 0 leads? Está mal calibrado el modelo de ingresos.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T19:31:28+00:00"
+  },
+  {
+    "id": "camila-r1",
+    "persona": "camila",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "un simulador de empresa donde tenés que sobrevivir a los meses sin quedarte sin plata, pero se ve todo muy confuso y viejo",
+      "jugarias": "quizas",
+      "por_que": "porque me gusta la idea de emprender pero esto se ve muy feo y no sé ni por dónde empezar a tocar",
+      "fricciones": [
+        "el diseño es horrible, parece una planilla de cálculo vieja y marrón",
+        "no entiendo qué significa 'pre-money valuation' ni por qué me habla de destrabarse",
+        "no sé qué pasa exactamente si le doy a 'Cerrar mes', tengo miedo de romper algo"
+      ],
+      "frase_textual": "Amigo, esto parece una planilla de Excel del 2004, me da alergia mirar tanto número y términos raros, no entiendo la mitad"
+    },
+    "raw": "{\n  \"de_que_va\": \"un simulador de empresa donde tenés que sobrevivir a los meses sin quedarte sin plata, pero se ve todo muy confuso y viejo\",\n  \"jugarias\": \"quizas\",\n  \"por_que\": \"porque me gusta la idea de emprender pero esto se ve muy feo y no sé ni por dónde empezar a tocar\",\n  \"fricciones\": [\n    \"el diseño es horrible, parece una planilla de cálculo vieja y marrón\",\n    \"no entiendo qué significa 'pre-money valuation' ni por qué me habla de destrabarse\",\n    \"no sé qué pasa exactamente si le doy a 'Cerrar mes', tengo miedo de romper algo\"\n  ],\n  \"frase_textual\": \"Amigo, esto parece una planilla de Excel del 2004, me da alergia mirar tanto número y términos raros, no entiendo la mitad\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T19:32:25+00:00"
+  },
+  {
+    "id": "jorge-r1",
+    "persona": "jorge",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Un simulador de gestionar una startup donde te dicen cuánta plata te queda y cuánta gastas, pero no se ve qué vendes ni a quién.",
+      "jugarias": "no",
+      "por_que": "Porque no veo ningún negocio real, solo números abstractos como 'morale' y 'leads' que no explican cómo se paga el sueldo o la gasolina.",
+      "fricciones": [
+        "La palabra 'Quema' no es clara, ¿es gasto operativo o algo más técnico?",
+        "¿Qué es 'Energía'? ¿Es tiempo? ¿Es dinero? No se explica",
+        "El nombre 'Runway' está en inglés sin traducir, para gente que no maneja esa jerga es confuso",
+        "Botón de 'Cerrar mes' cuando no hice ninguna acción todavía, parece que no deja pensar"
+      ],
+      "frase_textual": "Hermano, esto no es para mí. Habla de 'quema' y 'morale' y no veo dónde cargo el combustible. Mejor sigo con mis números en el Excel."
+    },
+    "raw": "{\n  \"de_que_va\": \"Un simulador de gestionar una startup donde te dicen cuánta plata te queda y cuánta gastas, pero no se ve qué vendes ni a quién.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"Porque no veo ningún negocio real, solo números abstractos como 'morale' y 'leads' que no explican cómo se paga el sueldo o la gasolina.\",\n  \"fricciones\": [\n    \"La palabra 'Quema' no es clara, ¿es gasto operativo o algo más técnico?\",\n    \"¿Qué es 'Energía'? ¿Es tiempo? ¿Es dinero? No se explica\",\n    \"El nombre 'Runway' está en inglés sin traducir, para gente que no maneja esa jerga es confuso\",\n    \"Botón de 'Cerrar mes' cuando no hice ninguna acción todavía, parece que no deja pensar\"\n  ],\n  \"frase_textual\": \"Hermano, esto no es para mí. Habla de 'quema' y 'morale' y no veo dónde cargo el combustible. Mejor sigo con mis números en el Excel.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T19:33:12+00:00"
+  },
+  {
+    "id": "fernanda-r1",
+    "persona": "fernanda",
+    "round": 1,
+    "model": "qwen3.8-flash-next-vllm",
+    "promptVersion": "v1",
+    "answers": {
+      "de_que_va": "Simulador de gestión de startup donde intentas sobrevivir al burn rate mensual sin quedarte sin dinero ni moral.",
+      "jugarias": "no",
+      "por_que": "El diseño es una barrera infranqueable, parece un panel de Excel de 2005 y no un juego, me duele la vista trying a parsear la jerarquía.",
+      "fricciones": [
+        "Contraste ilegible en el nombre 'Runway' y el número '8m' (gris sobre beige)",
+        "No entiendo qué significa 'Energía' ni cómo se usa (barra verde sin etiquetas)",
+        "'Acciones 2/2' está flutuando sin contexto claro de interacción",
+        "Texto secundario en botones (debajo de 'Cerrar mes') es difícil de leer por poco contraste",
+        "Falta de jerarquía tipográfica: todo parece igual de importante o casi igual de importante"
+      ],
+      "frase_textual": "Parece un dashboard de analytics pero hecho en Notion por alguien que no conoce el contraste. No le entiendo nada y me arde el ojo, gracias."
+    },
+    "raw": "{\n  \"de_que_va\": \"Simulador de gestión de startup donde intentas sobrevivir al burn rate mensual sin quedarte sin dinero ni moral.\",\n  \"jugarias\": \"no\",\n  \"por_que\": \"El diseño es una barrera infranqueable, parece un panel de Excel de 2005 y no un juego, me duele la vista trying a parsear la jerarquía.\",\n  \"fricciones\": [\n    \"Contraste ilegible en el nombre 'Runway' y el número '8m' (gris sobre beige)\",\n    \"No entiendo qué significa 'Energía' ni cómo se usa (barra verde sin etiquetas)\",\n    \"'Acciones 2/2' está flutuando sin contexto claro de interacción\",\n    \"Texto secundario en botones (debajo de 'Cerrar mes') es difícil de leer por poco contraste\",\n    \"Falta de jerarquía tipográfica: todo parece igual de importante o casi igual de importante\"\n  ],\n  \"frase_textual\": \"Parece un dashboard de analytics pero hecho en Notion por alguien que no conoce el contraste. No le entiendo nada y me arde el ojo, gracias.\"\n}",
+    "attempts": 1,
+    "valid": true,
+    "screenshot": [
+      "fresh_portrait.png"
+    ],
+    "ts": "2026-09-22T19:33:54+00:00"
+  }
+]
