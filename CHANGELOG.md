@@ -7,6 +7,8 @@ Rule: every version gets its section here **before** it is tagged.
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-23
+
 The ledger finally reads like a document, not a spreadsheet — and its final
 page became a trophy you can forward: a green "Sobreviviste" seal and a share
 post whose link makes a friend replay your exact run.
